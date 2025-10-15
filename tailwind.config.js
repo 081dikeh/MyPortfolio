@@ -25,6 +25,9 @@ export default {
           800: '#F3F0FE',
           900: '#F16363',
         }
+      },
+      fontFamily: {
+        fira: ['Fira Code', 'monospace'], // Custom font family
       }
     },
   },

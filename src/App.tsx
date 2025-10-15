@@ -1,13 +1,14 @@
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
+import Hero from "./components/Hero"
 
 function App() {
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-500">
+    <div className="min-h-screen flex flex-col ">
       <Nav/>
-      <main className="bg-brand-500">
-        Main
+      <main className="">
+        <Hero/>
       </main>
       <Footer/>
     </div>
