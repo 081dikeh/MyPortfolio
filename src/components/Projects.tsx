@@ -1,13 +1,13 @@
 import { projects } from "../data/projects"
-//import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
     
 export default function Projects() {
     return (
         <section className="font-fira mt-24 mb-24">
             <div className="flex justify-between mb-12">
-                <h2 className="text-3xl text-white flex items-center gap-2 font-bold"><span className="text-brand-700">#</span>Projects <span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block"></span></h2>
-                <a className="text-base text-white">View all &#8669;</a>
+                <h2 className="text-3xl text-white flex items-center font-bold"><span className="text-brand-700">#</span>Projects <span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block ml-6"></span></h2>
+                <Link to="/projects" className="text-base text-white">View all &#8669;</Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-fira">
