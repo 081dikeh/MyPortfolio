@@ -4,7 +4,7 @@ export default function Skills() {
 
     return (
         <div className="min-h-screen flex flex-col font-fira ">
-            <h2 className="text-3xl text-white flex items-center font-bold"><span className="text-brand-700">#</span>Skills<span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block ml-6"></span></h2>
+            <h2 className="text-3xl text-white flex items-center font-[500]"><span className="text-brand-700">#</span>Skills<span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block ml-6"></span></h2>
 
             <div>
                 <div></div>

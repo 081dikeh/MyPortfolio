@@ -6,7 +6,7 @@ export default function Projects() {
     return (
         <section className="font-fira mt-24 mb-24">
             <div className="flex justify-between mb-12">
-                <h2 className="text-3xl text-white flex items-center font-bold"><span className="text-brand-700">#</span>Projects <span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block ml-6"></span></h2>
+                <h2 className="text-3xl text-white flex items-center font-[500]"><span className="text-brand-700">#</span>Projects <span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block ml-6"></span></h2>
                 <Link to="/projects" className="text-base text-white">View all &#8669;</Link>
             </div>
 

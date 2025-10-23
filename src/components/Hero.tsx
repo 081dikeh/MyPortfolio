@@ -19,7 +19,7 @@ export default function Hero() {
           He crafts responsive websites where technologies meet creativity
         </p>
         <button 
-          className='px-6 py-3 md:px-8 md:py-4 text-white ring-2 ring-brand-700 hover:bg-brand-700 transition-colors duration-300 w-full sm:w-auto'
+          className='px-6 py-3 md:px-8 md:py-4 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300 w-full sm:w-auto'
         >
           Contact Me !!
         </button>
