@@ -4,7 +4,7 @@ import { projects } from "../data/projects"
     
 export default function ProjectsPage() {
     return (
-        <section className="font-fira mt-24 mb-24">
+        <section className="font-fira mt-24 mb-24 md:mx-16 lg:mx-16 xl:mx-32 2xl:mx-44">
             <div className="mb-12">
                 <h2 className="text-3xl text-white flex items-center font-bold"><span className="text-brand-700">/</span>Projects</h2>
                 <p className="text-white">List of all projects</p>

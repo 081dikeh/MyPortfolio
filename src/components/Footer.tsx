@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-1 font-bold text-base">
             <img src={logoImg} className=' w-[24px]' alt="logo" />
-            <h1>DaniD <span><a href="mailto:">dikehdaniel2020@gmail.com</a></span></h1>
+            <h1 className='flex gap-8'>DaniD <span className='font-[400] text-brand-500'><a href="mailto:">dikehdaniel2020@gmail.com</a></span></h1>
           </div>
           <p>front-end developer</p>
         </div>
