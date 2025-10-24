@@ -5,9 +5,9 @@ import { Link } from "react-router-dom"
 export default function Projects() {
     return (
         <section className="font-fira mt-24 mb-24">
-            <div className="flex justify-between mb-12">
+            <div className="flex justify-between items-center mb-12">
                 <h2 className="text-3xl text-white flex items-center font-[500]"><span className="text-brand-700">#</span>Projects <span className="ring-1 ring-brand-700 w-0 md:w-96 h-[0px] inline-block ml-6"></span></h2>
-                <Link to="/projects" className="text-base text-white">View all &#8669;</Link>
+                <Link to="/projects" className="text-base text-white ">View all &#8669;</Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-fira">
