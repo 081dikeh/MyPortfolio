@@ -4,9 +4,9 @@ import dots from '../assets/Dots.png'
 
 export default function AboutMe() {
   return (
-    <section className="text-white font-fira items-center gap-2 py-8 md:py-16 lg:py-24 flex flex-col md:flex-row justify-between"> 
+    <section className="text-white font-fira items-center gap-2 py-8 md:py-16 lg:py-24 flex flex-col md:flex-row justify-between mt-40"> 
         <div className='flex flex-col gap-6 md:w-1/2 w-full'>
-            <h2 className="text-3xl text-white flex items-center font-[500]"><span className="text-brand-700">#</span>About me<span className="ring-1 ring-brand-700 w-96 h-[0px] inline-block ml-6"></span></h2>
+            <h2 className="text-3xl text-white flex items-center font-[500]"><span className="text-brand-700">#</span>About me<span className="ring-1 ring-brand-700 w-0 md:w-96 h-[0px] inline-block ml-6"></span></h2>
 
             <div className='flex flex-col gap-4 text-base text-brand-500'>
                 <p>Hello, I’m Daniel!</p>

@@ -8,7 +8,7 @@ import Skills from "../components/Skills"
 export default function HomePage() {
 
   return (
-    <div className="min-h-screen flex flex-col ">
+    <div className="flex flex-col mx-4 md:mx-16 lg:mx-32 xl:mx-48 2xl:mx-64">
       <main className="">
         <Hero/>
         <Projects/>
