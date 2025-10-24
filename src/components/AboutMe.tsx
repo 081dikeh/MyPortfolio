@@ -1,5 +1,6 @@
-
 import secHeroImg from '../assets/secHeroImg.png';
+import dots from '../assets/Dots.png'
+
 
 export default function AboutMe() {
   return (
@@ -19,8 +20,15 @@ export default function AboutMe() {
                 Read More 
             </button>
         </div>
-        <div className='align-right'>
-            <img src={secHeroImg} className='w-96' alt="" />
+        <div className='md:w-1/2 w-full flex justify-end relative'>
+            <div className='w-[fit-content] relative'>
+                <img src={secHeroImg} className='w-96 z-10 relative' alt="" />
+                <img src={dots} alt="" className='absolute z-20 right-0 bottom-[30%] w-[25%]' />
+                <img src={dots} alt="" className='absolute z-20 left-0 top-[10%] w-[25%]' />
+                <hr className='w-full ring-1 ring-brand-600'/>
+            </div>
+        
+
         </div>
     </section>
   )

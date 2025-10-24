@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="text-white font-fira flex flex-col gap-6 py-8">
+    <footer className="text-white font-fira flex flex-col gap-6 py-8 mt-36 border-t border-brand-500">
       <div className='flex justify-between'>
 
         <div className="flex flex-col gap-1">
@@ -18,13 +18,13 @@ export default function Footer() {
           <p>Media</p>
           <ul className="flex gap-4 text-2xl mt-2">
             <li>
-              <FaGithub/>
+              <a href="http://"><FaGithub/></a>
             </li>
             <li>
-              <FaLinkedin/>
+              <a href=""><FaLinkedin/></a>
             </li>
             <li>
-              <FaTwitter/>
+              <a href=""><FaTwitter/></a>
             </li>
           </ul>
         </div>
