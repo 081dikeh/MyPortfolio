@@ -19,7 +19,7 @@ const Nav: React.FC = () => {
   };
 
   return (
-    <nav className="py-4 font-fira mx-4 md:mx-16 lg:mx-16 xl:mx-32 2xl:mx-44 fixed top-0 left-0 right-0 z-50 bg-[#282C33]">
+    <nav className="py-4 font-fira px-4 md:px-16 lg:px-16 xl:px-32 2xl:px-44 fixed top-0 left-0 right-0 z-50 bg-[#282C33]">
       <div className='text-white flex justify-between items-center'>
 
         <div className="flex items-center gap-1 font-bold text-base">
@@ -33,7 +33,7 @@ const Nav: React.FC = () => {
             {links.map((link) => (
               <li key={link} className="hover:text-brand-700 transition-colors duration-300 font-fira">
                 <span className='text-brand-700 font-bold'>#</span>
-                <a href={`#${link}`}>{link}</a>
+                <Link to={`/${link}`}>{link}</Link>
               </li>
             ))}
           </ul>
