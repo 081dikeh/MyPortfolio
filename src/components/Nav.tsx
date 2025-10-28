@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   
-  const links: string[] = ['home', 'projects', 'about me', 'contact'];
+  const links: string[] = ['home', 'projects', 'aboutme', 'contact'];
 
   // Toggle function - switches between true and false
   const toggleMenu = (): void => {
