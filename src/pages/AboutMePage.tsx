@@ -10,11 +10,11 @@ export default function AboutMePage() {
       <section className="font-fira mt-24 mb-24 mx-4 md:mx-16 lg:mx-16 xl:mx-32 2xl:mx-44">
 
         <div className="mb-12">
-          <h2 className="text-3xl text-white flex items-center font-bold"><span className="text-brand-700">/</span>about-me</h2>
-          <p className="text-white">Who am i?</p>
+          <h2 className="text-3xl text-white flex items-center font-bold"><span className="text-brand-700">/</span>Who am i?</h2>
+          <p className="text-white">Frontend Developer | Building Fast, Beautiful Web Experiences</p>
         </div>
 
-        <div className='flex flex-col md:flex-row justify-between items-center gap-16 mt-4 mx-4 md:mx-0 lg:mx-0'>
+        <div className='flex flex-col md:flex-row justify-between items-center gap-16  mx-4 md:mx-0 lg:mx-0'>
             <div className='flex flex-col gap-6 md:w-1/2 w-full'>          
 
                 <div className='flex flex-col gap-4 text-base text-brand-500'>
@@ -34,8 +34,7 @@ export default function AboutMePage() {
             </div>
         </div>
 
-        <div>
-            <h2>skills</h2>
+        <div className='mt-32'>
             <div className='grid md:grid-cols-4 gap-2 '>
               <Skill />
             </div>

@@ -18,11 +18,11 @@ export default function Skills() {
                 </div>
 
 
-            <div className=" md:w-[50%] flex justify-center flex-col items-center md:flex-row md:justify-end">
-                <div className="grid grid-cols-2 gap-2 w-[fit-content]">
-                    <Skill />
+                <div className=" md:w-[50%] flex justify-center flex-col items-center md:flex-row ">
+                    <div className="grid grid-cols-2 gap-2 w-full">
+                        <Skill />
+                    </div>
                 </div>
-            </div>
 
             </div>
         </div>
