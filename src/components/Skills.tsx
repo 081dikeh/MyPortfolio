@@ -1,5 +1,6 @@
 import dots from '../assets/Dots.png'
 import heroback from '../assets/heroback.png'
+import Skill from './Skill'
 
 
 
@@ -17,26 +18,11 @@ export default function Skills() {
                 </div>
 
 
-                <div className=" md:w-[50%] flex justify-center flex-col items-center md:flex-row md:justify-end">
-                    <div className="grid grid-cols-2 gap-2 w-[fit-content]">
-                        <div className="border-2 border-brand-500 w-[fit-content]">
-                            <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Languages</h2>
-                            <p className="text-brand-500 py-2 px-6">JavaScript <br /> TypeScript</p>
-                        </div>
-                        <div className="border-2 border-brand-500 w-[fit-content]">
-                            <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Tools</h2>
-                            <p className="text-brand-500 py-2 px-6">VS Code Git <br /> GitHub</p>
-                        </div>
-                        <div className="border-2 border-brand-500 w-[fit-content]">
-                            <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Frameworks</h2>
-                            <p className="text-brand-500 py-2 px-6">ReactJs</p>
-                        </div>
-                        <div className="border-2 border-brand-500 w-[fit-content]">
-                            <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Other</h2>
-                            <p className="text-brand-500 py-2 px-6">HTML CSS <br /> Tailwind CSS</p>
-                        </div>
-                    </div>
+            <div className=" md:w-[50%] flex justify-center flex-col items-center md:flex-row md:justify-end">
+                <div className="grid grid-cols-2 gap-2 w-[fit-content]">
+                    <Skill />
                 </div>
+            </div>
 
             </div>
         </div>
