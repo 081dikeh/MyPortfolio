@@ -22,10 +22,10 @@ const Nav: React.FC = () => {
     <nav className="py-4 font-fira px-4 md:px-16 lg:px-16 xl:px-32 2xl:px-44 fixed top-0 left-0 right-0 z-50 bg-[#282C33]">
       <div className='text-white flex justify-between items-center'>
 
-        <div className="flex items-center gap-1 font-bold text-base">
+        <Link to="/" className="flex items-center gap-1 font-bold text-base">
           <img src={logoImg} className='w-[24px]' alt="logo" />
           <h1>DaniD</h1>
-        </div>
+        </Link>
 
 
         <div className="links text-base hidden md:block lg:block">

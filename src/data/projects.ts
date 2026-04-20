@@ -25,13 +25,22 @@ export const projects: Project[] = [
         id: 1,
         image: project1,
         stack: 'ReactJs, Tailwind CSS ',
+        title: 'FaithScore',
+        subtitle: 'Notation app',
+        liveLink: "https://faithscore-6c35.vercel.app/",
+        githubLink: "https://github.com/081dikeh/Faithscore",
+    },
+    {   
+        id: 2,
+        image: project1,
+        stack: 'ReactJs, Tailwind CSS ',
         title: 'Fina Inc',
         subtitle: 'Dashboard',
         liveLink: "https://fina-inc.vercel.app/",
         githubLink: "https://github.com/081dikeh/FinaInc",
     },
     {   
-        id: 2,
+        id: 3,
         image: project3,
         stack: 'ReactJs',
         title: 'Furnidan',
@@ -40,7 +49,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/FurniDan",
     },
     {   
-        id: 3,
+        id: 4,
         image: project4,
         stack: 'ReactJs',
         title: 'MetaBNB',
@@ -49,7 +58,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/MetabnbApp",
     },
     {   
-        id: 4,
+        id: 5,
         image: project2,
         stack: 'ReactJs, TypeScript',
         title: 'Portfolio',
@@ -58,7 +67,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/MyPortfolio",
     },
     {   
-        id: 5,
+        id: 6,
         image: project5,
         stack: 'HTML, CSS and JavaScript',
         title: 'Tefem',
@@ -67,7 +76,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/tefem-II",
     },
     {   
-        id: 6,
+        id: 7,
         image: project6,
         stack: 'HTML, CSS and JavaScript',
         title: 'DaniD Shop',
@@ -76,7 +85,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/daniCartShop",
     },
     {   
-        id: 7,
+        id: 8,
         image: project7,
         stack: 'HTML, CSS',
         title: 'Danik Project',
@@ -85,7 +94,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/danik-project",
     },
     {   
-        id: 8,
+        id: 9,
         image: project8,
         stack: 'ReactJs, Tailwind CSS',
         title: 'Tailwind Portfolio',
@@ -94,7 +103,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/first-react-portfolio-",
     },
     {   
-        id: 9,
+        id: 10,
         image: project9,
         stack: 'HTML, CSS and JavaScript',
         title: 'Hair Studio',
