@@ -1,24 +1,47 @@
+const skillGroups = [
+    {
+        category: "Languages",
+        skills: ["HTML", "CSS", "JavaScript", "TypeScript"],
+    },
+    {
+        category: "Frameworks",
+        skills: ["ReactJs", "NextJs"],
+    },
+    {
+        category: "Styling",
+        skills: ["Tailwind CSS"],
+    },
+    {
+        category: "Backend / DB",
+        skills: ["Supabase"],
+    },
+    {
+        category: "Tools",
+        skills: ["Git", "GitHub", "Vercel", "VS Code"],
+    },
+    {
+        category: "Other",
+        skills: ["Vexflow"],
+    },
+];
+
 export default function Skill() {
     return (
         <>
-            <div className="border-2 border-brand-500 ">
-                <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Languages</h2>
-                <p className="text-brand-500 py-2 px-6">JavaScript <br /> TypeScript</p>
-            </div>
-            <div className="border-2 border-brand-500 ">
-                <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Tools</h2>
-                <p className="text-brand-500 py-2 px-6">VS Code Git <br /> GitHub</p>
-            </div>
-            <div className="border-2 border-brand-500 ">
-                <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Frameworks</h2>
-                <p className="text-brand-500 py-2 px-6">ReactJs</p>
-            </div>
-            <div className="border-2 border-brand-500 ">
-                <h2 className="text-white py-2 px-6 font-bold border-b-2 border-brand-500">Other</h2>
-                <p className="text-brand-500 py-2 px-6">HTML CSS <br /> Tailwind CSS</p>
-            </div>
+            {skillGroups.map((group) => (
+                <div key={group.category} className="border border-brand-500 flex flex-col">
+                    <h2 className="text-white py-2 px-4 font-bold border-b border-brand-500 text-sm">
+                        {group.category}
+                    </h2>
+                    <ul className="py-2 px-4 flex flex-col gap-1">
+                        {group.skills.map((skill) => (
+                            <li key={skill} className="text-brand-500 text-sm leading-relaxed">
+                                {skill}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
         </>
-    )
+    );
 }
-
-                
