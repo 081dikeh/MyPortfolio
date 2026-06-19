@@ -8,6 +8,7 @@ import project7 from '../assets/projectAssets/project7.png'
 import project8 from '../assets/projectAssets/project8.png'
 import project9 from '../assets/projectAssets/project9.png'
 import notationHero from '../assets/projectAssets/notationHero.png'
+import faithlibraryHero from '../assets/projectAssets/faithlibraryHero.png'
 
 type Project = {
     id: number,
@@ -24,6 +25,15 @@ type Project = {
 export const projects: Project[] = [
     {   
         id: 1,
+        image: faithlibraryHero,
+        stack: 'Next.js, TypeScript, Tailwind CSS, Supabase, Vercel',
+        title: 'FaithLibrary',
+        subtitle: 'Digital choir score library & notation platform',
+        liveLink: "https://faith-library.vercel.app/",
+        githubLink: "https://github.com/081dikeh/FaithLibrary",
+    },
+    {   
+        id: 2,
         image: notationHero,
         stack: 'ReactJs, Tailwind CSS ',
         title: 'FaithScore',
@@ -32,7 +42,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/Faithscore",
     },
     {   
-        id: 2,
+        id: 3,
         image: project1,
         stack: 'ReactJs, Tailwind CSS ',
         title: 'Fina Inc',
@@ -41,7 +51,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/FinaInc",
     },
     {   
-        id: 3,
+        id: 4,
         image: project3,
         stack: 'ReactJs',
         title: 'Furnidan',
@@ -50,7 +60,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/FurniDan",
     },
     {   
-        id: 4,
+        id: 5,
         image: project4,
         stack: 'ReactJs',
         title: 'MetaBNB',
@@ -59,7 +69,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/MetabnbApp",
     },
     {   
-        id: 5,
+        id: 6,
         image: project2,
         stack: 'ReactJs, TypeScript',
         title: 'Portfolio',
@@ -68,7 +78,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/MyPortfolio",
     },
     {   
-        id: 6,
+        id: 7,
         image: project5,
         stack: 'HTML, CSS and JavaScript',
         title: 'Tefem',
@@ -77,7 +87,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/tefem-II",
     },
     {   
-        id: 7,
+        id: 8,
         image: project6,
         stack: 'HTML, CSS and JavaScript',
         title: 'DaniD Shop',
@@ -86,7 +96,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/daniCartShop",
     },
     {   
-        id: 8,
+        id: 9,
         image: project7,
         stack: 'HTML, CSS',
         title: 'Danik Project',
@@ -95,7 +105,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/danik-project",
     },
     {   
-        id: 9,
+        id: 10,
         image: project8,
         stack: 'ReactJs, Tailwind CSS',
         title: 'Tailwind Portfolio',
@@ -104,7 +114,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/first-react-portfolio-",
     },
     {   
-        id: 10,
+        id: 11,
         image: project9,
         stack: 'HTML, CSS and JavaScript',
         title: 'Hair Studio',
