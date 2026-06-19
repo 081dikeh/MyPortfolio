@@ -1,6 +1,7 @@
 import dots from '../assets/Dots.png'
 import heroback from '../assets/heroback.png'
 import mainHeroImg from '../assets/mainHeroImg.png'
+import { Link } from 'react-router-dom'
 
 
 
@@ -21,7 +22,9 @@ export default function Hero() {
         <button 
           className='px-6 py-3 md:px-8 md:py-4 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300 w-full sm:w-auto'
         >
-          Contact Me !!
+          <Link to="/contact" className="flex gap-2 items-center">
+            Contact Me !!
+          </Link>
         </button>
       </div>
       

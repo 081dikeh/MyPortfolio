@@ -14,8 +14,8 @@ export default function Projects() {
                 {projects.slice(0, 3).map((project) => (
                     <div key={project.id} className="ring-1 ring-brand-500">
                         <div className="w-full">
-                            <img src={project.image} alt="" className="w-full h-[201px]" />
-                        </div>
+                            <img src={project.image} alt="" className="w-full h-[201px]" />?
+                        </div>//
                         <div>
                             <p className="text-brand-500 p-2 border-b-2 border-t-2 border-brand-500 text-base">{project.stack}</p>
                         </div>

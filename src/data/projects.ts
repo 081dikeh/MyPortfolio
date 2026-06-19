@@ -7,6 +7,7 @@ import project6 from '../assets/projectAssets/project6.png'
 import project7 from '../assets/projectAssets/project7.png'
 import project8 from '../assets/projectAssets/project8.png'
 import project9 from '../assets/projectAssets/project9.png'
+import notationHero from '../assets/projectAssets/notationHero.png'
 
 type Project = {
     id: number,
@@ -23,7 +24,7 @@ type Project = {
 export const projects: Project[] = [
     {   
         id: 1,
-        image: project1,
+        image: notationHero,
         stack: 'ReactJs, Tailwind CSS ',
         title: 'FaithScore',
         subtitle: 'Notation app',
