@@ -1,44 +1,40 @@
+import { Github, Linkedin, Twitter } from 'lucide-react'
 import logoImg from '../assets/logoimg.png'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="text-white font-fira flex flex-col gap-6 py-8 mt-36 border-t border-brand-500 px-4 md:px-16 lg:px-16 xl:px-32 2xl:px-44">
+    <footer className='font-fira border-t border-brand-400 mt-10'>
+      <div className='mx-4 md:mx-16 lg:mx-16 xl:mx-32 2xl:mx-44 py-6 flex flex-col sm:flex-row items-center justify-between gap-4'>
 
-      <div className='flex flex-col md:flex-row gap-8 justify-between'>
+        {/* Brand */}
+        <Link to='/' className='flex items-center gap-2 text-white hover:text-brand-700 transition-colors duration-200'>
+          <img src={logoImg} className='w-6' alt='logo' />
+          <span className='font-bold text-sm'>DaniD</span>
+        </Link>
 
-        <div className="flex flex-col gap-2 ">
-          <div className="flex flex-col gap-1 gap-2 md:gap-4 md:flex-row font-bold text-base">
-            <div className='flex gap-1'>
-              <img src={logoImg} className=' w-[24px]' alt="logo" />
-              <h1 className='flex gap-8'>DaniD </h1>
-            </div>
-            <span className='font-[400] text-brand-500'><a href="mailto:">dikehdaniel2020@gmail.com</a></span>
-          </div>
-          <p>front-end developer</p>
+        {/* Copy */}
+        <p className='text-brand-500 text-xs text-center'>
+          © {new Date().getFullYear()} Dikeh Daniel — Built with React & Tailwind
+        </p>
+
+        {/* Social icons */}
+        <div className='flex items-center gap-4 text-brand-500'>
+          <a href='https://github.com/081dikeh' target='_blank' rel='noopener noreferrer'
+            className='hover:text-brand-700 transition-colors duration-200 hover:scale-110 transform'>
+            <Github size={18} />
+          </a>
+          <a href='https://www.linkedin.com/in/daniel-dikeh' target='_blank' rel='noopener noreferrer'
+            className='hover:text-brand-700 transition-colors duration-200 hover:scale-110 transform'>
+            <Linkedin size={18} />
+          </a>
+          <a href='https://twitter.com/Danishadow081' target='_blank' rel='noopener noreferrer'
+            className='hover:text-brand-700 transition-colors duration-200 hover:scale-110 transform'>
+            <Twitter size={18} />
+          </a>
         </div>
 
-        <div>
-          <p>Media</p>
-          <ul className="flex gap-4 text-2xl mt-2">
-            <li>
-              <a href="http://"><FaGithub/></a>
-            </li>
-            <li>
-              <a href=""><FaLinkedin/></a>
-            </li>
-            <li>
-              <a href=""><FaTwitter/></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-      <div className="text-sm pt-4 flex justify-center">
-        <p>© 2025 My Portfolio. All rights reserved.</p>
       </div>
     </footer>
   )
 }
-
