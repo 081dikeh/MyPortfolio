@@ -58,15 +58,15 @@ export default function Hero() {
             </p>
 
             <div
-              className={`flex gap-4 flex-wrap
+              className={`flex flex-col sm:flex-row gap-4
                 ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
               style={delay(450)}
             >
-              <button className='px-6 py-3 md:px-8 md:py-4 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300'>
-                <Link to='/contact'>Contact Me !!</Link>
+              <button className='w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300'>
+                <Link to='/contact' className='block w-full text-center'>Contact Me !!</Link>
               </button>
-              <button className='px-6 py-3 md:px-8 md:py-4 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300'>
-                <Link to='/projects'>View Projects</Link>
+              <button className='w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300'>
+                <Link to='/projects' className='block w-full text-center'>View Projects</Link>
               </button>
             </div>
           </div>
