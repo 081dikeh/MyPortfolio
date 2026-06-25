@@ -23,7 +23,7 @@ export default function Skills() {
       <div className='flex flex-col md:flex-row justify-between mt-10 gap-10'>
 
         {/* ── Left: code snippet decoration ─────────────── */}
-        <div ref={leftRef} className='relative hidden md:flex md:w-[40%] items-center justify-center min-h-[320px]'>
+        <div ref={leftRef} className='relative md:flex md:w-[40%] items-center justify-center min-h-[320px]'>
           <img src={dots}     alt='' className='absolute z-20 right-0 bottom-[30%] w-[15%]' />
           <img src={dots}     alt='' className='absolute z-20 left-0 top-[10%] w-[15%]' />
           <img src={heroback} alt='' className='absolute z-0 bottom-0 left-0 w-[30%] opacity-60' />
