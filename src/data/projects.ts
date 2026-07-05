@@ -4,11 +4,12 @@ import project3 from '../assets/projectAssets/project3.png'
 import project4 from '../assets/projectAssets/project4.png'
 import project5 from '../assets/projectAssets/project5.png'
 import project6 from '../assets/projectAssets/project6.png'
-import project7 from '../assets/projectAssets/project7.png'
+
 import project8 from '../assets/projectAssets/project8.png'
-import project9 from '../assets/projectAssets/project9.png'
+
 import notationHero from '../assets/projectAssets/notationHero.png'
 import faithlibraryHero from '../assets/projectAssets/faithlibraryHero.png'
+import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
 
 type Project = {
     id: number,
@@ -43,15 +44,6 @@ export const projects: Project[] = [
     },
     {   
         id: 3,
-        image: project1,
-        stack: 'ReactJs, Tailwind CSS ',
-        title: 'Fina Inc',
-        subtitle: 'Dashboard',
-        liveLink: "https://fina-inc.vercel.app/",
-        githubLink: "https://github.com/081dikeh/FinaInc",
-    },
-    {   
-        id: 4,
         image: project3,
         stack: 'ReactJs',
         title: 'Furnidan',
@@ -60,7 +52,25 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/FurniDan",
     },
     {   
+        id: 4,
+        image: stWilliamImg,
+        stack: 'ReactJs, Tailwind CSS ',
+        title: 'St. William Parish',
+        subtitle: 'Community Portal',
+        liveLink: "https://st-edward-parish.vercel.app/",
+        githubLink: "https://github.com/081dikeh/StEdward-ParishApp",
+    },
+    {   
         id: 5,
+        image: project1,
+        stack: 'ReactJs, Tailwind CSS ',
+        title: 'Fina Inc',
+        subtitle: 'Dashboard',
+        liveLink: "https://fina-inc.vercel.app/",
+        githubLink: "https://github.com/081dikeh/FinaInc",
+    },
+    {   
+        id: 6,
         image: project4,
         stack: 'ReactJs',
         title: 'MetaBNB',
@@ -69,7 +79,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/MetabnbApp",
     },
     {   
-        id: 6,
+        id: 7,
         image: project2,
         stack: 'ReactJs, TypeScript',
         title: 'Portfolio',
@@ -78,7 +88,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/MyPortfolio",
     },
     {   
-        id: 7,
+        id: 8,
         image: project5,
         stack: 'HTML, CSS and JavaScript',
         title: 'Tefem',
@@ -87,7 +97,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/tefem-II",
     },
     {   
-        id: 8,
+        id: 9,
         image: project6,
         stack: 'HTML, CSS and JavaScript',
         title: 'DaniD Shop',
@@ -96,16 +106,7 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/daniCartShop",
     },
     {   
-        id: 9,
-        image: project7,
-        stack: 'HTML, CSS',
-        title: 'Danik Project',
-        subtitle: 'What do we know!!',
-        liveLink: "https://081dikeh.github.io/danik-project/",
-        githubLink: "https://github.com/081dikeh/danik-project",
-    },
-    {   
-        id: 10,
+        id: 11,
         image: project8,
         stack: 'ReactJs, Tailwind CSS',
         title: 'Tailwind Portfolio',
@@ -113,13 +114,4 @@ export const projects: Project[] = [
         liveLink: "https://first-react-portfolio-three.vercel.app/",
         githubLink: "https://github.com/081dikeh/first-react-portfolio-",
     },
-    {   
-        id: 11,
-        image: project9,
-        stack: 'HTML, CSS and JavaScript',
-        title: 'Hair Studio',
-        subtitle: 'Look Good',
-        liveLink: "https://081dikeh.github.io/barb-websie/",
-        githubLink: "https://github.com/081dikeh/barb-websie",
-    }
 ]
