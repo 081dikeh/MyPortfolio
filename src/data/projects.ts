@@ -4,9 +4,7 @@ import project3 from '../assets/projectAssets/project3.png'
 import project4 from '../assets/projectAssets/project4.png'
 import project5 from '../assets/projectAssets/project5.png'
 import project6 from '../assets/projectAssets/project6.png'
-
 import project8 from '../assets/projectAssets/project8.png'
-
 import notationHero from '../assets/projectAssets/notationHero.png'
 import faithlibraryHero from '../assets/projectAssets/faithlibraryHero.png'
 import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
@@ -21,96 +19,94 @@ type Project = {
     githubLink: string,
 }
 
-
-
 export const projects: Project[] = [
-    {   
+    {
         id: 1,
         image: faithlibraryHero,
         stack: 'Next.js, TypeScript, Tailwind CSS, Supabase, Vercel',
         title: 'FaithLibrary',
-        subtitle: 'Digital choir score library & notation platform',
+        subtitle: 'A full-stack choir management platform where music directors upload scores and choir members access sheet music by voice part. Built with Next.js, Supabase for auth and file storage, and deployed on Vercel.',
         liveLink: "https://faith-library.vercel.app/",
         githubLink: "https://github.com/081dikeh/FaithLibrary",
     },
-    {   
+    {
         id: 2,
         image: notationHero,
-        stack: 'ReactJs, Tailwind CSS ',
+        stack: 'ReactJs, Tailwind CSS',
         title: 'FaithScore',
-        subtitle: 'Notation app',
+        subtitle: 'A browser-based music notation app that renders sheet music in real time using the Vexflow library. Built for choir musicians who need a lightweight, no-install alternative to desktop notation software.',
         liveLink: "https://faithscore-6c35.vercel.app/",
         githubLink: "https://github.com/081dikeh/Faithscore",
     },
-    {   
+    {
         id: 5,
         image: project1,
-        stack: 'ReactJs, Tailwind CSS ',
+        stack: 'ReactJs, Tailwind CSS',
         title: 'Fina Inc',
-        subtitle: 'Dashboard',
+        subtitle: 'A financial analytics dashboard with interactive charts, revenue breakdowns, and customer growth tracking. Demonstrates complex data visualisation built cleanly with React and Recharts.',
         liveLink: "https://fina-inc.vercel.app/",
         githubLink: "https://github.com/081dikeh/FinaInc",
     },
-    {   
+    {
         id: 4,
         image: stWilliamImg,
-        stack: 'ReactJs, Tailwind CSS ',
+        stack: 'ReactJs, Tailwind CSS',
         title: 'St. William Parish',
-        subtitle: 'Community Portal',
+        subtitle: 'A community web portal for a Catholic parish, featuring service schedules, announcements, and ministry information. Built to give the congregation a clean, accessible digital home.',
         liveLink: "https://st-edward-parish.vercel.app/",
         githubLink: "https://github.com/081dikeh/StEdward-ParishApp",
     },
-    {   
+    {
         id: 3,
         image: project3,
         stack: 'ReactJs',
         title: 'Furnidan',
-        subtitle: 'Where the best furniture meets the best eyes',
+        subtitle: 'An e-commerce landing page for a premium furniture brand, focused on visual storytelling and a conversion-friendly layout. Features product showcases, category browsing, and a clean checkout flow.',
         liveLink: "https://furni-dan-7jn6.vercel.app/",
         githubLink: "https://github.com/081dikeh/FurniDan",
     },
-        {   
+    {
         id: 9,
         image: project6,
         stack: 'HTML, CSS and JavaScript',
         title: 'DaniD Shop',
-        subtitle: 'What do we know!!',
+        subtitle: 'A shopping cart app with add-to-cart functionality, quantity controls, and a live price total. Built in vanilla JavaScript to demonstrate core DOM manipulation and state management without a framework.',
         liveLink: "https://dani-cart-shop.vercel.app/",
         githubLink: "https://github.com/081dikeh/daniCartShop",
     },
-    {   
+    {
         id: 7,
         image: project2,
         stack: 'ReactJs, TypeScript',
         title: 'Portfolio',
-        subtitle: 'Meet me',
+        subtitle: 'My personal developer portfolio — designed and built from scratch with React and TypeScript. Features scroll animations, a typewriter effect, a working contact form, and 10 live project showcases.',
         liveLink: "https://my-portfolio-orpin-ten-19.vercel.app/",
         githubLink: "https://github.com/081dikeh/MyPortfolio",
     },
-    {   
+    {
         id: 8,
         image: project5,
         stack: 'HTML, CSS and JavaScript',
         title: 'Tefem',
-        subtitle: 'Student empowerment',
+        subtitle: 'A campus ambassador programme website for a student empowerment initiative. Showcases programme details, eligibility criteria, and a clear application CTA — built in vanilla HTML, CSS and JavaScript.',
         liveLink: "https://081dikeh.github.io/tefem-II/",
         githubLink: "https://github.com/081dikeh/tefem-II",
     },
-    {   
+    {
         id: 6,
         image: project4,
         stack: 'ReactJs',
         title: 'MetaBNB',
-        subtitle: 'Book a room',
+        subtitle: 'A metaverse real estate booking platform where users can browse and reserve virtual properties. Built with a Web3 aesthetic and a room-browsing UI inspired by Airbnb.',
         liveLink: "https://metabnb-app-eosin.vercel.app/",
         githubLink: "https://github.com/081dikeh/MetabnbApp",
     },
-    {   
+    {
         id: 11,
         image: project8,
         stack: 'ReactJs, Tailwind CSS',
         title: 'Tailwind Portfolio',
-        subtitle: 'Meet me',
+        subtitle: 'An earlier iteration of my developer portfolio, built as I was learning Tailwind CSS. Kept live to show progression — compare it with the current version to see the growth.',
         liveLink: "https://first-react-portfolio-three.vercel.app/",
         githubLink: "https://github.com/081dikeh/first-react-portfolio-",
     },
