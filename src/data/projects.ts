@@ -4,7 +4,7 @@ import project3 from '../assets/projectAssets/project3.png'
 import project4 from '../assets/projectAssets/project4.png'
 import project5 from '../assets/projectAssets/project5.png'
 import project6 from '../assets/projectAssets/project6.png'
-import project8 from '../assets/projectAssets/project8.png'
+import faithbeatHero from '../assets/projectAssets/faithbeatHero.png'
 import notationHero from '../assets/projectAssets/notationHero.png'
 import faithlibraryHero from '../assets/projectAssets/faithlibraryHero.png'
 import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
@@ -66,6 +66,15 @@ export const projects: Project[] = [
         githubLink: "https://github.com/081dikeh/FurniDan",
     },
     {
+        id: 11,
+        image: faithbeatHero,
+        stack: 'Next.js, TypeScript, Tailwind CSS, Neon Postgres, Neon Auth, OpenAI API, Vercel',
+        title: 'Faithbeat',
+        subtitle: 'AI-powered hymn-writing platform for African church worship that generates original hymns in English, Igbo, Yoruba, and Hausa. Features SATB choral arrangements, playable sheet music, PDF export, and a public hymn discovery feed. Built with Next.js, Neon, and Vercel.',
+        liveLink: "https://faithbeat.vercel.app/",
+        githubLink: "https://github.com/081dikeh/Faithbeat",
+    },
+    {
         id: 9,
         image: project6,
         stack: 'HTML, CSS and JavaScript',
@@ -101,13 +110,5 @@ export const projects: Project[] = [
         liveLink: "https://metabnb-app-eosin.vercel.app/",
         githubLink: "https://github.com/081dikeh/MetabnbApp",
     },
-    {
-        id: 11,
-        image: project8,
-        stack: 'ReactJs, Tailwind CSS',
-        title: 'Tailwind Portfolio',
-        subtitle: 'An earlier iteration of my developer portfolio, built as I was learning Tailwind CSS. Kept live to show progression — compare it with the current version to see the growth.',
-        liveLink: "https://first-react-portfolio-three.vercel.app/",
-        githubLink: "https://github.com/081dikeh/first-react-portfolio-",
-    },
+    
 ]
