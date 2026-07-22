@@ -27,40 +27,44 @@ export default {
       },
       keyframes: {
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(36px)' },
+          '0%':   { opacity: '0', transform: 'translateY(36px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeInDown: {
-          '0%': { opacity: '0', transform: 'translateY(-36px)' },
+          '0%':   { opacity: '0', transform: 'translateY(-36px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-48px)' },
+          '0%':   { opacity: '0', transform: 'translateX(-48px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         fadeInRight: {
-          '0%': { opacity: '0', transform: 'translateX(48px)' },
+          '0%':   { opacity: '0', transform: 'translateX(48px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         fadeIn: {
-          '0%': { opacity: '0' },
+          '0%':   { opacity: '0' },
           '100%': { opacity: '1' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-14px)' },
+          '50%':      { transform: 'translateY(-14px)' },
         },
         blink: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
+          '50%':      { opacity: '0' },
         },
         scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.92)' },
+          '0%':   { opacity: '0', transform: 'scale(0.92)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% center' },
-          '100%': { backgroundPosition: '200% center' },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(199,120,221,0.4)' },
+          '50%':      { boxShadow: '0 0 0 6px rgba(199,120,221,0)' },
+        },
+        liftUp: {
+          '0%':   { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-3px)' },
         },
       },
       animation: {
@@ -72,6 +76,7 @@ export default {
         'float':         'float 5s ease-in-out infinite',
         'blink':         'blink 1.1s step-end infinite',
         'scale-in':      'scaleIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
+        'pulse-glow':    'pulseGlow 2s ease-in-out infinite',
       },
     },
   },

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Reset ─────────────────────────────────────────── */
+/* ── Reset ───────────────────────────────────────────────────────────── */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
@@ -18,26 +18,23 @@ body {
   color: #ABB2BF;
   background-color: #282C33;
   overflow-x: hidden;
+  /* Subtle dot-grid texture across entire page */
+  background-image: radial-gradient(circle, rgba(199,120,221,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-ul, ol { list-style: none; }
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; height: auto; display: block; }
-button { border: none; background: none; font-family: inherit; cursor: pointer; }
+ul, ol  { list-style: none; }
+a       { text-decoration: none; color: inherit; }
+img     { max-width: 100%; height: auto; display: block; }
+button  { border: none; background: none; font-family: inherit; cursor: pointer; }
 input, textarea, select { font-family: inherit; font-size: inherit; }
 
-/* ── Page transition ────────────────────────────────── */
+/* ── Page enter animation ─────────────────────────────────────────────── */
 .page-enter {
   animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* ── Scroll animation base states ───────────────────── */
-/* Elements start invisible; JS adds .animate-* when in view */
-.anim-ready {
-  opacity: 0;
-}
-
-/* ── Typewriter cursor ──────────────────────────────── */
+/* ── Typewriter cursor ────────────────────────────────────────────────── */
 .typewriter-cursor {
   display: inline-block;
   width: 3px;
@@ -53,16 +50,21 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   50%       { opacity: 0; }
 }
 
-/* ── Floating glow behind hero image ───────────────── */
-.hero-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 60% 50%, rgba(199,120,221,0.12) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+/* ── Nav: glassmorphism blur when scrolled ───────────────────────────── */
+.nav-default {
+  background-color: #282C33;
+  border-bottom: 1px solid #333843;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+.nav-scrolled {
+  background: rgba(40, 44, 51, 0.80);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(199,120,221,0.15);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
 
-/* ── Purple underline hover for nav links ───────────── */
+/* ── Nav link: sweeping underline on hover ───────────────────────────── */
 .nav-link {
   position: relative;
   display: inline-block;
@@ -77,19 +79,98 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   background: #C778DD;
   transition: width 0.3s ease;
 }
-.nav-link:hover::after { width: 100%; }
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+.nav-link.active { color: #C778DD; }
 
-/* ── Card hover lift ────────────────────────────────── */
+/* ── Hero glow ───────────────────────────────────────────────────────── */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, rgba(199,120,221,0.13) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Card: hover lift + purple shadow ────────────────────────────────── */
 .card-lift {
   transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(199,120,221,0.12);
+  box-shadow: 0 12px 40px rgba(199,120,221,0.13);
 }
 
-/* ── Skill tag pulse on hover ───────────────────────── */
+/* ── Button: hover lift ──────────────────────────────────────────────── */
+.btn-lift {
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.2s ease;
+}
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(199,120,221,0.2);
+}
+
+/* ── Project card: hover image overlay ──────────────────────────────── */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(28,32,40,0.95) 0%,
+    rgba(28,32,40,0.5)  50%,
+    transparent         100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+}
+.group:hover .project-overlay { opacity: 1; }
+
+/* ── Skill tag: purple on hover ──────────────────────────────────────── */
 .skill-tag:hover {
   color: #C778DD;
   transition: color 0.2s ease;
+}
+
+/* ── Featured project badge ──────────────────────────────────────────── */
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C778DD;
+  font-weight: 700;
+}
+.featured-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #C778DD;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.4); }
+}
+
+/* ── Open-to-work dot in nav ─────────────────────────────────────────── */
+.otw-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  display: inline-block;
+  animation: otw-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes otw-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
 }
