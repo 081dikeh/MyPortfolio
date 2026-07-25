@@ -86,7 +86,7 @@ export default function Nav() {
       </div>
 
       {/* Mobile overlay */}
-      <div className={`fixed inset-0 top-[57px] bg-[#282C33]/95 backdrop-blur-md z-40 md:hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed inset-0 top-[57px] bg-[#282C33] z-40 md:hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <ul className='flex flex-col gap-8 p-8 mt-4 lowercase'>
           {NAV_LINKS.map(({ label, path }) => (
             <li key={label}>

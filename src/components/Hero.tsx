@@ -73,26 +73,26 @@ export default function Hero() {
             </p>
 
             <div
-              className={`flex flex-wrap gap-3
+              className={`grid grid-cols-2 sm:flex sm:flex-wrap gap-3
                 ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
               style={delay(460)}
             >
               <Link
                 to='/contact'
-                className='px-7 py-3 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300 btn-lift'
+                className='text-center px-5 py-3 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300 btn-lift'
               >
                 Contact Me
               </Link>
               <Link
                 to='/projects'
-                className='px-7 py-3 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300 btn-lift'
+                className='text-center px-5 py-3 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300 btn-lift'
               >
                 View Projects
               </Link>
               <a
                 href='/Daniel-Dikeh-CV.pdf'
                 download
-                className='px-7 py-3 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300 btn-lift'
+                className='col-span-2 sm:col-span-1 text-center px-5 py-3 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300 btn-lift'
               >
                 Download CV
               </a>
@@ -114,8 +114,8 @@ export default function Hero() {
             />
             <img src={dots} alt='' className='absolute z-20 right-0 bottom-[30%] w-[18%]' />
 
-            {/* Status badge */}
-            <div className='p-2 ring-1 ring-brand-400 mt-0.5 bg-[#282C33]/80 backdrop-blur-sm'>
+            {/* Status badge — hidden on mobile since the text section badge covers it */}
+            <div className='hidden md:block p-2 ring-1 ring-brand-400 mt-0.5 bg-[#282C33]/80 backdrop-blur-sm'>
               <p className='text-white font-fira text-sm flex items-center gap-2'>
                 <span className='otw-dot' />
                 Open to work · Recently shipped Faithbeat

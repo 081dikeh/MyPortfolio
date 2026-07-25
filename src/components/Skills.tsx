@@ -9,7 +9,7 @@ export default function Skills() {
   const { ref: gridRef,  inView: gridVisible  } = useInView({ threshold: 0.08 })
 
   return (
-    <div className='flex flex-col font-fira mt-40 sm:mt-48 md:mt-60'>
+    <div className='flex flex-col font-fira mt-16 sm:mt-28 md:mt-60'>
 
       <div ref={titleRef}>
         <h2 className={`text-3xl text-white flex items-center font-[500]

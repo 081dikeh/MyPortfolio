@@ -6,7 +6,7 @@ export default function Contact() {
   const { ref: bodyRef,  inView: bodyVisible  } = useInView({ threshold: 0.1 })
 
   return (
-    <section className='font-fira gap-8 mt-20 mb-20'>
+    <section className='font-fira gap-8 mt-10 mb-10 md:mt-20 md:mb-20'>
 
       {/* Title */}
       <div ref={titleRef}>

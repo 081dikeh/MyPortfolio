@@ -14,7 +14,7 @@ export default function Projects() {
   const { ref: gridRef,     inView: gridVisible     } = useInView({ threshold: 0.05 })
 
   return (
-    <section className='font-fira mt-32 sm:mt-40 md:mt-52'>
+    <section className='font-fira mt-16 sm:mt-28 md:mt-52'>
 
       {/* Title row */}
       <div ref={titleRef} className='flex items-center justify-between mb-10'>

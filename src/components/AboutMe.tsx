@@ -14,7 +14,7 @@ export default function AboutMe() {
   const yearCount    = useCounter(1,  900,  textVisible)
 
   return (
-    <section className='text-white font-fira items-center gap-2 py-8 md:py-16 lg:py-24 mt-40'>
+    <section className='text-white font-fira items-center gap-2 py-6 md:py-16 lg:py-24 mt-16 sm:mt-28 md:mt-40'>
 
       <div ref={titleRef}>
         <h2 className={`text-3xl text-white flex items-center font-[500]
