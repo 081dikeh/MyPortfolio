@@ -1,130 +1,112 @@
 import { useEffect, useState } from 'react'
-import dots from '../assets/Dots.png'
-import heroback from '../assets/heroback.png'
+import { ArrowDown } from 'lucide-react'
 import mainHeroImg from '../assets/mainHeroImg.png'
-import { Link } from 'react-router-dom'
 import { useTypewriter } from '../hooks/useTypewriter'
+import FadeIn from './common/FadeIn'
+import Button from './common/Button'
 
 const ROLES = [
-  'front-end developer',
+  'frontend engineer',
   'React developer',
   'Next.js developer',
-  'UI/UX builder',
+  'UI builder',
 ]
 
 export default function Hero() {
-  const role = useTypewriter(ROLES, { speed: 80, deleteSpeed: 40, pause: 2000 })
-
-  // Staggered mount — elements reveal one after another
+  const role = useTypewriter(ROLES, { speed: 75, deleteSpeed: 35, pause: 2200 })
   const [visible, setVisible] = useState(false)
+
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 100)
+    const t = setTimeout(() => setVisible(true), 80)
     return () => clearTimeout(t)
   }, [])
 
-  const delay = (ms: number) => ({ animationDelay: `${ms}ms` })
-
   return (
-    <section className='min-h-screen flex items-center justify-center pt-12 md:pt-20 overflow-hidden'>
-      <div className='w-full'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center'>
+    <section className='relative min-h-[calc(100vh-4rem)] flex items-center pt-24 pb-16 overflow-hidden hero-grid'>
+      <div className='hero-glow' aria-hidden='true' />
 
-          {/* ── Left: text ─────────────────────────────────────────────── */}
-          <div className='order-2 md:order-1 font-fira'>
+      <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10'>
 
-            {/* Badge */}
-            <div
-              className={`inline-flex items-center gap-2 text-xs text-brand-500 mb-5 border border-brand-400 px-3 py-1
-                ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
-              style={delay(0)}
-            >
-              <span className='otw-dot' />
+        {/* Text */}
+        <div className='order-2 lg:order-1'>
+          <FadeIn show={visible} direction='left' delay={0}>
+            <div className='inline-flex items-center gap-2.5 text-xs text-muted mb-6 px-3 py-1.5 border border-border bg-surface/50 backdrop-blur-sm'>
+              <span className='otw-dot' aria-hidden='true' />
               Available for work · Lagos, Nigeria
             </div>
+          </FadeIn>
 
-            {/* Headline with typewriter */}
-            <h1
-              className={`text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-4 text-white leading-tight
-                ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
-              style={delay(150)}
-            >
-              Dikeh Daniel is a{' '}
-              <span className='text-brand-700 block mt-1 min-h-[1.2em]'>
+          <FadeIn show={visible} direction='left' delay={100}>
+            <p className='font-mono text-accent text-sm mb-3'>Hi, my name is</p>
+          </FadeIn>
+
+          <FadeIn show={visible} direction='left' delay={180}>
+            <h1 className='text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] mb-4'>
+              Dikeh Daniel.
+            </h1>
+          </FadeIn>
+
+          <FadeIn show={visible} direction='left' delay={260}>
+            <p className='text-2xl sm:text-3xl lg:text-4xl font-mono text-muted/80 mb-6 min-h-[1.3em]'>
+              I build{' '}
+              <span className='text-accent'>
                 {role}
                 <span className='typewriter-cursor' aria-hidden='true' />
               </span>
-            </h1>
-
-            <p
-              className={`text-base md:text-lg mb-2 text-brand-500 leading-relaxed
-                ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
-              style={delay(300)}
-            >
-              I build fast, responsive web apps that solve real problems —
-              using React, TypeScript, and Next.js.
             </p>
+          </FadeIn>
 
-            <p
-              className={`text-sm mb-8 text-brand-500
-                ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
-              style={delay(380)}
-            >
-              10 shipped projects · Open to freelance & full-time roles
+          <FadeIn show={visible} direction='left' delay={340}>
+            <p className='text-base text-muted leading-relaxed max-w-lg mb-8'>
+              I craft fast, accessible web applications with React, TypeScript, and Next.js.
+              10+ shipped projects — from AI-powered platforms to finance dashboards.
             </p>
+          </FadeIn>
 
-            <div
-              className={`grid grid-cols-2 sm:flex sm:flex-wrap gap-3
-                ${visible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}
-              style={delay(460)}
-            >
-              <Link
-                to='/contact'
-                className='text-center px-5 py-3 text-white ring-1 ring-brand-700 hover:bg-brand-700 transition-colors duration-300 btn-lift'
-              >
-                Contact Me
-              </Link>
-              <Link
-                to='/projects'
-                className='text-center px-5 py-3 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300 btn-lift'
-              >
-                View Projects
-              </Link>
-              <a
-                href='/Daniel-Dikeh-CV.pdf'
-                download
-                className='col-span-2 sm:col-span-1 text-center px-5 py-3 text-brand-500 ring-1 ring-brand-400 hover:ring-brand-700 hover:text-white transition-colors duration-300 btn-lift'
-              >
-                Download CV
-              </a>
+          <FadeIn show={visible} direction='left' delay={420}>
+            <div className='flex flex-wrap gap-3'>
+              <Button to='/contact'>Get in touch</Button>
+              <Button to='/projects' variant='secondary'>View projects</Button>
+              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
             </div>
-          </div>
-
-          {/* ── Right: image ───────────────────────────────────────────── */}
-          <div
-            className={`relative w-full max-w-sm mx-auto md:max-w-md lg:max-w-lg order-1 md:order-2
-              ${visible ? 'opacity-0 animate-fade-in-right' : 'opacity-0'}`}
-            style={delay(200)}
-          >
-            <div className='hero-glow' />
-            <img src={heroback} alt='' className='absolute z-0 top-[5%] left-0 w-[30%] opacity-50 md:opacity-100' />
-            <img
-              src={mainHeroImg}
-              alt='Daniel Dikeh'
-              className='w-full z-10 relative animate-float'
-            />
-            <img src={dots} alt='' className='absolute z-20 right-0 bottom-[30%] w-[18%]' />
-
-            {/* Status badge — hidden on mobile since the text section badge covers it */}
-            <div className='hidden md:block p-2 ring-1 ring-brand-400 mt-0.5 bg-[#282C33]/80 backdrop-blur-sm'>
-              <p className='text-white font-fira text-sm flex items-center gap-2'>
-                <span className='otw-dot' />
-                Open to work · Recently shipped Faithbeat
-              </p>
-            </div>
-          </div>
-
+          </FadeIn>
         </div>
+
+        {/* Image */}
+        <FadeIn show={visible} direction='right' delay={200} className='order-1 lg:order-2'>
+          <div className='relative w-full max-w-md mx-auto lg:max-w-lg'>
+            <div className='absolute inset-4 border border-accent/20 pointer-events-none' aria-hidden='true' />
+            <div className='absolute -inset-4 border border-border/50 pointer-events-none translate-x-3 translate-y-3' aria-hidden='true' />
+
+            <div className='relative bg-surface/30 backdrop-blur-sm p-1 ring-1 ring-border'>
+              <img
+                src={mainHeroImg}
+                alt='Dikeh Daniel — Frontend Developer'
+                className='w-full relative z-10 animate-float'
+                width={480}
+                height={480}
+              />
+            </div>
+
+            <div className='hidden lg:flex absolute -bottom-4 -left-4 px-4 py-2.5 bg-canvas/90 backdrop-blur-sm border border-border text-xs font-mono text-muted items-center gap-2'>
+              <span className='otw-dot' aria-hidden='true' />
+              Recently shipped Faithbeat
+            </div>
+          </div>
+        </FadeIn>
       </div>
+
+      {/* Scroll indicator */}
+      <FadeIn show={visible} direction='none' delay={800} className='absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block'>
+        <a
+          href='#projects'
+          className='flex flex-col items-center gap-2 text-muted/50 hover:text-accent transition-colors text-xs font-mono'
+          aria-label='Scroll to projects'
+        >
+          <span>scroll</span>
+          <ArrowDown size={14} className='animate-bounce' />
+        </a>
+      </FadeIn>
     </section>
   )
 }

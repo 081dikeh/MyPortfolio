@@ -1,19 +1,18 @@
-import AboutMe from '../components/AboutMe'
-import Contact from '../components/Contact'
 import Hero from '../components/Hero'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
+import AboutMe from '../components/AboutMe'
+import Contact from '../components/Contact'
+import PageLayout from '../components/common/PageLayout'
 
 export default function HomePage() {
   return (
-    <div className='page-enter flex flex-col mx-4 md:mx-16 lg:mx-16 xl:mx-32 2xl:mx-44'>
-      <main>
-        <Hero />
-        <Projects />
-        <Skills />
-        <AboutMe />
-        <Contact />
-      </main>
-    </div>
+    <PageLayout>
+      <Hero />
+      <Projects />
+      <Skills />
+      <AboutMe />
+      <Contact />
+    </PageLayout>
   )
 }

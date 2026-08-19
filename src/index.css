@@ -13,14 +13,15 @@ html {
 }
 
 body {
-  font-family: 'Fira Code', monospace;
-  line-height: 1.6;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.65;
   color: #ABB2BF;
   background-color: #282C33;
   overflow-x: hidden;
-  /* Subtle dot-grid texture across entire page */
-  background-image: radial-gradient(circle, rgba(199,120,221,0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(199,120,221,0.08), transparent),
+    radial-gradient(circle, rgba(199,120,221,0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px;
 }
 
 ul, ol  { list-style: none; }
@@ -29,18 +30,55 @@ img     { max-width: 100%; height: auto; display: block; }
 button  { border: none; background: none; font-family: inherit; cursor: pointer; }
 input, textarea, select { font-family: inherit; font-size: inherit; }
 
+/* ── Typography ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, .font-mono {
+  font-family: 'Fira Code', monospace;
+  letter-spacing: -0.02em;
+}
+
+/* ── Skip link ──────────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: #C778DD;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 /* ── Page enter animation ─────────────────────────────────────────────── */
 .page-enter {
-  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Scroll progress bar ────────────────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C778DD, #9333ea);
+  z-index: 60;
+  transition: width 0.1s linear;
 }
 
 /* ── Typewriter cursor ────────────────────────────────────────────────── */
 .typewriter-cursor {
   display: inline-block;
-  width: 3px;
+  width: 2px;
   height: 1em;
   background-color: #C778DD;
-  margin-left: 3px;
+  margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1.1s step-end infinite;
 }
@@ -50,106 +88,132 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   50%       { opacity: 0; }
 }
 
-/* ── Nav: glassmorphism blur when scrolled ───────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Nav ──────────────────────────────────────────────────────────────── */
 .nav-default {
-  background-color: #282C33;
+  background-color: rgba(40, 44, 51, 0.95);
   border-bottom: 1px solid #333843;
   transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 }
 .nav-scrolled {
-  background: rgba(40, 44, 51, 0.80);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(199,120,221,0.15);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  background: rgba(30, 33, 39, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(199,120,221,0.12);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
 }
 
-/* ── Nav link: sweeping underline on hover ───────────────────────────── */
 .nav-link {
   position: relative;
   display: inline-block;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8125rem;
 }
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   left: 0;
   width: 0;
   height: 1px;
   background: #C778DD;
-  transition: width 0.3s ease;
+  transition: width 0.25s ease;
 }
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 .nav-link.active { color: #C778DD; }
 
-/* ── Hero glow ───────────────────────────────────────────────────────── */
+/* ── Hero ─────────────────────────────────────────────────────────────── */
 .hero-glow {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 60% 50%, rgba(199,120,221,0.13) 0%, transparent 70%);
+  inset: -10%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(199,120,221,0.15) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* ── Card: hover lift + purple shadow ────────────────────────────────── */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(199,120,221,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(199,120,221,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Cards & buttons ──────────────────────────────────────────────────── */
 .card-lift {
-  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(199,120,221,0.13);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(199,120,221,0.08);
 }
 
-/* ── Button: hover lift ──────────────────────────────────────────────── */
 .btn-lift {
-  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.2s ease, border-color 0.25s ease;
 }
-.btn-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(199,120,221,0.2);
+.btn-lift:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(199,120,221,0.15);
 }
 
-/* ── Project card: hover image overlay ──────────────────────────────── */
+/* ── Project overlay ──────────────────────────────────────────────────── */
 .project-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(28,32,40,0.95) 0%,
-    rgba(28,32,40,0.5)  50%,
+    rgba(20,22,28,0.92) 0%,
+    rgba(20,22,28,0.4)  45%,
     transparent         100%
   );
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
   display: flex;
   align-items: flex-end;
   padding: 1rem;
 }
 .group:hover .project-overlay { opacity: 1; }
 
-/* ── Skill tag: purple on hover ──────────────────────────────────────── */
-.skill-tag:hover {
-  color: #C778DD;
-  transition: color 0.2s ease;
+.live-preview {
+  container-type: inline-size;
+}
+.live-preview-iframe {
+  width: 1280px;
+  height: 720px;
+  transform: scale(calc(100cqw / 1280));
+  transform-origin: top left;
 }
 
-/* ── Featured project badge ──────────────────────────────────────────── */
+/* ── Skill tags ───────────────────────────────────────────────────────── */
+.skill-tag {
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.skill-tag:hover {
+  color: #C778DD;
+  padding-left: 4px;
+}
+
+/* ── Featured badge ───────────────────────────────────────────────────── */
 .featured-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 10px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #C778DD;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
 }
 .featured-badge::before {
   content: '';
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   background: #C778DD;
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
@@ -157,20 +221,41 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(1.4); }
+  50%       { opacity: 0.5; transform: scale(1.3); }
 }
 
-/* ── Open-to-work dot in nav ─────────────────────────────────────────── */
+/* ── Status dot ─────────────────────────────────────────────────────────── */
 .otw-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: #4ade80;
   border-radius: 50%;
   display: inline-block;
+  flex-shrink: 0;
   animation: otw-pulse 2.2s ease-in-out infinite;
 }
 
 @keyframes otw-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
-  50%       { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.45); }
+  50%       { box-shadow: 0 0 0 4px rgba(74,222,128,0); }
+}
+
+/* ── Mobile menu backdrop ───────────────────────────────────────────────── */
+.menu-backdrop {
+  background: rgba(20, 22, 28, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ── Form focus ring ────────────────────────────────────────────────────── */
+.form-input:focus {
+  outline: none;
+  border-color: #C778DD;
+  box-shadow: 0 0 0 3px rgba(199,120,221,0.12);
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(199,120,221,0.3);
+  color: #fff;
 }

@@ -1,51 +1,47 @@
-import dots from '../assets/Dots.png'
-import heroback from '../assets/heroback.png'
 import Skill from './Skill'
 import { useInView } from '../hooks/useInView'
+import SectionHeading from './common/SectionHeading'
+import FadeIn from './common/FadeIn'
 
 export default function Skills() {
-  const { ref: titleRef, inView: titleVisible } = useInView()
-  const { ref: leftRef,  inView: leftVisible  } = useInView({ threshold: 0.1 })
-  const { ref: gridRef,  inView: gridVisible  } = useInView({ threshold: 0.08 })
+  const { ref: sectionRef, inView } = useInView({ threshold: 0.08 })
+  const { ref: codeRef, inView: codeVisible } = useInView({ threshold: 0.1 })
 
   return (
-    <div className='flex flex-col font-fira mt-16 sm:mt-28 md:mt-60'>
+    <section id='skills' ref={sectionRef} className='py-section scroll-mt-24'>
+      <SectionHeading title='Skills' show={inView} lineWidth='md:w-64 lg:w-[28rem]' />
 
-      <div ref={titleRef}>
-        <h2 className={`text-3xl text-white flex items-center font-[500]
-          ${titleVisible ? 'opacity-0 animate-fade-in-up' : 'opacity-0'}`}>
-          <span className='text-brand-700'>#</span>Skills
-          <span className='ring-1 ring-brand-700 w-0 md:w-64 lg:w-96 h-[0px] inline-block ml-6' />
-        </h2>
-      </div>
-
-      <div className='flex flex-col md:flex-row justify-between mt-10 gap-10'>
-
-        {/* Code snippet decoration */}
-        <div ref={leftRef} className='relative hidden md:flex md:w-[40%] items-center justify-center min-h-[320px]'>
-          <img src={dots}     alt='' className='absolute z-20 right-0 bottom-[30%] w-[15%]' />
-          <img src={dots}     alt='' className='absolute z-20 left-0 top-[10%] w-[15%]' />
-          <img src={heroback} alt='' className='absolute z-0 bottom-0 left-0 w-[30%] opacity-60' />
-          <div className={`relative z-10 border border-brand-500 bg-[#1e2127] p-5 w-[85%] text-xs leading-6 rounded-sm select-none
-            ${leftVisible ? 'opacity-0 animate-fade-in-left' : 'opacity-0'}`}>
-            <p className='text-brand-200 mb-1'>{'// My stack'}</p>
-            <p><span className='text-brand-700'>const</span> <span className='text-white'>Daniel</span> <span className='text-brand-500'>= {'{'}</span></p>
-            <p className='ml-4'><span className='text-brand-900'>languages</span><span className='text-brand-500'>: [</span><span className='text-green-400'>'HTML', 'CSS', 'JS', 'TS'</span><span className='text-brand-500'>],</span></p>
-            <p className='ml-4'><span className='text-brand-900'>frameworks</span><span className='text-brand-500'>: [</span><span className='text-green-400'>'React', 'Next.js'</span><span className='text-brand-500'>],</span></p>
-            <p className='ml-4'><span className='text-brand-900'>backend</span><span className='text-brand-500'>: [</span><span className='text-green-400'>'Supabase', 'Neon'</span><span className='text-brand-500'>],</span></p>
-            <p className='ml-4'><span className='text-brand-900'>passion</span><span className='text-brand-500'>: </span><span className='text-green-400'>'building great UIs'</span></p>
-            <p><span className='text-brand-500'>{'}'}</span></p>
-          </div>
+      <div className='flex flex-col lg:flex-row gap-10 lg:gap-16'>
+        {/* Code snippet */}
+        <div ref={codeRef} className='hidden lg:flex lg:w-[42%] items-center justify-center'>
+          <FadeIn show={codeVisible} direction='left' className='w-full'>
+            <div className='relative border border-border bg-surface/60 p-6 font-mono text-xs leading-7 select-none'>
+              <div className='flex items-center gap-2 mb-4 pb-3 border-b border-border/60'>
+                <span className='w-2.5 h-2.5 rounded-full bg-red-400/70' />
+                <span className='w-2.5 h-2.5 rounded-full bg-yellow-400/70' />
+                <span className='w-2.5 h-2.5 rounded-full bg-green-400/70' />
+                <span className='text-muted/50 ml-2 text-[10px]'>developer.ts</span>
+              </div>
+              <p className='text-muted/60 mb-1'>{'// Who I am'}</p>
+              <p><span className='text-accent'>const</span> <span className='text-white'>developer</span> <span className='text-muted'>= {'{'}</span></p>
+              <p className='ml-4'><span className='text-error'>name</span><span className='text-muted'>: </span><span className='text-green-400'>'Dikeh Daniel'</span><span className='text-muted'>,</span></p>
+              <p className='ml-4'><span className='text-error'>role</span><span className='text-muted'>: </span><span className='text-green-400'>'Frontend Engineer'</span><span className='text-muted'>,</span></p>
+              <p className='ml-4'><span className='text-error'>stack</span><span className='text-muted'>: [</span></p>
+              <p className='ml-8'><span className='text-green-400'>'React', 'Next.js', 'TypeScript'</span></p>
+              <p className='ml-4'><span className='text-muted'>],</span></p>
+              <p className='ml-4'><span className='text-error'>focus</span><span className='text-muted'>: </span><span className='text-green-400'>'shipping quality UI'</span></p>
+              <p><span className='text-muted'>{'}'}</span></p>
+            </div>
+          </FadeIn>
         </div>
 
-        {/* Skills grid staggered */}
-        <div ref={gridRef} className='w-full md:w-[58%]'>
-          <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
-            <Skill inView={gridVisible} />
+        {/* Skills grid */}
+        <div className='w-full lg:w-[55%]'>
+          <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3'>
+            <Skill inView={inView} />
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
   )
 }

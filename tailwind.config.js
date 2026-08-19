@@ -7,8 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: { light: '#7F63F1' },
-        secondary: { light: '#63F1B4' },
+        // Semantic tokens
+        accent: '#C778DD',
+        muted: '#ABB2BF',
+        border: '#333843',
+        surface: '#1e2127',
+        error: '#F16363',
+        canvas: '#282C33',
+        // Legacy brand scale (kept for gradual migration)
         brand: {
           50: '#faf5ff',
           100: '#858D9D',
@@ -20,26 +26,34 @@ export default {
           700: '#C778DD',
           800: '#F3F0FE',
           900: '#F16363',
-        }
+        },
+        primary: { light: '#7F63F1' },
+        secondary: { light: '#63F1B4' },
       },
       fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
         fira: ['Fira Code', 'monospace'],
+      },
+      spacing: {
+        'section': '6rem',
+        'section-lg': '8rem',
       },
       keyframes: {
         fadeInUp: {
-          '0%':   { opacity: '0', transform: 'translateY(36px)' },
+          '0%':   { opacity: '0', transform: 'translateY(28px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeInDown: {
-          '0%':   { opacity: '0', transform: 'translateY(-36px)' },
+          '0%':   { opacity: '0', transform: 'translateY(-28px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeInLeft: {
-          '0%':   { opacity: '0', transform: 'translateX(-48px)' },
+          '0%':   { opacity: '0', transform: 'translateX(-32px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         fadeInRight: {
-          '0%':   { opacity: '0', transform: 'translateX(48px)' },
+          '0%':   { opacity: '0', transform: 'translateX(32px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         fadeIn: {
@@ -48,35 +62,31 @@ export default {
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%':      { transform: 'translateY(-14px)' },
+          '50%':      { transform: 'translateY(-12px)' },
         },
         blink: {
           '0%, 100%': { opacity: '1' },
           '50%':      { opacity: '0' },
         },
         scaleIn: {
-          '0%':   { opacity: '0', transform: 'scale(0.92)' },
+          '0%':   { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
-        pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(199,120,221,0.4)' },
-          '50%':      { boxShadow: '0 0 0 6px rgba(199,120,221,0)' },
-        },
-        liftUp: {
-          '0%':   { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-3px)' },
+        shimmer: {
+          '0%':   { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
       },
       animation: {
-        'fade-in-up':    'fadeInUp 0.65s cubic-bezier(0.16,1,0.3,1) forwards',
-        'fade-in-down':  'fadeInDown 0.65s cubic-bezier(0.16,1,0.3,1) forwards',
-        'fade-in-left':  'fadeInLeft 0.65s cubic-bezier(0.16,1,0.3,1) forwards',
-        'fade-in-right': 'fadeInRight 0.65s cubic-bezier(0.16,1,0.3,1) forwards',
-        'fade-in':       'fadeIn 0.65s ease-out forwards',
+        'fade-in-up':    'fadeInUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+        'fade-in-down':  'fadeInDown 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+        'fade-in-left':  'fadeInLeft 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+        'fade-in-right': 'fadeInRight 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
+        'fade-in':       'fadeIn 0.5s ease-out forwards',
         'float':         'float 5s ease-in-out infinite',
         'blink':         'blink 1.1s step-end infinite',
-        'scale-in':      'scaleIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
-        'pulse-glow':    'pulseGlow 2s ease-in-out infinite',
+        'scale-in':      'scaleIn 0.45s cubic-bezier(0.16,1,0.3,1) forwards',
+        'shimmer':       'shimmer 2s linear infinite',
       },
     },
   },
