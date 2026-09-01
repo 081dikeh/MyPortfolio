@@ -89,7 +89,7 @@ export default function Nav() {
             </ul>
 
             <a
-              href='/Daniel-Dikeh-CV.pdf'
+              href='/Dikeh-Daniel_Frontend_Developer_Resume'
               download
               className='text-xs font-medium px-4 py-2 ring-1 ring-accent text-white hover:bg-accent transition-all duration-300 btn-lift whitespace-nowrap'
             >

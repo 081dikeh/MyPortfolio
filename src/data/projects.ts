@@ -3,11 +3,12 @@ import project2 from '../assets/projectAssets/project2.png'
 import project3 from '../assets/projectAssets/project3.png'
 import project4 from '../assets/projectAssets/project4.png'
 import project5 from '../assets/projectAssets/project5.png'
-import project6 from '../assets/projectAssets/project6.png'
+import project6 from '../assets/projectAssets/Slate — port.png'
 import faithbeatHero from '../assets/projectAssets/faithbeatHero.png'
 import notationHero from '../assets/projectAssets/notationHero.png'
-import faithlibraryHero from '../assets/projectAssets/faithlibraryHero.png'
+import faithlibraryHero from '../assets/projectAssets/FaithLibrary — port.png'
 import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
+
 
 export type Project = {
   id: number
