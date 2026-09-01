@@ -48,7 +48,7 @@ export default function AboutMe() {
           <FadeIn show={inView} direction='left' delay={250}>
             <div className='flex gap-3 flex-wrap'>
               <Button to='/about'>Read more</Button>
-              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
+              <Button href='/Dikeh_Daniel_Frontend_Developer_Resume (2).pdf' download variant='secondary'>Resume</Button>
             </div>
           </FadeIn>
         </div>

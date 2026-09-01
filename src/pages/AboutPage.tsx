@@ -60,7 +60,7 @@ export default function AboutPage() {
             </FadeIn>
 
             <FadeIn show={inView} direction='left' delay={250}>
-              <Button href='/Daniel-Dikeh-CV.pdf' download>Download resume</Button>
+              <Button href='/Dikeh_Daniel_Frontend_Developer_Resume (2).pdf' download>Download resume</Button>
             </FadeIn>
           </div>
 
