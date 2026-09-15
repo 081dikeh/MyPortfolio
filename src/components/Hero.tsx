@@ -6,10 +6,10 @@ import FadeIn from './common/FadeIn'
 import Button from './common/Button'
 
 const ROLES = [
-  'frontend engineer',
-  'React developer',
-  'Next.js developer',
-  'UI builder',
+  'frontend experiences',
+  'React applications',
+  'Next.js products',
+  'intuitive interfaces',
 ]
 
 export default function Hero() {
