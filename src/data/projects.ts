@@ -69,15 +69,6 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/081dikeh/Faithbeat',
   },
   {
-    id: 3,
-    image: project3,
-    stack: 'React',
-    title: 'Furnidan',
-    subtitle: 'E-commerce landing page for a premium furniture brand — visual storytelling and conversion-friendly layout with product showcases and category browsing.',
-    liveLink: 'https://furni-dan-7jn6.vercel.app/',
-    githubLink: 'https://github.com/081dikeh/FurniDan',
-  },
-  {
     id: 9,
     image: project6,
     stack: 'HTML, CSS, JavaScript',
@@ -85,6 +76,15 @@ export const projects: Project[] = [
     subtitle: 'Shopping cart app with add-to-cart, quantity controls, and live price totals. Built in vanilla JavaScript to demonstrate core DOM manipulation without a framework.',
     liveLink: 'https://dani-cart-shop.vercel.app/',
     githubLink: 'https://github.com/081dikeh/daniCartShop',
+  },
+  {
+    id: 3,
+    image: project3,
+    stack: 'React',
+    title: 'Furnidan',
+    subtitle: 'E-commerce landing page for a premium furniture brand — visual storytelling and conversion-friendly layout with product showcases and category browsing.',
+    liveLink: 'https://furni-dan-7jn6.vercel.app/',
+    githubLink: 'https://github.com/081dikeh/FurniDan',
   },
   {
     id: 7,
