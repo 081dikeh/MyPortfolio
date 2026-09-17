@@ -32,7 +32,7 @@ export default function Hero() {
           <FadeIn show={visible} direction='left' delay={0}>
             <div className='inline-flex items-center gap-2.5 text-xs text-muted mb-6 px-3 py-1.5 border border-border bg-surface/50 backdrop-blur-sm'>
               <span className='otw-dot' aria-hidden='true' />
-              Available for work · Lagos, Nigeria
+              Available for work
             </div>
           </FadeIn>
 
