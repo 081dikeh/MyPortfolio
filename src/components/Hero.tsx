@@ -90,7 +90,7 @@ export default function Hero() {
 
             <div className='hidden lg:flex absolute -bottom-4 -left-4 px-4 py-2.5 bg-canvas/90 backdrop-blur-sm border border-border text-xs font-mono text-muted items-center gap-2'>
               <span className='otw-dot' aria-hidden='true' />
-              Recently shipped Faithscore
+              Recently shipped Faithlibrary
             </div>
           </div>
         </FadeIn>
