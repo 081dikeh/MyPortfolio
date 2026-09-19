@@ -5,6 +5,7 @@ import project4 from '../assets/projectAssets/project4.png'
 import project5 from '../assets/projectAssets/project5.png'
 import project6 from '../assets/projectAssets/Slate — port.png'
 import faithbeatHero from '../assets/projectAssets/faithbeatHero.png'
+import faithScoreFrontpage from '../assets/projectAssets/FaithScore —frontpage.png'
 import notationHero from '../assets/projectAssets/notationHero.png'
 import faithlibraryHero from '../assets/projectAssets/FaithLibrary — port.png'
 import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
@@ -34,11 +35,11 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    image: notationHero,
+    image: faithScoreFrontpage,
     stack: 'React, Tailwind CSS, Vexflow',
     title: 'FaithScore',
     subtitle: 'Browser-based music notation app that renders sheet music in real time using Vexflow. A lightweight, no-install alternative to desktop notation software for choir musicians.',
-    liveLink: 'https://faithscore-6c35.vercel.app/',
+    liveLink: 'https://faithscorewebsite.vercel.app/',
     githubLink: 'https://github.com/081dikeh/Faithscore',
   },
   {
