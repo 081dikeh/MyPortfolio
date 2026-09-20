@@ -6,7 +6,6 @@ import project5 from '../assets/projectAssets/project5.png'
 import project6 from '../assets/projectAssets/Slate — port.png'
 import faithbeatHero from '../assets/projectAssets/faithbeatHero.png'
 import faithScoreFrontpage from '../assets/projectAssets/FaithScore —frontpage.png'
-import notationHero from '../assets/projectAssets/notationHero.png'
 import faithlibraryHero from '../assets/projectAssets/FaithLibrary — port.png'
 import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
 

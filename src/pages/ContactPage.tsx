@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import type { ChangeEvent, FocusEvent, FormEvent } from 'react'
+import emailjs from '@emailjs/browser'
 import { Mail, Linkedin, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 import PageLayout from '../components/common/PageLayout'
 import FadeIn from '../components/common/FadeIn'
 import Button from '../components/common/Button'
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined
 
 interface FormData {
   name: string; email: string; title: string; message: string
@@ -57,20 +62,44 @@ export default function ContactPage() {
     setErrors(prev => ({ ...prev, [name]: newErrors[name as keyof FormErrors] }))
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setTouched({ name: true, email: true, title: true, message: true })
     const newErrors = validate(formData)
     setErrors(newErrors)
     if (Object.keys(newErrors).length > 0) return
 
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus('error')
+      return
+    }
+
     setStatus('loading')
-    const body = `Hi Daniel,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    const mailtoLink = `mailto:dikehdaniel2020@gmail.com?subject=${encodeURIComponent(formData.title)}&body=${encodeURIComponent(body)}`
-    setTimeout(() => {
-      try { window.location.href = mailtoLink; setStatus('success') }
-      catch { setStatus('error') }
-    }, 600)
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.title,
+          message: formData.message,
+          reply_to: formData.email,
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      )
+
+      setFormData({ name: '', email: '', title: '', message: '' })
+      setErrors({})
+      setTouched({})
+      setStatus('success')
+    } catch (error) {
+      console.error('Email send failed:', error)
+      setStatus('error')
+    }
   }
 
   const handleReset = () => {
@@ -79,10 +108,9 @@ export default function ContactPage() {
   }
 
   const fieldClass = (field: keyof FormData) =>
-    `form-input w-full px-4 py-3 bg-surface/30 border text-white placeholder-muted/50 transition-colors duration-200 text-sm ${
-      touched[field] && errors[field]
-        ? 'border-error'
-        : 'border-border'
+    `form-input w-full px-4 py-3 bg-surface/30 border text-white placeholder-muted/50 transition-colors duration-200 text-sm ${touched[field] && errors[field]
+      ? 'border-error'
+      : 'border-border'
     }`
 
   if (status === 'success') {
