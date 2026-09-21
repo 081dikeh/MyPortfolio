@@ -6,10 +6,10 @@ import FadeIn from './common/FadeIn'
 import Button from './common/Button'
 
 const ROLES = [
-  'frontend experiences',
-  'React applications',
+  'user-centered products',
+  'React experiences',
   'Next.js products',
-  'intuitive interfaces',
+  'fast interfaces',
 ]
 
 export default function Hero() {
@@ -58,16 +58,24 @@ export default function Hero() {
 
           <FadeIn show={visible} direction='left' delay={340}>
             <p className='text-base text-muted leading-relaxed max-w-lg mb-8'>
-              I craft fast, accessible web applications with React, TypeScript, and Next.js.
-              10+ shipped projects — from AI-powered platforms to finance dashboards.
+              Frontend developer building polished, product-focused interfaces with React, TypeScript,
+              and Next.js. I turn ideas into clean, scalable web experiences that feel fast and look premium.
             </p>
           </FadeIn>
 
           <FadeIn show={visible} direction='left' delay={420}>
-            <div className='flex flex-wrap gap-3'>
-              <Button to='/contact'>Get in touch</Button>
+            <div className='flex flex-wrap gap-3 mb-6'>
+              <Button to='/contact'>Hire me</Button>
               <Button to='/projects' variant='secondary'>View projects</Button>
               <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
+            </div>
+          </FadeIn>
+
+          <FadeIn show={visible} direction='left' delay={500}>
+            <div className='flex flex-wrap gap-2 text-xs font-mono text-muted'>
+              {['React', 'Next.js', 'TypeScript', 'Tailwind', 'Performance', 'UX-first'].map((tag) => (
+                <span key={tag} className='border border-border px-2.5 py-1.5 bg-surface/40'>#{tag}</span>
+              ))}
             </div>
           </FadeIn>
         </div>

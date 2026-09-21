@@ -32,23 +32,28 @@ export default function AboutMe() {
             <div className='flex flex-col gap-4 text-muted leading-relaxed'>
               <p className='text-white font-medium'>Hello, I'm Daniel.</p>
               <p>
-                I'm a self-taught frontend engineer based in Lagos, Nigeria. I've shipped{' '}
-                <span className='text-white'>10 live projects</span> — from AI-powered hymn platforms
-                to finance dashboards and e-commerce storefronts — all built independently with React,
-                TypeScript, and Next.js.
+                I'm a frontend developer building clear, performant interfaces for products and businesses.
+                I’ve shipped <span className='text-white'>10 live projects</span> across music, finance,
+                community platforms, and e-commerce — all designed and built with React, TypeScript,
+                and modern web tooling.
               </p>
               <p>
-                What sets me apart is the ability to take a vague idea and turn it into something
-                real, fast. Clean code, thoughtful UX, and reliable delivery — that's what I bring
-                to every project.
+                I care about product thinking as much as code quality: responsive layouts, accessible UX,
+                thoughtful interactions, and fast delivery. My work is shaped by the idea that a website
+                should not just look good — it should help people take action.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn show={inView} direction='left' delay={250}>
+            <div className='flex flex-wrap gap-2 text-xs font-mono text-muted mb-4'>
+              {['Frontend UI', 'Product thinking', 'Responsive design', 'Clean code', 'Fast iteration', 'Accessible UX'].map((item) => (
+                <span key={item} className='border border-border px-2.5 py-1.5 bg-surface/40'>{item}</span>
+              ))}
+            </div>
             <div className='flex gap-3 flex-wrap'>
               <Button to='/about'>Read more</Button>
-              <Button href='/Dikeh_Daniel_Frontend_Developer_Resume (2).pdf' download variant='secondary'>Resume</Button>
+              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
             </div>
           </FadeIn>
         </div>
