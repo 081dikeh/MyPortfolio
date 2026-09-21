@@ -18,6 +18,11 @@ export default function FeaturedProject({ project, show = true }: FeaturedProjec
               <span className='featured-badge'>Featured Project</span>
               <h3 className='text-xl sm:text-2xl text-white font-bold'>{project.title}</h3>
               <p className='text-muted text-sm leading-relaxed'>{project.subtitle}</p>
+              {project.summary && (
+                <p className='text-muted/80 text-xs sm:text-sm leading-relaxed border-l border-accent/40 pl-3'>
+                  {project.summary}
+                </p>
+              )}
             </div>
             <div className='flex flex-col gap-4'>
               <StackPills stack={project.stack} />

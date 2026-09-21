@@ -16,6 +16,10 @@ export type Project = {
   stack: string
   title: string
   subtitle: string
+  summary?: string
+  problem?: string
+  approach?: string
+  result?: string
   liveLink: string
   githubLink: string
   featured?: boolean
@@ -27,7 +31,11 @@ export const projects: Project[] = [
     image: faithlibraryHero,
     stack: 'Next.js, TypeScript, Tailwind CSS, Supabase, Vercel',
     title: 'FaithLibrary',
-    subtitle: 'Full-stack choir management platform where music directors upload scores and choir members access sheet music by voice part. Built with Next.js, Supabase auth & storage, deployed on Vercel.',
+    subtitle: 'A searchable choir music library for organizing scores, PDFs, uploads, and community access in one place.',
+    summary: 'Designed to replace scattered score folders and fragmented choir file-sharing with a single, searchable library for music directors and members.',
+    problem: 'Choir teams were relying on PDFs, messaging apps, and personal folders, which made score discovery, organization, and access difficult as libraries grew.',
+    approach: 'I built a database-backed platform with authentication, uploads, filtering, PDF viewing, bookmarks, and collections so that music could be managed and accessed with clarity.',
+    result: 'The product became a usable music-management platform that consolidated score storage and access into a single workflow.',
     liveLink: 'https://faith-library.vercel.app/',
     githubLink: 'https://github.com/081dikeh/FaithLibrary',
     featured: true,
@@ -37,7 +45,11 @@ export const projects: Project[] = [
     image: faithScoreFrontpage,
     stack: 'React, Tailwind CSS, Vexflow',
     title: 'FaithScore',
-    subtitle: 'Browser-based music notation app that renders sheet music in real time using Vexflow. A lightweight, no-install alternative to desktop notation software for choir musicians.',
+    subtitle: 'A browser-based music notation editor for creating, converting, and rehearsing staff and tonic sol-fa music in one interface.',
+    summary: 'Built to solve the split workflow between notation writing and sol-fa conversion by giving musicians a single editing environment with structured musical data.',
+    problem: 'Most tools separate staff notation and tonic sol-fa workflows, which forces musicians to manually convert information and risks inconsistency in rhythm, pitch, and score structure.',
+    approach: 'I modeled the editor around structured musical data so the app could support notation rendering, playback, lyrics, multiple parts, and two-way staff/sol-fa conversion within one system.',
+    result: 'The project evolved into a working notation workflow that supports staff-to-sol-fa and sol-fa-to-staff conversion alongside playback and print-ready output.',
     liveLink: 'https://faithscorewebsite.vercel.app/',
     githubLink: 'https://github.com/081dikeh/Faithscore',
   },
