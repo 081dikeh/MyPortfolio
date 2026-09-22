@@ -3,10 +3,10 @@ import project2 from '../assets/projectAssets/project2.png'
 import project3 from '../assets/projectAssets/project3.png'
 import project4 from '../assets/projectAssets/project4.png'
 import project5 from '../assets/projectAssets/project5.png'
-import project6 from '../assets/projectAssets/Slate — port.png'
+import project6 from '../assets/projectAssets/Slateport.png'
 import faithbeatHero from '../assets/projectAssets/faithbeatHero.png'
-import faithScoreFrontpage from '../assets/projectAssets/FaithScore —frontpage.png'
-import faithlibraryHero from '../assets/projectAssets/FaithLibrary — port.png'
+import faithScoreFrontpage from '../assets/projectAssets/FaithScorefrontpage.png'
+import faithlibraryHero from '../assets/projectAssets/FaithLibraryport.png'
 import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
 
 
