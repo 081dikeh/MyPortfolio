@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import Services from '../components/Services'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import AboutMe from '../components/AboutMe'
@@ -9,6 +10,7 @@ export default function HomePage() {
   return (
     <PageLayout>
       <Hero />
+      <Services />
       <Projects />
       <Skills />
       <AboutMe />
