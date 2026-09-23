@@ -1,3 +1,5 @@
+// src/components/projects/FeaturedProject.tsx
+import { Link } from 'react-router-dom'
 import { ExternalLink, Code, ArrowRight } from 'lucide-react'
 import type { Project } from '../../data/projects'
 import StackPills from '../StackPills'
@@ -43,6 +45,12 @@ export default function FeaturedProject({ project, show = true }: FeaturedProjec
                 >
                   <Code size={14} /> Source
                 </a>
+                <Link
+                  to={`/projects/${project.slug}`}
+                  className='text-accent ring-1 ring-transparent hover:ring-accent/50 hover:text-white transition-colors duration-300 py-2 px-5 text-sm flex items-center gap-2 btn-lift'
+                >
+                  View case study <ArrowRight size={14} />
+                </Link>
               </div>
             </div>
           </div>

@@ -1,3 +1,5 @@
+// src/components/projects/ProjectCard.tsx
+import { Link } from 'react-router-dom'
 import { ExternalLink, Code, ArrowRight } from 'lucide-react'
 import type { Project } from '../../data/projects'
 import StackPills from '../StackPills'
@@ -65,6 +67,12 @@ export default function ProjectCard({
               >
                 <Code size={12} /> GitHub
               </a>
+              <Link
+                to={`/projects/${project.slug}`}
+                className='text-accent ring-1 ring-transparent hover:ring-accent/50 hover:text-white transition-colors duration-300 py-1.5 px-3.5 text-xs flex items-center gap-1.5 btn-lift'
+              >
+                View case study <ArrowRight size={12} />
+              </Link>
             </div>
           </div>
         </div>

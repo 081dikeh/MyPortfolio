@@ -1,3 +1,4 @@
+// src/data/projects.ts
 import project1 from '../assets/projectAssets/project1.png'
 import project2 from '../assets/projectAssets/project2.png'
 import project3 from '../assets/projectAssets/project3.png'
@@ -12,6 +13,7 @@ import stWilliamImg from '../assets/projectAssets/St William Parish-img.png'
 
 export type Project = {
   id: number
+  slug: string
   image: string
   stack: string
   title: string
@@ -19,6 +21,7 @@ export type Project = {
   summary?: string
   problem?: string
   approach?: string
+  features?: string[]
   result?: string
   liveLink: string
   githubLink: string
@@ -28,6 +31,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 1,
+    slug: 'faithlibrary',
     image: faithlibraryHero,
     stack: 'Next.js, TypeScript, Tailwind CSS, Supabase, Vercel',
     title: 'FaithLibrary',
@@ -35,6 +39,13 @@ export const projects: Project[] = [
     summary: 'Designed to replace scattered score folders and fragmented choir file-sharing with a single, searchable library for music directors and members.',
     problem: 'Choir teams were relying on PDFs, messaging apps, and personal folders, which made score discovery, organization, and access difficult as libraries grew.',
     approach: 'I built a database-backed platform with authentication, uploads, filtering, PDF viewing, bookmarks, and collections so that music could be managed and accessed with clarity.',
+    features: [
+      'Authenticated accounts for music directors and choir members',
+      'Uploads and organization for scores and PDFs',
+      'Filtering and search across the library',
+      'In-browser PDF viewing',
+      'Bookmarks and collections for saved or grouped scores',
+    ],
     result: 'The product became a usable music-management platform that consolidated score storage and access into a single workflow.',
     liveLink: 'https://faith-library.vercel.app/',
     githubLink: 'https://github.com/081dikeh/FaithLibrary',
@@ -42,6 +53,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    slug: 'faithscore',
     image: faithScoreFrontpage,
     stack: 'React, Tailwind CSS, Vexflow',
     title: 'FaithScore',
@@ -49,12 +61,20 @@ export const projects: Project[] = [
     summary: 'Built to solve the split workflow between notation writing and sol-fa conversion by giving musicians a single editing environment with structured musical data.',
     problem: 'Most tools separate staff notation and tonic sol-fa workflows, which forces musicians to manually convert information and risks inconsistency in rhythm, pitch, and score structure.',
     approach: 'I modeled the editor around structured musical data so the app could support notation rendering, playback, lyrics, multiple parts, and two-way staff/sol-fa conversion within one system.',
+    features: [
+      'Staff notation rendering built on structured musical data',
+      'Two-way conversion between staff notation and tonic sol-fa',
+      'Playback of entered music',
+      'Support for lyrics and multiple parts',
+      'Print-ready score output',
+    ],
     result: 'The project evolved into a working notation workflow that supports staff-to-sol-fa and sol-fa-to-staff conversion alongside playback and print-ready output.',
     liveLink: 'https://faithscorewebsite.vercel.app/',
     githubLink: 'https://github.com/081dikeh/Faithscore',
   },
   {
     id: 5,
+    slug: 'fina-dashboard',
     image: project1,
     stack: 'React, Tailwind CSS, Recharts',
     title: 'Fina Dashboard',
@@ -64,6 +84,7 @@ export const projects: Project[] = [
   },
   {
     id: 4,
+    slug: 'st-william-parish',
     image: stWilliamImg,
     stack: 'React, Tailwind CSS',
     title: 'St. William Parish',
@@ -73,6 +94,7 @@ export const projects: Project[] = [
   },
   {
     id: 11,
+    slug: 'faithbeat',
     image: faithbeatHero,
     stack: 'Next.js, TypeScript, Tailwind CSS, Neon Postgres, Neon Auth, OpenAI API, Vercel',
     title: 'Faithbeat',
@@ -82,6 +104,7 @@ export const projects: Project[] = [
   },
   {
     id: 9,
+    slug: 'danid-shop',
     image: project6,
     stack: 'HTML, CSS, JavaScript',
     title: 'DaniD Shop',
@@ -91,6 +114,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    slug: 'furnidan',
     image: project3,
     stack: 'React',
     title: 'Furnidan',
@@ -100,6 +124,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
+    slug: 'portfolio',
     image: project2,
     stack: 'React, TypeScript',
     title: 'Portfolio',
@@ -109,6 +134,7 @@ export const projects: Project[] = [
   },
   {
     id: 8,
+    slug: 'tefem',
     image: project5,
     stack: 'HTML, CSS, JavaScript',
     title: 'Tefem',
@@ -118,6 +144,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
+    slug: 'metabnb',
     image: project4,
     stack: 'React',
     title: 'MetaBNB',

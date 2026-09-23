@@ -1,6 +1,8 @@
+// src/routes/AppRoutes.tsx
 import { Route, Routes, Navigate } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import ProjectsPage from '../pages/ProjectsPage'
+import ProjectDetailPage from '../pages/ProjectDetailPage'
 import AboutPage from '../pages/AboutPage'
 import ContactPage from '../pages/ContactPage'
 
@@ -9,6 +11,7 @@ export default function AppRoutes() {
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/projects' element={<ProjectsPage />} />
+      <Route path='/projects/:slug' element={<ProjectDetailPage />} />
       <Route path='/about' element={<AboutPage />} />
       <Route path='/contact' element={<ContactPage />} />
       {/* Legacy route redirects */}
