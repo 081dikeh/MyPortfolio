@@ -1,5 +1,6 @@
 import Hero from '../components/Hero'
 import Services from '../components/Services'
+import Testimonials from '../components/Testimonials'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import AboutMe from '../components/AboutMe'
@@ -11,6 +12,7 @@ export default function HomePage() {
     <PageLayout>
       <Hero />
       <Services />
+      <Testimonials />
       <Projects />
       <Skills />
       <AboutMe />
