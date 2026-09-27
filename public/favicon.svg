@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="8" fill="#0f172a"/>
+  
+  <!-- Letter D (left) -->
+  <path d="M7 8 H13.5 C17.5 8 20 10.8 20 16 C20 21.2 17.5 24 13.5 24 H7 V8 Z M10 11 V21 H13.2 C15.3 21 17 19 17 16 C17 13 15.3 11 13.2 11 H10 Z" fill="#38bdf8"/>
+  
+  <!-- Letter D (right) -->
+  <path d="M18 8 H24.5 C28.5 8 31 10.8 31 16 C31 21.2 28.5 24 24.5 24 H18 V8 Z M21 11 V21 H24.2 C26.3 21 28 19 28 16 C28 13 26.3 11 24.2 11 H21 Z" fill="#38bdf8"/>
+</svg>
