@@ -65,7 +65,7 @@ export default function Hero() {
 
           <FadeIn show={visible} direction='left' delay={420}>
             <div className='flex flex-wrap gap-3 mb-6'>
-              <Button to='/contact'>Hire me</Button>
+              <Button to='/contact' variant='secondary'>Hire me</Button>
               <Button to='/projects' variant='secondary'>View projects</Button>
               <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
             </div>
