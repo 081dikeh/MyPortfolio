@@ -3,11 +3,13 @@ import { Menu, X } from 'lucide-react'
 import logoImg from '../assets/logoimg.png'
 import { Link, useLocation } from 'react-router-dom'
 
+const RESUME_PATH = '/Daniel-Dikeh-CV.pdf'
+
 const NAV_LINKS = [
-  { label: 'Home',     path: '/'        },
+  { label: 'Home', path: '/' },
   { label: 'Projects', path: '/projects' },
-  { label: 'About',    path: '/about'    },
-  { label: 'Contact',  path: '/contact'  },
+  { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ]
 
 export default function Nav() {
@@ -89,7 +91,7 @@ export default function Nav() {
             </ul>
 
             <a
-              href='/Dikeh_Daniel_Frontend_Developer_Resume (2).pdf'
+              href={RESUME_PATH}
               download
               className='text-xs font-medium px-4 py-2 ring-1 ring-accent text-white hover:bg-accent transition-all duration-300 btn-lift whitespace-nowrap'
             >
@@ -138,7 +140,7 @@ export default function Nav() {
             ))}
             <li className='pt-4 border-t border-border'>
               <a
-                href='/Daniel-Dikeh-CV.pdf'
+                href={RESUME_PATH}
                 download
                 className='font-mono text-lg text-muted hover:text-accent transition-colors duration-200'
               >
