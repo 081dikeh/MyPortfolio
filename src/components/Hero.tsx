@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, ArrowRight } from 'lucide-react'
 import mainHeroImg from '../assets/mainHeroImg.png'
 import { useTypewriter } from '../hooks/useTypewriter'
 import FadeIn from './common/FadeIn'
@@ -7,9 +7,9 @@ import Button from './common/Button'
 
 const ROLES = [
   'user-centered products',
-  'React experiences',
-  'Next.js products',
-  'fast interfaces',
+  'React products',
+  'accessible interfaces',
+  'fast web experiences',
 ]
 
 export default function Hero() {
@@ -58,16 +58,25 @@ export default function Hero() {
 
           <FadeIn show={visible} direction='left' delay={340}>
             <p className='text-base text-muted leading-relaxed max-w-lg mb-8'>
-              Frontend developer building polished, product-focused interfaces with React, TypeScript,
-              and Next.js. I turn ideas into clean, scalable web experiences that feel fast and look premium.
+              I'm a frontend developer building polished, accessible web experiences with React,
+              TypeScript, and Next.js. I turn product ideas into responsive interfaces that feel clear,
+              fast, and easy to use.
             </p>
           </FadeIn>
 
           <FadeIn show={visible} direction='left' delay={420}>
             <div className='flex flex-wrap gap-3 mb-6'>
+              <Button to='/projects/faithscore' variant='primary'>
+                View featured project <ArrowRight size={14} />
+              </Button>
               <Button to='/contact' variant='secondary'>Hire me</Button>
-              <Button to='/projects' variant='secondary'>View projects</Button>
-              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
+              <a
+                href='/Daniel-Dikeh-CV.pdf'
+                download
+                className='inline-flex items-center px-2 py-2.5 text-sm text-muted hover:text-white transition-colors'
+              >
+                Resume
+              </a>
             </div>
           </FadeIn>
 
@@ -97,8 +106,8 @@ export default function Hero() {
             </div>
 
             <div className='hidden lg:flex absolute -bottom-4 -left-4 px-4 py-2.5 bg-canvas/90 backdrop-blur-sm border border-border text-xs font-mono text-muted items-center gap-2'>
-              <span className='otw-dot' aria-hidden='true' />
-              Recently shipped Faithlibrary
+              <span className='w-1.5 h-1.5 bg-accent' aria-hidden='true' />
+              Featured project: FaithScore
             </div>
           </div>
         </FadeIn>
