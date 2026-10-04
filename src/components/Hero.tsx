@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowDown, ArrowRight } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import mainHeroImg from '../assets/mainHeroImg.png'
 import { useTypewriter } from '../hooks/useTypewriter'
 import FadeIn from './common/FadeIn'
@@ -66,17 +66,9 @@ export default function Hero() {
 
           <FadeIn show={visible} direction='left' delay={420}>
             <div className='flex flex-wrap gap-3 mb-6'>
-              <Button to='/projects/faithscore' variant='primary'>
-                View featured project <ArrowRight size={14} />
-              </Button>
+              <Button to='/projects' variant='secondary'>View projects</Button>
               <Button to='/contact' variant='secondary'>Hire me</Button>
-              <a
-                href='/Daniel-Dikeh-CV.pdf'
-                download
-                className='inline-flex items-center px-2 py-2.5 text-sm text-muted hover:text-white transition-colors'
-              >
-                Resume
-              </a>
+              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
             </div>
           </FadeIn>
 
