@@ -7,13 +7,20 @@ import SectionHeading from '../components/common/SectionHeading'
 import StatsBar from '../components/common/StatsBar'
 import FadeIn from '../components/common/FadeIn'
 import Button from '../components/common/Button'
+import { projects } from '../data/projects'
+import { skillGroups } from '../data/skills'
 
 export default function AboutPage() {
   const { ref: sectionRef, inView } = useInView({ threshold: 0.05 })
   const { ref: imgRef, inView: imgVisible } = useInView({ threshold: 0.08 })
   const { ref: skillRef, inView: skillVisible } = useInView({ threshold: 0.04 })
 
-  const projectCount = useCounter(10, 1400, inView)
+  const projectCount = useCounter(projects.length, 1400, inView)
+  const technologyCount = useCounter(
+    skillGroups.reduce((total, group) => total + group.skills.length, 0),
+    1400,
+    inView,
+  )
 
   return (
     <PageLayout className='pt-24 pb-section'>
@@ -21,7 +28,7 @@ export default function AboutPage() {
         <SectionHeading
           title='About'
           prefix='/'
-          subtitle='Frontend Engineer · Lagos, Nigeria · Available for freelance & full-time'
+          subtitle='Frontend Developer · Lagos, Nigeria · Open to full-time roles & freelance projects'
           show={inView}
           lineWidth='md:w-48'
         />
@@ -31,8 +38,8 @@ export default function AboutPage() {
             <StatsBar
               show={inView}
               stats={[
-                { value: `${projectCount}+`, label: 'Shipped projects' },
-                { value: '1+', label: 'Years building' },
+                { value: `${projectCount}`, label: 'Projects shipped' },
+                { value: `${technologyCount}`, label: 'Technologies' },
                 { value: '100%', label: 'Solo-built' },
               ]}
             />
@@ -41,26 +48,24 @@ export default function AboutPage() {
               <div className='flex flex-col gap-4 text-muted text-sm leading-relaxed'>
                 <p className='text-white font-medium text-base'>Hello, I'm Daniel.</p>
                 <p>
-                  I'm a self-taught frontend engineer who has shipped{' '}
-                  <span className='text-white'>{projectCount} live projects</span> across
-                  music, finance, e-commerce, and community apps — without a bootcamp or CS degree.
-                  I work primarily with React, TypeScript, Next.js, and Tailwind CSS, deploying
-                  everything on Vercel with Supabase or Neon on the backend when needed.
+                  I'm a frontend developer based in Lagos, Nigeria. I've shipped{' '}
+                  <span className='text-white'>{projectCount} live projects</span> across music,
+                  finance, e-commerce, and community platforms. I build with React, TypeScript,
+                  Next.js, and Tailwind CSS, and use Supabase or Neon when a project needs a backend.
                 </p>
                 <p>
-                  I started from zero and built everything through consistency and a genuine
-                  obsession with how the web works. Every project is fully live, has a public
-                  GitHub repo, and was built entirely by me.
+                  I care about making products useful as well as polished, with accessible,
+                  responsive interfaces, thoughtful interactions, and reliable delivery.
                 </p>
                 <p>
-                  I'm currently open to frontend developer roles and freelance projects.
-                  If you're building something and need someone who ships, let's talk.
+                  I'm open to frontend developer roles and freelance projects. If you're building
+                  something, let's talk.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn show={inView} direction='left' delay={250}>
-              <Button href='/Daniel-Dikeh-CV.pdf' download>Download resume</Button>
+              <Button href='/Dikeh_Daniel_Frontend_Engineer_Resume.pdf' download>Download resume</Button>
             </FadeIn>
           </div>
 

@@ -5,13 +5,19 @@ import SectionHeading from './common/SectionHeading'
 import StatsBar from './common/StatsBar'
 import FadeIn from './common/FadeIn'
 import Button from './common/Button'
+import { projects } from '../data/projects'
+import { skillGroups } from '../data/skills'
 
 export default function AboutMe() {
   const { ref: sectionRef, inView } = useInView({ threshold: 0.08 })
   const { ref: imgRef, inView: imgVisible } = useInView({ threshold: 0.1 })
 
-  const projectCount = useCounter(10, 1400, inView)
-  const techCount = useCounter(12, 1000, inView)
+  const projectCount = useCounter(projects.length, 1400, inView)
+  const techCount = useCounter(
+    skillGroups.reduce((total, group) => total + group.skills.length, 0),
+    1000,
+    inView,
+  )
 
   return (
     <section id='about' ref={sectionRef} className='py-section scroll-mt-24'>
@@ -22,8 +28,8 @@ export default function AboutMe() {
           <StatsBar
             show={inView}
             stats={[
-              { value: `${projectCount}+`, label: 'Shipped projects' },
-              { value: `${techCount}+`, label: 'Technologies' },
+              { value: `${projectCount}`, label: 'Projects shipped' },
+              { value: `${techCount}`, label: 'Technologies' },
               { value: '100%', label: 'Solo-built' },
             ]}
           />
@@ -32,15 +38,14 @@ export default function AboutMe() {
             <div className='flex flex-col gap-4 text-muted leading-relaxed'>
               <p className='text-white font-medium'>Hello, I'm Daniel.</p>
               <p>
-                I'm a frontend developer building clear, performant interfaces for products and businesses.
-                I’ve shipped <span className='text-white'>10 live projects</span> across music, finance,
-                community platforms, and e-commerce — all designed and built with React, TypeScript,
-                and modern web tooling.
+                I'm a frontend developer based in Lagos, Nigeria. I've shipped{' '}
+                <span className='text-white'>{projectCount} live projects</span> across music,
+                finance, e-commerce, and community platforms. I build with React, TypeScript,
+                Next.js, and Tailwind CSS, and use Supabase or Neon when a project needs a backend.
               </p>
               <p>
-                I care about product thinking as much as code quality: responsive layouts, accessible UX,
-                thoughtful interactions, and fast delivery. My work is shaped by the idea that a website
-                should not just look good — it should help people take action.
+                I care about making products useful as well as polished, with accessible,
+                responsive interfaces, thoughtful interactions, and reliable delivery.
               </p>
             </div>
           </FadeIn>
@@ -53,7 +58,7 @@ export default function AboutMe() {
             </div>
             <div className='flex gap-3 flex-wrap'>
               <Button to='/about'>Read more</Button>
-              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
+              <Button href='/Dikeh_Daniel_Frontend_Engineer_Resume.pdf' download variant='secondary'>Resume</Button>
             </div>
           </FadeIn>
         </div>

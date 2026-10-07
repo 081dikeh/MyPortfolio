@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react'
 import logoImg from '../assets/logoimg.png'
 import { Link, useLocation } from 'react-router-dom'
 
-const RESUME_PATH = '/Daniel-Dikeh-CV.pdf'
+const RESUME_PATH = '/Dikeh_Daniel_Frontend_Engineer_Resume.pdf'
 
 const NAV_LINKS = [
   { label: 'Home', path: '/' },

@@ -68,7 +68,7 @@ export default function Hero() {
             <div className='flex flex-wrap gap-3 mb-6'>
               <Button to='/projects' variant='secondary'>View projects</Button>
               <Button to='/contact' variant='secondary'>Hire me</Button>
-              <Button href='/Daniel-Dikeh-CV.pdf' download variant='secondary'>Resume</Button>
+              <Button href='/Dikeh_Daniel_Frontend_Engineer_Resume.pdf' download variant='secondary'>Resume</Button>
             </div>
           </FadeIn>
 

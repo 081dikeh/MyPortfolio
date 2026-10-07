@@ -1,4 +1,4 @@
-import { featuredProject, otherProjects } from '../data/projects'
+import { featuredProject, otherProjects, projects } from '../data/projects'
 import { useInView } from '../hooks/useInView'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <SectionHeading
           title='Projects'
           prefix='/'
-          subtitle={`${otherProjects.length + 1} projects — all live, all built solo`}
+          subtitle={`${projects.length} projects — all live, all built solo`}
           show={inView}
           lineWidth='md:w-48'
         />
