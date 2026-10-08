@@ -36,23 +36,23 @@ export default function AboutMe() {
 
           <FadeIn show={inView} direction='left' delay={150}>
             <div className='flex flex-col gap-4 text-muted leading-relaxed'>
-              <p className='text-white font-medium'>Hello, I'm Daniel.</p>
+              <p className='text-white font-medium'>I’m a Frontend Engineer who likes building things that are actually useful.</p>
               <p>
-                I'm a frontend developer based in Lagos, Nigeria. I've shipped{' '}
-                <span className='text-white'>{projectCount} live projects</span> across music,
-                finance, e-commerce, and community platforms. I build with React, TypeScript,
-                Next.js, and Tailwind CSS, and use Supabase or Neon when a project needs a backend.
+                I’m <span className='text-white'>Dikeh Daniel</span>, a frontend engineer focused on
+                building modern, interactive web applications with React, Next.js, TypeScript,
+                JavaScript, and Tailwind CSS.
               </p>
               <p>
-                I care about making products useful as well as polished, with accessible,
-                responsive interfaces, thoughtful interactions, and reliable delivery.
+                I enjoy taking an idea from a blank screen and turning it into a working product —
+                from designing the interface and structuring the application to connecting APIs,
+                managing state, handling authentication, testing features, and getting the app live.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn show={inView} direction='left' delay={250}>
             <div className='flex flex-wrap gap-2 text-xs font-mono text-muted mb-4'>
-              {['Frontend UI', 'Product thinking', 'Responsive design', 'Clean code', 'Fast iteration', 'Accessible UX'].map((item) => (
+              {['Frontend UI', 'Product thinking', 'Search & auth', 'Complex state', 'Accessible UX', 'AI products'].map((item) => (
                 <span key={item} className='border border-border px-2.5 py-1.5 bg-surface/40'>{item}</span>
               ))}
             </div>

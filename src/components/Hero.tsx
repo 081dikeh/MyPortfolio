@@ -6,10 +6,10 @@ import FadeIn from './common/FadeIn'
 import Button from './common/Button'
 
 const ROLES = [
-  'user-centered products',
-  'React products',
+  'useful products',
+  'modern web apps',
   'accessible interfaces',
-  'fast web experiences',
+  'React experiences',
 ]
 
 export default function Hero() {
@@ -58,9 +58,9 @@ export default function Hero() {
 
           <FadeIn show={visible} direction='left' delay={340}>
             <p className='text-base text-muted leading-relaxed max-w-lg mb-8'>
-              I'm a frontend developer building polished, accessible web experiences with React,
-              TypeScript, and Next.js. I turn product ideas into responsive interfaces that feel clear,
-              fast, and easy to use.
+              I'm a frontend engineer focused on building useful, interactive products with React,
+              TypeScript, and Next.js. I enjoy turning ideas into clear, high-quality experiences that
+              solve real problems and feel easy to use.
             </p>
           </FadeIn>
 
@@ -74,7 +74,7 @@ export default function Hero() {
 
           <FadeIn show={visible} direction='left' delay={500}>
             <div className='flex flex-wrap gap-2 text-xs font-mono text-muted'>
-              {['React', 'Next.js', 'TypeScript', 'Tailwind', 'Performance', 'UX-first'].map((tag) => (
+              {['React', 'Next.js', 'TypeScript', 'Tailwind', 'AI products', 'UX-first'].map((tag) => (
                 <span key={tag} className='border border-border px-2.5 py-1.5 bg-surface/40'>#{tag}</span>
               ))}
             </div>
