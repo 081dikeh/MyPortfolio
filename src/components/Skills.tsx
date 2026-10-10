@@ -27,9 +27,9 @@ export default function Skills() {
               <p className='ml-4'><span className='text-error'>name</span><span className='text-muted'>: </span><span className='text-green-400'>'Dikeh Daniel'</span><span className='text-muted'>,</span></p>
               <p className='ml-4'><span className='text-error'>role</span><span className='text-muted'>: </span><span className='text-green-400'>'Frontend Engineer'</span><span className='text-muted'>,</span></p>
               <p className='ml-4'><span className='text-error'>stack</span><span className='text-muted'>: [</span></p>
-              <p className='ml-8'><span className='text-green-400'>'React', 'Next.js', 'TypeScript'</span></p>
+              <p className='ml-8'><span className='text-green-400'>'React', 'Next.js', 'TypeScript', 'Tailwind', 'Supabase'</span></p>
               <p className='ml-4'><span className='text-muted'>],</span></p>
-              <p className='ml-4'><span className='text-error'>focus</span><span className='text-muted'>: </span><span className='text-green-400'>'shipping quality UI'</span></p>
+              <p className='ml-4'><span className='text-error'>focus</span><span className='text-muted'>: </span><span className='text-green-400'>'useful products & clean UX'</span></p>
               <p><span className='text-muted'>{'}'}</span></p>
             </div>
           </FadeIn>

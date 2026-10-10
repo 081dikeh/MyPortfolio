@@ -74,7 +74,7 @@ export default function Nav() {
           <div className='hidden md:flex items-center gap-8'>
             <span className='flex items-center gap-2 text-xs text-muted'>
               <span className='otw-dot' aria-hidden='true' />
-              Open to work
+              Available for work
             </span>
 
             <ul className='flex gap-7' role='list'>
@@ -151,7 +151,7 @@ export default function Nav() {
           <div className='mt-auto'>
             <span className='flex items-center gap-2 text-sm text-muted'>
               <span className='otw-dot' aria-hidden='true' />
-              Available for work
+              Open to work
             </span>
           </div>
         </div>
