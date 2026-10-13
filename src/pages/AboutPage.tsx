@@ -9,8 +9,14 @@ import FadeIn from '../components/common/FadeIn'
 import Button from '../components/common/Button'
 import { projects } from '../data/projects'
 import { skillGroups } from '../data/skills'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 
 export default function AboutPage() {
+  usePageMetadata({
+    title: 'About Dikeh Daniel | Frontend Engineer',
+    description: 'Learn about Dikeh Daniel, a Lagos-based frontend engineer building useful web applications with React, Next.js, and TypeScript.',
+  })
+
   const { ref: sectionRef, inView } = useInView({ threshold: 0.05 })
   const { ref: imgRef, inView: imgVisible } = useInView({ threshold: 0.08 })
   const { ref: skillRef, inView: skillVisible } = useInView({ threshold: 0.04 })
@@ -27,6 +33,7 @@ export default function AboutPage() {
       <section ref={sectionRef}>
         <SectionHeading
           title='About Me'
+          headingLevel='h1'
           prefix='/'
           subtitle='Frontend Engineer · Lagos, Nigeria · Available for full-time & freelance work'
           show={inView}
@@ -70,7 +77,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className='pt-2'>
-                  <p className='text-white font-medium text-base mb-2'>How I approach development</p>
+                  <h2 className='text-white font-medium text-base mb-2'>How I approach development</h2>
                   <p>
                     I care about more than making an interface look good. I try to understand why a
                     feature exists, how users will interact with it, and how the implementation can
@@ -88,7 +95,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className='pt-2'>
-                  <p className='text-white font-medium text-base mb-2'>What I build</p>
+                  <h2 className='text-white font-medium text-base mb-2'>What I build</h2>
                   <p>
                     My work spans different types of applications, including interactive web apps, SaaS
                     platforms, admin dashboards, digital content platforms, music and notation software,
@@ -104,7 +111,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className='pt-2'>
-                  <p className='text-white font-medium text-base mb-2'>Beyond the code</p>
+                  <h2 className='text-white font-medium text-base mb-2'>Beyond the code</h2>
                   <p>
                     My background isn’t the traditional computer science route. I studied Microbiology at
                     Nnamdi Azikiwe University, but my interest in software development led me to build my
@@ -124,7 +131,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className='pt-2'>
-                  <p className='text-white font-medium text-base mb-2'>My current toolkit</p>
+                  <h2 className='text-white font-medium text-base mb-2'>My current toolkit</h2>
                   <p>
                     <span className='text-white'>Frontend:</span> React · Next.js · TypeScript · JavaScript ·
                     Tailwind CSS · HTML · CSS

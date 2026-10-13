@@ -6,6 +6,7 @@ import { useInView } from '../hooks/useInView'
 import PageLayout from '../components/common/PageLayout'
 import FadeIn from '../components/common/FadeIn'
 import Button from '../components/common/Button'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined
@@ -37,6 +38,11 @@ function validate(data: FormData): FormErrors {
 }
 
 export default function ContactPage() {
+  usePageMetadata({
+    title: 'Contact Dikeh Daniel | Frontend Engineer',
+    description: 'Get in touch with Dikeh Daniel about frontend engineering roles, freelance projects, or product collaborations.',
+  })
+
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', title: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({})
@@ -119,7 +125,7 @@ export default function ContactPage() {
         <div className='w-full max-w-lg text-center border border-border p-10 flex flex-col items-center gap-6 animate-scale-in bg-surface/20'>
           <CheckCircle size={52} className='text-accent' strokeWidth={1.5} />
           <div>
-            <h2 className='text-2xl text-white font-mono font-semibold mb-2'>Message ready!</h2>
+            <h1 className='text-2xl text-white font-mono font-semibold mb-2'>Message ready!</h1>
             <p className='text-muted text-sm leading-relaxed'>
               Your email client should have opened with your message pre-filled.
               Hit <span className='text-accent font-semibold'>Send</span> to reach me.

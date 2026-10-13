@@ -8,12 +8,18 @@ import SectionHeading from '../components/common/SectionHeading'
 import FadeIn from '../components/common/FadeIn'
 import StackPills from '../components/StackPills'
 import Button from '../components/common/Button'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const { ref: sectionRef, inView } = useInView({ threshold: 0.05 })
 
   const project = projects.find((p) => p.slug === slug)
+
+  usePageMetadata({
+    title: project ? `${project.title} | Projects by Dikeh Daniel` : 'Project not found | Dikeh Daniel',
+    description: project?.subtitle ?? 'Explore web projects by Dikeh Daniel, a frontend engineer based in Lagos, Nigeria.',
+  })
 
   // Invalid or unknown slug — send visitors back to the projects index
   // instead of rendering a broken page.
@@ -39,6 +45,7 @@ export default function ProjectDetailPage() {
 
         <SectionHeading
           title={project.title}
+          headingLevel='h1'
           prefix='/'
           subtitle={project.subtitle}
           show={inView}

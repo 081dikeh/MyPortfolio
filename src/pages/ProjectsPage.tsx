@@ -4,8 +4,14 @@ import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectCard from '../components/projects/ProjectCard'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 
 export default function ProjectsPage() {
+  usePageMetadata({
+    title: 'Projects | Dikeh Daniel, Frontend Engineer',
+    description: 'Explore web applications and product projects built by Dikeh Daniel, including music, finance, e-commerce, and community platforms.',
+  })
+
   const { ref: sectionRef, inView } = useInView({ threshold: 0.05 })
 
   return (
@@ -13,6 +19,7 @@ export default function ProjectsPage() {
       <section ref={sectionRef}>
         <SectionHeading
           title='Projects'
+          headingLevel='h1'
           prefix='/'
           subtitle={`${projects.length} projects — all live, all built solo`}
           show={inView}
