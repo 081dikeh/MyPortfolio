@@ -24,7 +24,7 @@ export default function ProjectDetailPage() {
 
   usePageMetadata({
     title: project ? `${project.title} | Projects by Dikeh Daniel` : 'Project not found | Dikeh Daniel',
-    description: project?.subtitle ?? 'Explore web projects by Dikeh Daniel, a frontend engineer based in Lagos, Nigeria.',
+    description: project?.subtitle ?? 'Explore web projects by Dikeh Daniel, a frontend engineer building useful web applications.',
   })
 
   // Unknown slug: send visitors back to the projects list instead of a broken page.

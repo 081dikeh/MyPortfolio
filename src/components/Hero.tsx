@@ -16,7 +16,7 @@ export default function Hero() {
 
           <FadeIn delay={180}>
             <p className='mt-7 max-w-[34rem] font-serif text-xl leading-relaxed text-ink/80 md:text-[1.375rem]'>
-              I’m a frontend engineer in Lagos, Nigeria, focused on building useful, interactive products with React,
+              I’m a frontend engineer focused on building useful, interactive products with React,
               TypeScript, and Next.js. I turn ideas into clear, high-quality experiences that solve real problems.
             </p>
           </FadeIn>

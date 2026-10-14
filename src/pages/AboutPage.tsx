@@ -17,7 +17,7 @@ function Heading({ children }: { children: React.ReactNode }) {
 export default function AboutPage() {
   usePageMetadata({
     title: 'About Dikeh Daniel | Frontend Engineer',
-    description: 'Learn about Dikeh Daniel, a Lagos-based frontend engineer building useful web applications with React, Next.js, and TypeScript.',
+    description: 'Learn about Dikeh Daniel, a frontend engineer building useful web applications with React, Next.js, and TypeScript.',
   })
 
   const technologyCount = skillGroups.reduce((total, group) => total + group.skills.length, 0)
@@ -29,7 +29,7 @@ export default function AboutPage() {
           <SectionHeading
             headingLevel='h1'
             title='About me'
-            subtitle='Frontend Engineer · Lagos, Nigeria · Available for full-time & freelance work'
+            subtitle='Frontend Engineer · Available for full-time & freelance work'
           />
 
           <StatsBar
