@@ -1,80 +1,58 @@
 // src/components/projects/FeaturedProject.tsx
 import { Link } from 'react-router-dom'
-import { ExternalLink, Code, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github } from 'lucide-react'
 import type { Project } from '../../data/projects'
 import StackPills from '../StackPills'
-import FadeIn from '../common/FadeIn'
+import ProjectPanel from './ProjectPanel'
 
-interface FeaturedProjectProps {
-  project: Project
-  show?: boolean
-}
+export default function FeaturedProject({ project }: { project: Project }) {
+  const caseStudy = `/projects/${project.slug}`
 
-export default function FeaturedProject({ project, show = true }: FeaturedProjectProps) {
   return (
-    <FadeIn show={show}>
-      <article className='mb-5 ring-1 ring-accent/50 group card-lift overflow-hidden bg-surface/40'>
-        <div className='flex flex-col lg:flex-row'>
-          <div className='lg:w-2/5 p-6 sm:p-8 flex flex-col justify-between gap-6'>
-            <div className='flex flex-col gap-4'>
-              <span className='featured-badge'>Featured Project</span>
-              <h3 className='text-xl sm:text-2xl text-white font-bold'>{project.title}</h3>
-              <p className='text-muted text-sm leading-relaxed'>{project.subtitle}</p>
-              {project.summary && (
-                <p className='text-muted/80 text-xs sm:text-sm leading-relaxed border-l border-accent/40 pl-3'>
-                  {project.summary}
-                </p>
-              )}
-            </div>
-            <div className='flex flex-col gap-4'>
-              <StackPills stack={project.stack} />
-              <div className='flex gap-3 flex-wrap'>
-                <a
-                  href={project.liveLink}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-white ring-1 ring-accent hover:bg-accent transition-colors duration-300 py-2 px-5 text-sm flex items-center gap-2 btn-lift'
-                >
-                  <ExternalLink size={14} /> Live Demo
-                </a>
-                <a
-                  href={project.githubLink}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-white ring-1 ring-border hover:ring-accent transition-colors duration-300 py-2 px-5 text-sm flex items-center gap-2 btn-lift'
-                >
-                  <Code size={14} /> Source
-                </a>
-                <Link
-                  to={`/projects/${project.slug}`}
-                  className='text-accent ring-1 ring-transparent hover:ring-accent/50 hover:text-white transition-colors duration-300 py-2 px-5 text-sm flex items-center gap-2 btn-lift'
-                >
-                  View case study <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          </div>
+    <article className='group relative'>
+      <ProjectPanel project={project} large />
 
-          <a
-            href={project.liveLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='lg:w-3/5 overflow-hidden relative block'
-            aria-label={`View ${project.title} live`}
-          >
-            <img
-              src={project.image}
-              alt={`Screenshot of ${project.title}`}
-              className='w-full h-56 lg:h-full min-h-[240px] object-cover object-top group-hover:scale-105 transition-transform duration-500'
-            />
-            <div className='project-overlay'>
-              <span className='text-white text-sm font-medium flex items-center gap-2'>
-                View live <ArrowRight size={14} />
-              </span>
-            </div>
-          </a>
+      <div className='mt-7 grid gap-7 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14'>
+        <div>
+          <p className='mb-2 text-sm font-medium text-muted'>Featured project</p>
+          <h3 className='text-4xl font-bold leading-none md:text-5xl'>
+            <Link to={caseStudy} className="after:absolute after:inset-0 after:content-['']">
+              {project.title}
+            </Link>
+          </h3>
+          <div className='mt-5'>
+            <StackPills stack={project.stack} />
+          </div>
         </div>
-      </article>
-    </FadeIn>
+
+        <div>
+          <p className='font-serif text-xl leading-relaxed text-ink/80'>{project.summary ?? project.subtitle}</p>
+          <div className='relative z-10 mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 font-medium'>
+            <Link
+              to={caseStudy}
+              className='inline-flex items-center rounded-full bg-ink px-6 py-3 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-accent'
+            >
+              View case study
+            </Link>
+            <a
+              href={project.liveLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-link inline-flex items-center gap-1.5'
+            >
+              Live site <ExternalLink size={15} aria-hidden='true' />
+            </a>
+            <a
+              href={project.githubLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-link inline-flex items-center gap-1.5'
+            >
+              Source code <Github size={15} aria-hidden='true' />
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
   )
 }

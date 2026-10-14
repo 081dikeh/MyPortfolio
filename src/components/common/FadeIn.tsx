@@ -1,3 +1,4 @@
+// src/components/common/FadeIn.tsx
 import type { ReactNode, CSSProperties } from 'react'
 
 type Direction = 'up' | 'down' | 'left' | 'right' | 'none'
@@ -11,6 +12,8 @@ interface FadeInProps {
   style?: CSSProperties
 }
 
+// A single soft entrance. Used for the hero's load sequence and detail pages;
+// everything else on the site stays still until you interact with it.
 const directionClass: Record<Direction, string> = {
   up: 'animate-fade-in-up',
   down: 'animate-fade-in-down',

@@ -1,82 +1,48 @@
 // src/components/projects/ProjectCard.tsx
 import { Link } from 'react-router-dom'
-import { ExternalLink, Code, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github } from 'lucide-react'
 import type { Project } from '../../data/projects'
 import StackPills from '../StackPills'
-import FadeIn from '../common/FadeIn'
+import ProjectPanel from './ProjectPanel'
 
-interface ProjectCardProps {
-  project: Project
-  show?: boolean
-  delay?: number
-  maxStack?: number
-  imageHeight?: string
-}
+export default function ProjectCard({ project, className = '' }: { project: Project; className?: string }) {
+  const caseStudy = `/projects/${project.slug}`
 
-export default function ProjectCard({
-  project,
-  show = true,
-  delay = 0,
-  maxStack = 4,
-  imageHeight = 'h-44',
-}: ProjectCardProps) {
   return (
-    <FadeIn show={show} delay={delay} className='h-full'>
-      <article className='ring-1 ring-border flex flex-col h-full hover:ring-accent/60 transition-all duration-300 group card-lift overflow-hidden bg-surface/40'>
-        <a
-          href={project.liveLink}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='overflow-hidden relative block'
-          aria-label={`View ${project.title} live`}
-        >
-          <img
-            src={project.image}
-            alt={`Screenshot of ${project.title}`}
-            className={`w-full ${imageHeight} object-cover object-top group-hover:scale-105 transition-transform duration-500`}
-            loading='lazy'
-          />
-          <div className='project-overlay'>
-            <span className='text-white text-xs font-medium flex items-center gap-1.5'>
-              View live <ArrowRight size={12} />
-            </span>
-          </div>
-        </a>
+    <article className={`group relative ${className}`}>
+      <ProjectPanel project={project} />
 
-        <div className='p-4 sm:p-5 flex flex-col gap-3 flex-1 justify-between'>
-          <div>
-            <h3 className='text-base text-white font-semibold mb-1.5'>{project.title}</h3>
-            <p className='text-xs text-muted leading-relaxed line-clamp-3'>{project.subtitle}</p>
-          </div>
-          <div className='flex flex-col gap-3'>
-            <StackPills stack={project.stack} max={maxStack} />
-            <div className='flex gap-2 flex-wrap'>
-              <a
-                href={project.liveLink}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-white ring-1 ring-accent hover:bg-accent transition-colors duration-300 py-1.5 px-3.5 text-xs flex items-center gap-1.5 btn-lift'
-              >
-                <ExternalLink size={12} /> Live
-              </a>
-              <a
-                href={project.githubLink}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-white ring-1 ring-border hover:ring-accent transition-colors duration-300 py-1.5 px-3.5 text-xs flex items-center gap-1.5 btn-lift'
-              >
-                <Code size={12} /> GitHub
-              </a>
-              <Link
-                to={`/projects/${project.slug}`}
-                className='text-accent ring-1 ring-transparent hover:ring-accent/50 hover:text-white transition-colors duration-300 py-1.5 px-3.5 text-xs flex items-center gap-1.5 btn-lift'
-              >
-                View case study <ArrowRight size={12} />
-              </Link>
-            </div>
-          </div>
+      <div className='mt-5'>
+        <h3 className='text-2xl font-bold leading-tight md:text-[1.75rem]'>
+          <Link to={caseStudy} className="after:absolute after:inset-0 after:content-['']">
+            {project.title}
+          </Link>
+        </h3>
+        <p className='mt-2 line-clamp-3 font-serif text-[1.0625rem] leading-relaxed text-ink/75'>{project.subtitle}</p>
+        <div className='mt-4'>
+          <StackPills stack={project.stack} max={4} />
         </div>
-      </article>
-    </FadeIn>
+
+        <div className='relative z-10 mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.95rem] font-medium'>
+          <Link to={caseStudy} className='text-link'>View case study</Link>
+          <a
+            href={project.liveLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-link inline-flex items-center gap-1.5'
+          >
+            Live <ExternalLink size={14} aria-hidden='true' />
+          </a>
+          <a
+            href={project.githubLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-link inline-flex items-center gap-1.5'
+          >
+            GitHub <Github size={14} aria-hidden='true' />
+          </a>
+        </div>
+      </div>
+    </article>
   )
 }

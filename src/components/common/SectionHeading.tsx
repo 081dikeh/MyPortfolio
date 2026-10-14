@@ -1,48 +1,26 @@
+// src/components/common/SectionHeading.tsx
 import type { ReactNode } from 'react'
-import FadeIn from './FadeIn'
 
 interface SectionHeadingProps {
   title: string
-  headingLevel?: 'h1' | 'h2'
-  prefix?: '#' | '/'
   subtitle?: string
-  show?: boolean
   action?: ReactNode
+  /** Use h1 on pages where this is the page title. */
+  as?: 'h1' | 'h2'
+  // Accepted so older call sites keep compiling; no longer used.
+  prefix?: string
+  show?: boolean
   lineWidth?: string
 }
 
-export default function SectionHeading({
-  title,
-  headingLevel = 'h2',
-  prefix = '#',
-  subtitle,
-  show = true,
-  action,
-  lineWidth = 'md:w-40 lg:w-64',
-}: SectionHeadingProps) {
-  const Heading = headingLevel
-
+export default function SectionHeading({ title, subtitle, action, as: Tag = 'h2' }: SectionHeadingProps) {
   return (
-    <div className='flex items-end justify-between gap-4 mb-10'>
+    <div className='mb-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 md:mb-14'>
       <div>
-        <FadeIn show={show} direction='left'>
-          <Heading className='text-2xl sm:text-3xl text-white font-semibold flex items-center'>
-            <span className='text-accent'>{prefix}</span>
-            {title}
-            <span className={`hidden sm:inline-block ring-1 ring-accent/40 ${lineWidth} h-px ml-6`} />
-          </Heading>
-        </FadeIn>
-        {subtitle && (
-          <FadeIn show={show} direction='left' delay={100}>
-            <p className='text-muted text-sm mt-2'>{subtitle}</p>
-          </FadeIn>
-        )}
+        <Tag className='text-4xl font-bold leading-[1.02] md:text-6xl'>{title}</Tag>
+        {subtitle && <p className='mt-3 max-w-xl font-serif text-lg text-muted md:text-xl'>{subtitle}</p>}
       </div>
-      {action && (
-        <FadeIn show={show} direction='right' delay={150}>
-          {action}
-        </FadeIn>
-      )}
+      {action && <div className='pb-1'>{action}</div>}
     </div>
   )
 }

@@ -1,43 +1,33 @@
-import { ArrowRight } from 'lucide-react'
+// src/components/Projects.tsx
 import { Link } from 'react-router-dom'
 import { featuredProject, otherProjects } from '../data/projects'
-import { useInView } from '../hooks/useInView'
 import SectionHeading from './common/SectionHeading'
 import FeaturedProject from './projects/FeaturedProject'
 import ProjectCard from './projects/ProjectCard'
+import Button from './common/Button'
 
 export default function Projects() {
-  const { ref: sectionRef, inView } = useInView({ threshold: 0.05 })
-  const previewProjects = otherProjects.slice(0, 3)
+  const preview = otherProjects.slice(0, 4)
+  const total = otherProjects.length + 1
 
   return (
-    <section id='projects' ref={sectionRef} className='py-section scroll-mt-24'>
+    <section id='projects' className='wrap scroll-mt-20 py-section'>
       <SectionHeading
         title='Projects'
-        show={inView}
-        action={
-          <Link
-            to='/projects'
-            className='text-muted text-sm hover:text-accent transition-colors flex items-center gap-1.5 whitespace-nowrap font-mono'
-          >
-            View all <ArrowRight size={14} />
-          </Link>
-        }
+        subtitle='A notation editor, a choir library, and the other things I’ve shipped.'
+        action={<Link to='/projects' className='text-link font-medium'>See all {total}</Link>}
       />
 
-      <FeaturedProject project={featuredProject} show={inView} />
+      <FeaturedProject project={featuredProject} />
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
-        {previewProjects.map((project, i) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            show={inView}
-            delay={120 + i * 100}
-            maxStack={3}
-            imageHeight='h-40'
-          />
+      <div className='mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-x-10'>
+        {preview.map((project, i) => (
+          <ProjectCard key={project.id} project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
         ))}
+      </div>
+
+      <div className='mt-20 flex justify-center md:mt-28'>
+        <Button to='/projects' variant='secondary'>See all {total} projects</Button>
       </div>
     </section>
   )

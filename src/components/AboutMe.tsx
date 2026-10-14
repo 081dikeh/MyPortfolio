@@ -1,80 +1,44 @@
+// src/components/AboutMe.tsx
 import secHeroImg from '../assets/secHeroImg.png'
-import { useInView } from '../hooks/useInView'
-import { useCounter } from '../hooks/useCounter'
-import SectionHeading from './common/SectionHeading'
-import StatsBar from './common/StatsBar'
-import FadeIn from './common/FadeIn'
+import { SITE } from '../data/site'
 import Button from './common/Button'
-import { projects } from '../data/projects'
-import { skillGroups } from '../data/skills'
 
 export default function AboutMe() {
-  const { ref: sectionRef, inView } = useInView({ threshold: 0.08 })
-  const { ref: imgRef, inView: imgVisible } = useInView({ threshold: 0.1 })
-
-  const projectCount = useCounter(projects.length, 1400, inView)
-  const techCount = useCounter(
-    skillGroups.reduce((total, group) => total + group.skills.length, 0),
-    1000,
-    inView,
-  )
-
   return (
-    <section id='about' ref={sectionRef} className='py-section scroll-mt-24'>
-      <SectionHeading title='About me' show={inView} lineWidth='md:w-96' />
-
-      <div className='flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-16'>
-        <div className='w-full lg:w-1/2 flex flex-col gap-6'>
-          <StatsBar
-            show={inView}
-            stats={[
-              { value: `${projectCount}`, label: 'Projects shipped' },
-              { value: `${techCount}`, label: 'Technologies' },
-              { value: '100%', label: 'Solo-built' },
-            ]}
+    <section id='about' className='wrap scroll-mt-20 py-section'>
+      <div className='grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20'>
+        <div className='relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] bg-[#E7B53B] lg:max-w-none'>
+          <img
+            src={secHeroImg}
+            alt='Dikeh Daniel'
+            width={803}
+            height={958}
+            loading='lazy'
+            decoding='async'
+            className='absolute -bottom-[4%] left-1/2 w-[104%] max-w-none -translate-x-1/2'
           />
-
-          <FadeIn show={inView} direction='left' delay={150}>
-            <div className='flex flex-col gap-4 text-muted leading-relaxed'>
-              <p className='text-white font-medium'>I’m a Frontend Engineer who likes building things that are actually useful.</p>
-              <p>
-                I’m <span className='text-white'>Dikeh Daniel</span>, a frontend engineer focused on
-                building modern, interactive web applications with React, Next.js, TypeScript,
-                JavaScript, and Tailwind CSS.
-              </p>
-              <p>
-                I enjoy taking an idea from a blank screen and turning it into a working product —
-                from designing the interface and structuring the application to connecting APIs,
-                managing state, handling authentication, testing features, and getting the app live.
-              </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn show={inView} direction='left' delay={250}>
-            <div className='flex flex-wrap gap-2 text-xs font-mono text-muted mb-4'>
-              {['Frontend UI', 'Product thinking', 'Search & auth', 'Complex state', 'Accessible UX', 'AI products'].map((item) => (
-                <span key={item} className='border border-border px-2.5 py-1.5 bg-surface/40'>{item}</span>
-              ))}
-            </div>
-            <div className='flex gap-3 flex-wrap'>
-              <Button to='/about'>Read more</Button>
-              <Button href='/Dikeh_Daniel_Frontend_Engineer_Resume.pdf' download variant='secondary'>Resume</Button>
-            </div>
-          </FadeIn>
         </div>
 
-        <FadeIn show={imgVisible} direction='right' className='w-full lg:w-2/5 flex justify-center lg:justify-end'>
-          <div ref={imgRef} className='relative'>
-            <div className='absolute inset-3 border border-accent/15 pointer-events-none' aria-hidden='true' />
-            <img
-              src={secHeroImg}
-              className='w-72 sm:w-80 lg:w-96 relative z-10 animate-float ring-1 ring-border'
-              alt='Dikeh Daniel portrait'
-              width={384}
-              height={384}
-            />
+        <div>
+          <h2 className='text-4xl font-bold leading-[1.02] md:text-6xl'>About me</h2>
+          <div className='mt-8 flex max-w-[36rem] flex-col gap-5 font-serif text-lg leading-relaxed text-ink/80 md:text-xl'>
+            <p className='text-2xl leading-snug text-ink md:text-[1.7rem]'>
+              I’m a frontend developer building clear, performant interfaces for products and businesses.
+            </p>
+            <p>
+              I’ve shipped 10 live projects across music, finance, community platforms, and e-commerce, all designed and
+              built with React, TypeScript, and modern web tooling.
+            </p>
+            <p>
+              I care about product thinking as much as code quality: responsive layouts, accessible UX, thoughtful
+              interactions, and fast delivery. A website should not just look good. It should help people take action.
+            </p>
           </div>
-        </FadeIn>
+          <div className='mt-9 flex flex-wrap gap-3'>
+            <Button to='/about'>Read more</Button>
+            <Button href={SITE.resume} download variant='secondary'>Download resume</Button>
+          </div>
+        </div>
       </div>
     </section>
   )

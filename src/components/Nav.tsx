@@ -1,30 +1,24 @@
+// src/components/Nav.tsx
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
-import logoImg from '../assets/logoimg.png'
 import { Link, useLocation } from 'react-router-dom'
-
-const RESUME_PATH = '/Dikeh_Daniel_Frontend_Engineer_Resume.pdf'
+import logoImg from '../assets/logoimg.png'
+import { SITE } from '../data/site'
 
 const NAV_LINKS = [
-  { label: 'Home', path: '/' },
   { label: 'Projects', path: '/projects' },
   { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' },
 ]
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const menuRef = useRef<HTMLDivElement>(null)
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20)
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -36,124 +30,111 @@ export default function Nav() {
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  // Focus trap for mobile menu
   useEffect(() => {
-    if (!isMenuOpen || !menuRef.current) return
-    const focusable = menuRef.current.querySelectorAll<HTMLElement>('a, button')
-    focusable[0]?.focus()
+    if (!isMenuOpen) return
+    menuRef.current?.querySelector<HTMLElement>('a')?.focus()
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsMenuOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [isMenuOpen])
 
-  const isActive = (path: string) =>
-    path === '/' ? pathname === '/' : pathname.startsWith(path)
+  const isActive = (path: string) => pathname.startsWith(path)
 
   return (
     <>
       <a href='#main-content' className='skip-link'>Skip to content</a>
 
-      <div
-        className='scroll-progress'
-        style={{ width: `${scrollProgress}%` }}
-        aria-hidden='true'
-      />
-
-      <nav
-        className={`py-3.5 px-4 md:px-16 lg:px-16 xl:px-32 2xl:px-44 fixed top-0 left-0 right-0 z-50 ${scrolled ? 'nav-scrolled' : 'nav-default'}`}
-        aria-label='Main navigation'
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          scrolled || isMenuOpen
+            ? 'border-b border-line bg-paper/85 backdrop-blur-md'
+            : 'border-b border-transparent bg-transparent'
+        }`}
       >
-        <div className='text-white flex justify-between items-center'>
-          <Link
-            to='/'
-            className='flex items-center gap-2.5 font-mono font-bold text-sm hover:text-accent transition-colors duration-200'
-            aria-label='Dikeh Daniel — Home'
-          >
-            <img src={logoImg} className='w-7 h-7' alt='' />
-            <span>Dikeh<span className='text-accent'>.</span></span>
+        <nav className='wrap flex h-[72px] items-center justify-between' aria-label='Main navigation'>
+          <Link to='/' className='flex items-center gap-3' aria-label={`${SITE.name} — home`}>
+            <img src={logoImg} className='h-8 w-auto' alt='' width={30} height={32} />
+            <span className='font-display text-lg font-semibold tracking-tight'>{SITE.name}</span>
           </Link>
 
-          {/* Desktop */}
-          <div className='hidden md:flex items-center gap-8'>
-            <span className='flex items-center gap-2 text-xs text-muted'>
-              <span className='otw-dot' aria-hidden='true' />
-              Available for work
-            </span>
-
-            <ul className='flex gap-7' role='list'>
+          <div className='hidden items-center gap-8 md:flex'>
+            <ul className='flex items-center gap-8'>
               {NAV_LINKS.map(({ label, path }) => (
                 <li key={path}>
                   <Link
                     to={path}
-                    className={`nav-link ${isActive(path) ? 'active text-accent' : 'text-white/90 hover:text-accent'} transition-colors duration-200`}
+                    aria-current={isActive(path) ? 'page' : undefined}
+                    className={`text-[0.95rem] font-medium underline-offset-[10px] decoration-2 transition-colors hover:text-accent ${
+                      isActive(path) ? 'text-accent underline' : 'text-ink'
+                    }`}
                   >
-                    <span className='text-accent/70 mr-0.5'>#</span>{label.toLowerCase()}
+                    {label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={SITE.resume}
+                  download
+                  className='text-[0.95rem] font-medium text-ink transition-colors hover:text-accent'
+                >
+                  Resume
+                </a>
+              </li>
             </ul>
-
-            <a
-              href={RESUME_PATH}
-              download
-              className='text-xs font-medium px-4 py-2 ring-1 ring-accent text-white hover:bg-accent transition-all duration-300 btn-lift whitespace-nowrap'
+            <Link
+              to='/contact'
+              className='rounded-full bg-ink px-5 py-2.5 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-accent'
             >
-              Resume
-            </a>
+              Get in touch
+            </Link>
           </div>
 
-          {/* Mobile toggle */}
           <button
-            onClick={() => setIsMenuOpen(v => !v)}
-            className='md:hidden text-white hover:text-accent transition-colors p-2 -mr-2'
+            onClick={() => setIsMenuOpen((v) => !v)}
+            className='-mr-2 p-2 md:hidden'
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
             aria-controls='mobile-menu'
           >
-            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div
-          className='fixed inset-0 z-40 md:hidden menu-backdrop'
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden='true'
-        />
-      )}
       <div
         id='mobile-menu'
         ref={menuRef}
-        className={`fixed inset-y-0 right-0 w-[min(320px,85vw)] bg-canvas border-l border-border z-50 md:hidden transition-transform duration-300 ease-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed inset-0 z-40 bg-paper pt-[72px] transition-opacity duration-200 md:hidden ${
+          isMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
         aria-hidden={!isMenuOpen}
+        {...(!isMenuOpen ? { inert: true } : {})}
       >
-        <div className='flex flex-col h-full pt-20 px-8 pb-8'>
-          <ul className='flex flex-col gap-6' role='list'>
-            {NAV_LINKS.map(({ label, path }) => (
-              <li key={path}>
+        <div className='wrap flex h-full flex-col pb-10 pt-8'>
+          <ul className='flex flex-col'>
+            {[{ label: 'Home', path: '/' }, ...NAV_LINKS, { label: 'Contact', path: '/contact' }].map(({ label, path }) => (
+              <li key={path} className='border-b border-line'>
                 <Link
                   to={path}
-                  className={`font-mono text-2xl transition-colors duration-200 ${isActive(path) ? 'text-accent' : 'text-white hover:text-accent'}`}
+                  className={`block py-5 font-display text-4xl font-bold tracking-tight ${
+                    (path === '/' ? pathname === '/' : isActive(path)) ? 'text-accent' : 'text-ink'
+                  }`}
                 >
-                  <span className='text-accent/70'>#</span>{label.toLowerCase()}
+                  {label}
                 </Link>
               </li>
             ))}
-            <li className='pt-4 border-t border-border'>
-              <a
-                href={RESUME_PATH}
-                download
-                className='font-mono text-lg text-muted hover:text-accent transition-colors duration-200'
-              >
-                <span className='text-accent/70'>#</span>resume
+            <li>
+              <a href={SITE.resume} download className='block py-5 font-display text-4xl font-bold tracking-tight'>
+                Resume
               </a>
             </li>
           </ul>
-          <div className='mt-auto'>
-            <span className='flex items-center gap-2 text-sm text-muted'>
-              <span className='otw-dot' aria-hidden='true' />
-              Open to work
-            </span>
-          </div>
+          <p className='mt-auto flex items-center gap-2.5 text-muted'>
+            <span className='status-dot' aria-hidden='true' />
+            Open to freelance work and full-time roles
+          </p>
         </div>
       </div>
     </>

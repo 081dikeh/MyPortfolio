@@ -1,7 +1,8 @@
+// src/components/common/Button.tsx
 import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 
-type Variant = 'primary' | 'secondary' | 'ghost'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'light'
 
 interface ButtonProps {
   children: ReactNode
@@ -17,9 +18,11 @@ interface ButtonProps {
 }
 
 const variants: Record<Variant, string> = {
-  primary: 'text-white ring-1 ring-accent hover:bg-accent',
-  secondary: 'text-muted ring-1 ring-border hover:ring-accent hover:text-white',
-  ghost: 'text-accent hover:text-white ring-1 ring-transparent hover:ring-accent/50',
+  primary: 'bg-ink text-paper hover:bg-accent',
+  secondary: 'text-ink ring-1 ring-inset ring-ink/25 hover:ring-ink hover:bg-ink/[0.04]',
+  ghost: 'text-ink hover:bg-ink/[0.06]',
+  // for use on dark panels
+  light: 'bg-paper text-ink hover:bg-white',
 }
 
 export default function Button({
@@ -34,7 +37,7 @@ export default function Button({
   disabled,
   onClick,
 }: ButtonProps) {
-  const base = `inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium transition-all duration-300 btn-lift ${variants[variant]} ${className}`
+  const base = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-semibold transition-colors duration-200 ${variants[variant]} ${className}`
 
   if (to) {
     return (
@@ -59,7 +62,12 @@ export default function Button({
   }
 
   return (
-    <button type={type} disabled={disabled} onClick={onClick} className={`${base} disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none`}>
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={`${base} disabled:cursor-not-allowed disabled:opacity-50`}
+    >
       {children}
     </button>
   )
