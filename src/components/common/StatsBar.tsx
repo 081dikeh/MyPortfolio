@@ -1,5 +1,4 @@
-import FadeIn from './FadeIn'
-
+// src/components/common/StatsBar.tsx
 interface Stat {
   value: string | number
   label: string
@@ -7,21 +6,19 @@ interface Stat {
 
 interface StatsBarProps {
   stats: Stat[]
+  // Accepted so older call sites keep compiling; no longer used.
   show?: boolean
 }
 
-export default function StatsBar({ stats, show = true }: StatsBarProps) {
+export default function StatsBar({ stats }: StatsBarProps) {
   return (
-    <FadeIn show={show} direction='up' className='flex flex-wrap gap-6 sm:gap-8 mb-2'>
+    <dl className='grid max-w-xl grid-cols-3 border-y border-line'>
       {stats.map((stat, i) => (
-        <div key={stat.label} className='flex items-center gap-6 sm:gap-8'>
-          {i > 0 && <div className='w-px h-10 bg-border hidden sm:block' />}
-          <div className='flex flex-col'>
-            <span className='text-3xl sm:text-4xl font-bold text-accent tabular-nums'>{stat.value}</span>
-            <span className='text-xs text-muted mt-0.5'>{stat.label}</span>
-          </div>
+        <div key={stat.label} className={`py-5 ${i > 0 ? 'border-l border-line pl-5 sm:pl-8' : ''}`}>
+          <dd className='font-display text-4xl font-bold tracking-tight tabular-nums md:text-5xl'>{stat.value}</dd>
+          <dt className='mt-1 text-sm text-muted'>{stat.label}</dt>
         </div>
       ))}
-    </FadeIn>
+    </dl>
   )
 }

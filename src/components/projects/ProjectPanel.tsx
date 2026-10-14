@@ -1,20 +1,20 @@
 // src/components/projects/ProjectPanel.tsx
 import { projects, type Project } from '../../data/projects'
-import { TONES } from '../../data/tones'
+import { PALETTE } from '../../data/palette'
 
-// Each project sits on one colour from the sol-fa scale, in list order.
+// Each project sits on one colour from the logo palette, in list order.
 // The offset starts the featured project on orange.
 export function projectTone(project: Project) {
   const index = Math.max(0, projects.findIndex((p) => p.id === project.id))
-  return TONES[(index + 4) % TONES.length]
+  return PALETTE[(index + 4) % PALETTE.length]
 }
 
 export default function ProjectPanel({ project, large = false }: { project: Project; large?: boolean }) {
-  const tone = projectTone(project)
+  const { color } = projectTone(project)
   return (
     <div
       className={`relative overflow-hidden rounded-[1.75rem] ${large ? 'aspect-[16/9] md:rounded-[2.25rem]' : 'aspect-[16/10]'}`}
-      style={{ backgroundColor: tone.color }}
+      style={{ backgroundColor: color }}
     >
       <img
         src={project.image}

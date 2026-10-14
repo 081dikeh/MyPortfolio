@@ -1,20 +1,28 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
+
+// Colours come from CSS variables (see src/index.css) so the whole site
+// switches between light and dark by changing one class on <html>.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`
+
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        paper: '#F4F6F2',
-        ink: '#14202B',
-        muted: '#55616D',
-        line: '#D9DED7',
-        accent: '#17705F',
-        // Semantic aliases, so any older class names still resolve
-        canvas: '#F4F6F2',
-        surface: '#FFFFFF',
-        border: '#D9DED7',
-        error: '#B93425',
+        paper: token('paper'),
+        ink: token('ink'),
+        muted: token('muted'),
+        line: token('line'),
+        accent: token('accent'),
+        surface: token('surface'),
+        panel: token('panel'),
+        'on-panel': token('on-panel'),
+        error: token('error'),
+        // Older names, so any leftover classes still resolve
+        canvas: token('paper'),
+        border: token('line'),
       },
       fontFamily: {
         sans: ['"Bricolage Grotesque Variable"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -38,10 +46,6 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.97)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
-        dotPulse: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(34,160,90,0.45)' },
-          '50%': { boxShadow: '0 0 0 5px rgba(34,160,90,0)' },
-        },
       },
       animation: {
         'fade-in-up': 'riseIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
@@ -50,7 +54,6 @@ export default {
         'fade-in-right': 'riseIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'scale-in': 'scaleIn 0.45s cubic-bezier(0.16,1,0.3,1) forwards',
-        'dot-pulse': 'dotPulse 2.4s ease-in-out infinite',
       },
     },
   },

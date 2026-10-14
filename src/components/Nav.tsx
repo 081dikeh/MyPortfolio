@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../assets/logoimg.png'
 import { SITE } from '../data/site'
+import ThemeToggle from './ThemeToggle'
 
 const NAV_LINKS = [
   { label: 'Projects', path: '/projects' },
@@ -13,11 +14,17 @@ const NAV_LINKS = [
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const progressRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8)
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const ratio = docHeight > 0 ? Math.min(window.scrollY / docHeight, 1) : 0
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${ratio})`
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -38,11 +45,17 @@ export default function Nav() {
     return () => window.removeEventListener('keydown', onKey)
   }, [isMenuOpen])
 
-  const isActive = (path: string) => pathname.startsWith(path)
+  const isActive = (path: string) => (path === '/' ? pathname === '/' : pathname.startsWith(path))
 
   return (
     <>
       <a href='#main-content' className='skip-link'>Skip to content</a>
+
+      <div
+        ref={progressRef}
+        className='fixed inset-x-0 top-0 z-[60] h-[3px] origin-left scale-x-0 bg-accent'
+        aria-hidden='true'
+      />
 
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
@@ -57,8 +70,8 @@ export default function Nav() {
             <span className='font-display text-lg font-semibold tracking-tight'>{SITE.name}</span>
           </Link>
 
-          <div className='hidden items-center gap-8 md:flex'>
-            <ul className='flex items-center gap-8'>
+          <div className='flex items-center gap-1 md:gap-3'>
+            <ul className='hidden items-center gap-8 pr-4 md:flex'>
               {NAV_LINKS.map(({ label, path }) => (
                 <li key={path}>
                   <Link
@@ -82,23 +95,26 @@ export default function Nav() {
                 </a>
               </li>
             </ul>
+
+            <ThemeToggle />
+
             <Link
               to='/contact'
-              className='rounded-full bg-ink px-5 py-2.5 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-accent'
+              className='ml-1 hidden rounded-full bg-ink px-5 py-2.5 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-accent md:inline-block'
             >
               Get in touch
             </Link>
-          </div>
 
-          <button
-            onClick={() => setIsMenuOpen((v) => !v)}
-            className='-mr-2 p-2 md:hidden'
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
-            aria-controls='mobile-menu'
-          >
-            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
+            <button
+              onClick={() => setIsMenuOpen((v) => !v)}
+              className='-mr-2 p-2 md:hidden'
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls='mobile-menu'
+            >
+              {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -118,7 +134,7 @@ export default function Nav() {
                 <Link
                   to={path}
                   className={`block py-5 font-display text-4xl font-bold tracking-tight ${
-                    (path === '/' ? pathname === '/' : isActive(path)) ? 'text-accent' : 'text-ink'
+                    isActive(path) ? 'text-accent' : 'text-ink'
                   }`}
                 >
                   {label}

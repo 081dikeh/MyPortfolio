@@ -14,7 +14,7 @@ export default function Projects() {
     <section id='projects' className='wrap scroll-mt-20 py-section'>
       <SectionHeading
         title='Projects'
-        subtitle='A notation editor, a choir library, and the other things I’ve shipped.'
+        subtitle='Products and interfaces I’ve designed, built, and shipped.'
         action={<Link to='/projects' className='text-link font-medium'>See all {total}</Link>}
       />
 

@@ -1,17 +1,23 @@
 // src/pages/ProjectsPage.tsx
-import { featuredProject, otherProjects } from '../data/projects'
+import { featuredProject, otherProjects, projects } from '../data/projects'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectCard from '../components/projects/ProjectCard'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 
 export default function ProjectsPage() {
+  usePageMetadata({
+    title: 'Projects | Dikeh Daniel, Frontend Engineer',
+    description: 'Explore web applications and product projects built by Dikeh Daniel, including music, finance, e-commerce, and community platforms.',
+  })
+
   return (
     <PageLayout className='pb-section pt-32 md:pt-40'>
       <SectionHeading
-        as='h1'
+        headingLevel='h1'
         title='Projects'
-        subtitle={`${otherProjects.length + 1} projects. All live, all built solo.`}
+        subtitle={`${projects.length} projects. All live, all built solo.`}
       />
 
       <FeaturedProject project={featuredProject} />

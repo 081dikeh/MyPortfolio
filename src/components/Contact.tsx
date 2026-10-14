@@ -1,29 +1,28 @@
 // src/components/Contact.tsx
 import { Github, Linkedin } from 'lucide-react'
 import { SITE } from '../data/site'
-import { TONES } from '../data/tones'
+import { PALETTE } from '../data/palette'
 import Button from './common/Button'
 
 export default function Contact() {
   return (
     <section id='contact' className='wrap scroll-mt-20'>
-      <div className='on-dark relative overflow-hidden rounded-[2rem] bg-ink px-6 py-14 text-paper md:rounded-[2.5rem] md:px-14 md:py-20'>
+      <div className='on-panel relative overflow-hidden rounded-[2rem] bg-panel px-6 py-14 text-on-panel md:rounded-[2.5rem] md:px-14 md:py-20'>
         <div aria-hidden='true' className='absolute inset-x-0 top-0 flex h-2'>
-          {TONES.map((t, i) => (
-            <span key={i} className='flex-1' style={{ backgroundColor: t.color }} />
+          {PALETTE.map((p) => (
+            <span key={p.name} className='flex-1' style={{ backgroundColor: p.color }} />
           ))}
         </div>
 
-        <h2 className='max-w-4xl text-4xl font-bold leading-[1] md:text-7xl'>
-          Have a project or a role in mind?
-        </h2>
-        <p className='mt-6 max-w-xl font-serif text-xl leading-relaxed text-paper/75'>
-          I’m open to freelance work and full-time frontend roles. Send a message and I’ll reply within 24 hours.
+        <h2 className='max-w-4xl text-4xl font-bold leading-[1] md:text-7xl'>Have a project in mind? Let’s talk.</h2>
+        <p className='mt-6 max-w-xl font-serif text-xl leading-relaxed text-on-panel/75'>
+          I’m actively seeking freelance opportunities and full-time frontend roles. Whether you have a specific
+          project, a question, or just want to say hi, my inbox is always open.
         </p>
 
         <a
           href={`mailto:${SITE.email}`}
-          className='mt-10 inline-block break-all font-display text-2xl font-semibold underline decoration-paper/40 decoration-2 underline-offset-8 transition-colors hover:decoration-paper md:text-4xl'
+          className='mt-10 inline-block break-all font-display text-2xl font-semibold underline decoration-on-panel/40 decoration-2 underline-offset-8 transition-colors hover:decoration-on-panel md:text-4xl'
         >
           {SITE.email}
         </a>
@@ -34,7 +33,7 @@ export default function Contact() {
             href={SITE.linkedin}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold ring-1 ring-inset ring-paper/30 transition-colors hover:ring-paper'
+            className='inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold ring-1 ring-inset ring-on-panel/30 transition-colors hover:ring-on-panel'
           >
             <Linkedin size={17} aria-hidden='true' /> LinkedIn
           </a>
@@ -42,7 +41,7 @@ export default function Contact() {
             href={SITE.github}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold ring-1 ring-inset ring-paper/30 transition-colors hover:ring-paper'
+            className='inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold ring-1 ring-inset ring-on-panel/30 transition-colors hover:ring-on-panel'
           >
             <Github size={17} aria-hidden='true' /> GitHub
           </a>

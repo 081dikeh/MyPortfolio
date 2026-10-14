@@ -19,10 +19,10 @@ interface ButtonProps {
 
 const variants: Record<Variant, string> = {
   primary: 'bg-ink text-paper hover:bg-accent',
-  secondary: 'text-ink ring-1 ring-inset ring-ink/25 hover:ring-ink hover:bg-ink/[0.04]',
+  secondary: 'text-ink ring-1 ring-inset ring-ink/30 hover:ring-ink hover:bg-ink/[0.04]',
   ghost: 'text-ink hover:bg-ink/[0.06]',
   // for use on dark panels
-  light: 'bg-paper text-ink hover:bg-white',
+  light: 'bg-on-panel text-panel hover:bg-on-panel/85',
 }
 
 export default function Button({

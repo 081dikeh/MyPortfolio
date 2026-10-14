@@ -5,15 +5,14 @@ interface SectionHeadingProps {
   title: string
   subtitle?: string
   action?: ReactNode
-  /** Use h1 on pages where this is the page title. */
-  as?: 'h1' | 'h2'
+  headingLevel?: 'h1' | 'h2'
   // Accepted so older call sites keep compiling; no longer used.
   prefix?: string
   show?: boolean
   lineWidth?: string
 }
 
-export default function SectionHeading({ title, subtitle, action, as: Tag = 'h2' }: SectionHeadingProps) {
+export default function SectionHeading({ title, subtitle, action, headingLevel: Tag = 'h2' }: SectionHeadingProps) {
   return (
     <div className='mb-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 md:mb-14'>
       <div>

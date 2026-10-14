@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser'
 import { Mail, Linkedin, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react'
 import { SITE } from '../data/site'
 import PageLayout from '../components/common/PageLayout'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 import Button from '../components/common/Button'
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined
@@ -37,6 +38,11 @@ function validate(data: FormData): FormErrors {
 }
 
 export default function ContactPage() {
+  usePageMetadata({
+    title: 'Contact Dikeh Daniel | Frontend Engineer',
+    description: 'Get in touch with Dikeh Daniel about frontend engineering roles, freelance projects, or product collaborations.',
+  })
+
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', title: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({})
@@ -103,7 +109,7 @@ export default function ContactPage() {
   }
 
   const fieldClass = (field: keyof FormData) =>
-    `w-full rounded-xl border-[1.5px] bg-white px-4 py-3.5 text-base text-ink placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/15 ${
+    `w-full rounded-xl border-[1.5px] bg-surface px-4 py-3.5 text-base text-ink placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/15 ${
       touched[field] && errors[field] ? 'border-error' : 'border-line'
     }`
 

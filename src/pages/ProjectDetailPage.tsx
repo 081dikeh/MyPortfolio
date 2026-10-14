@@ -7,6 +7,7 @@ import StackPills from '../components/StackPills'
 import Button from '../components/common/Button'
 import FadeIn from '../components/common/FadeIn'
 import ProjectPanel from '../components/projects/ProjectPanel'
+import { usePageMetadata } from '../hooks/usePageMetadata'
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -20,6 +21,11 @@ function Block({ title, children }: { title: string; children: React.ReactNode }
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>()
   const project = projects.find((p) => p.slug === slug)
+
+  usePageMetadata({
+    title: project ? `${project.title} | Projects by Dikeh Daniel` : 'Project not found | Dikeh Daniel',
+    description: project?.subtitle ?? 'Explore web projects by Dikeh Daniel, a frontend engineer based in Lagos, Nigeria.',
+  })
 
   // Unknown slug: send visitors back to the projects list instead of a broken page.
   if (!project) return <Navigate to='/projects' replace />

@@ -3,6 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Colour tokens, as "R G B" so Tailwind opacity modifiers (text-ink/70) work. */
+:root {
+  --paper: 244 246 242;
+  --ink: 20 32 43;
+  --muted: 85 97 109;
+  --line: 217 222 215;
+  --accent: 23 112 95;
+  --surface: 255 255 255;
+  --panel: 20 32 43;
+  --on-panel: 244 246 242;
+  --error: 185 52 37;
+}
+
+.dark {
+  --paper: 14 21 27;
+  --ink: 233 238 240;
+  --muted: 154 167 178;
+  --line: 36 50 64;
+  --accent: 79 195 172;
+  --surface: 21 32 42;
+  --panel: 24 37 49;
+  --on-panel: 233 238 240;
+  --error: 255 138 122;
+}
+
 @layer base {
   html {
     font-size: 16px;
@@ -30,11 +55,11 @@
   input, textarea { font-family: inherit; font-size: inherit; }
 
   :focus-visible {
-    outline: 3px solid #17705F;
+    outline: 3px solid rgb(var(--accent));
     outline-offset: 3px;
     border-radius: 4px;
   }
-  .on-dark :focus-visible { outline-color: #F4F6F2; }
+  .on-panel :focus-visible { outline-color: rgb(var(--on-panel)); }
 
   ::selection { background: #EE8A3F; color: #14202B; }
 }
@@ -50,8 +75,8 @@
     left: 1rem;
     z-index: 100;
     padding: 0.75rem 1.25rem;
-    background: #14202B;
-    color: #F4F6F2;
+    background: rgb(var(--ink));
+    color: rgb(var(--paper));
     font-weight: 600;
     border-radius: 999px;
   }
@@ -60,7 +85,7 @@
   /* Route change: a short fade only */
   .page-enter { animation: pageIn 0.3s ease-out both; }
 
-  /* Underlined text link that fills on hover */
+  /* Underlined text link that thickens on hover */
   .text-link {
     background-image: linear-gradient(currentColor, currentColor);
     background-repeat: no-repeat;
@@ -80,6 +105,14 @@
     background: #22A05A;
     animation: dotPulse 2.4s ease-in-out infinite;
   }
+}
+
+/* Applied for a moment when the theme is switched, so colours ease over. */
+.theme-fade,
+.theme-fade *,
+.theme-fade *::before,
+.theme-fade *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease !important;
 }
 
 @keyframes pageIn {
