@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage'
 import ProjectsPage from '../pages/ProjectsPage'
 import ProjectDetailPage from '../pages/ProjectDetailPage'
 import AboutPage from '../pages/AboutPage'
+import MusicPage from '../pages/MusicPage'
 import ContactPage from '../pages/ContactPage'
 
 export default function AppRoutes() {
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       <Route path='/projects' element={<ProjectsPage />} />
       <Route path='/projects/:slug' element={<ProjectDetailPage />} />
       <Route path='/about' element={<AboutPage />} />
+      <Route path='/music' element={<MusicPage />} />
       <Route path='/contact' element={<ContactPage />} />
       {/* Legacy route redirects */}
       <Route path='/aboutme' element={<Navigate to='/about' replace />} />

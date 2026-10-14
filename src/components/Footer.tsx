@@ -15,9 +15,10 @@ export default function Footer() {
       <div className='wrap flex flex-col gap-8 py-10 md:flex-row md:items-center md:justify-between'>
         <p className='text-sm text-muted'>© {new Date().getFullYear()} {SITE.name}</p>
 
-        <nav className='flex items-center gap-7 text-sm font-medium' aria-label='Footer navigation'>
+        <nav className='flex flex-wrap items-center gap-x-7 gap-y-2 text-sm font-medium' aria-label='Footer navigation'>
           <Link to='/projects' className='transition-colors hover:text-accent'>Projects</Link>
           <Link to='/about' className='transition-colors hover:text-accent'>About</Link>
+          <Link to='/music' className='transition-colors hover:text-accent'>Music &amp; notation</Link>
           <Link to='/contact' className='transition-colors hover:text-accent'>Contact</Link>
         </nav>
 
