@@ -11,7 +11,7 @@ const TAGS = [
   { label: 'React', style: 'bg-sun text-[#14202B]' },
   { label: 'Next.js', style: 'bg-ink text-paper' },
   { label: 'TypeScript', style: 'bg-ink/10 text-ink' },
-  { label: 'Supabase', style: 'bg-sun text-[#14202B]' },
+  { label: 'JavaScript', style: 'bg-sun text-[#14202B]' },
 ]
 
 // The portrait is visible above the disk's centre line, but below it only inside the circle,
@@ -75,7 +75,7 @@ export default function Hero() {
             <FadeIn delay={410}>
               <ul className='mt-10 flex flex-wrap gap-2.5' aria-label='Main technologies'>
                 {TAGS.map(({ label, style }) => (
-                  <li key={label} className={`rounded-xl px-4 py-2 font-display text-base font-medium md:text-lg ${style}`}>
+                  <li key={label} className={` px-4 py-2 font-display text-base font-medium md:text-lg ${style}`}>
                     {label}
                   </li>
                 ))}
