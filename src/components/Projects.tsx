@@ -1,5 +1,6 @@
 // src/components/Projects.tsx
 import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 import { featuredProject, otherProjects } from '../data/projects'
 import SectionHeading from './common/SectionHeading'
 import FeaturedProject from './projects/FeaturedProject'
@@ -15,7 +16,14 @@ export default function Projects() {
       <SectionHeading
         title='Projects'
         subtitle='Products and interfaces I’ve designed, built, and shipped.'
-        action={<Link to='/projects' className='text-link font-medium'>See all {total}</Link>}
+        action={
+          <Link to='/projects' className='group inline-flex items-center gap-3 font-medium'>
+            All projects
+            <span className='grid h-10 w-10 place-items-center rounded-xl bg-panel text-on-panel transition-transform duration-200 group-hover:-translate-y-0.5'>
+              <ArrowUpRight size={18} aria-hidden='true' />
+            </span>
+          </Link>
+        }
       />
 
       <FeaturedProject project={featuredProject} />

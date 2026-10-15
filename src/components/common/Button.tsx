@@ -1,5 +1,6 @@
 // src/components/common/Button.tsx
 import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'light'
@@ -14,6 +15,8 @@ interface ButtonProps {
   className?: string
   type?: 'button' | 'submit'
   disabled?: boolean
+  /** Adds an arrow that slides right on hover. */
+  arrow?: boolean
   onClick?: () => void
 }
 
@@ -35,14 +38,21 @@ export default function Button({
   className = '',
   type = 'button',
   disabled,
+  arrow,
   onClick,
 }: ButtonProps) {
-  const base = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-semibold transition-colors duration-200 ${variants[variant]} ${className}`
+  const base = `group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-semibold transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 active:translate-y-0 ${variants[variant]} ${className}`
+  const content = (
+    <>
+      {children}
+      {arrow && <ArrowRight size={17} aria-hidden='true' className='transition-transform duration-200 group-hover:translate-x-1' />}
+    </>
+  )
 
   if (to) {
     return (
       <Link to={to} className={base}>
-        {children}
+        {content}
       </Link>
     )
   }
@@ -56,7 +66,7 @@ export default function Button({
         rel={external ? 'noopener noreferrer' : undefined}
         className={base}
       >
-        {children}
+        {content}
       </a>
     )
   }
@@ -68,7 +78,7 @@ export default function Button({
       onClick={onClick}
       className={`${base} disabled:cursor-not-allowed disabled:opacity-50`}
     >
-      {children}
+      {content}
     </button>
   )
 }

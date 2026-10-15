@@ -18,6 +18,7 @@ export default {
         accent: token('accent'),
         surface: token('surface'),
         panel: token('panel'),
+        sun: token('sun'),
         'on-panel': token('on-panel'),
         error: token('error'),
         // Older names, so any leftover classes still resolve
@@ -42,17 +43,27 @@ export default {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-7px)' },
+        },
+        bandShift: {
+          '0%, 100%': { backgroundPosition: '0% 0%' },
+          '50%': { backgroundPosition: '100% 100%' },
+        },
         scaleIn: {
           '0%': { opacity: '0', transform: 'scale(0.97)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
       },
       animation: {
-        'fade-in-up': 'riseIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
+        'fade-in-up': 'riseIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
         'fade-in-down': 'fadeIn 0.5s ease-out forwards',
         'fade-in-left': 'riseIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
         'fade-in-right': 'riseIn 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
+        float: 'float 9s ease-in-out infinite',
+        'band-shift': 'bandShift 16s ease-in-out infinite',
         'scale-in': 'scaleIn 0.45s cubic-bezier(0.16,1,0.3,1) forwards',
       },
     },
