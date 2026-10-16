@@ -1,5 +1,6 @@
 // src/pages/MusicPage.tsx
 import { Link } from 'react-router-dom'
+import musicPortrait from '../assets/music-portrait.webp'
 import { projects } from '../data/projects'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
@@ -50,16 +51,36 @@ export default function MusicPage() {
 
   return (
     <PageLayout className='pb-section pt-32 md:pt-40'>
-      <SectionHeading
-        headingLevel='h1'
-        title='Music & notation products'
-        subtitle='A specialization alongside my general frontend work: web software for musicians, choirs, and worship teams.'
-      />
+      <div className='grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16'>
+        <div>
+          <SectionHeading
+            headingLevel='h1'
+            title='Music & notation products'
+            subtitle='A specialization alongside my general frontend work: web software for musicians, choirs, and worship teams.'
+          />
 
-      <p className='max-w-[38rem] font-serif text-xl leading-relaxed text-ink/80 md:text-2xl md:leading-snug'>
-        Most of my work is general frontend engineering. Music is the area where I go deepest, building notation
-        editors, choir libraries, and tools that help worship teams write, arrange, and share music.
-      </p>
+          <p className='max-w-[38rem] font-serif text-xl leading-relaxed text-ink/80 md:text-2xl md:leading-snug'>
+            Most of my work is general frontend engineering. Music is the area where I go deepest, building notation
+            editors, choir libraries, and tools that help worship teams write, arrange, and share music.
+          </p>
+        </div>
+
+        <div className='relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] bg-[#5B83BE] lg:max-w-none'>
+          {/* five staff lines above the portrait */}
+          <div aria-hidden='true' className='absolute inset-x-0 top-[13%]'>
+            {[0, 1, 2, 3, 4].map((n) => (
+              <div key={n} className='mb-[1.1rem] h-px bg-white/45' />
+            ))}
+          </div>
+          <img
+            src={musicPortrait}
+            alt='Dikeh Daniel'
+            width={770}
+            height={627}
+            className='absolute bottom-0 left-1/2 w-[112%] max-w-none -translate-x-1/2'
+          />
+        </div>
+      </div>
 
       <section className='mt-section' aria-labelledby='music-areas'>
         <h2 id='music-areas' className='mb-8 text-3xl font-bold md:text-4xl'>What I build</h2>
