@@ -5,6 +5,8 @@ import { projects } from '../data/projects'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import Button from '../components/common/Button'
+import SolfaPlayground from '../components/music/SolfaPlayground'
+import StaffDivider from '../components/music/StaffDivider'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectCard from '../components/projects/ProjectCard'
 import { usePageMetadata } from '../hooks/usePageMetadata'
@@ -82,6 +84,14 @@ export default function MusicPage() {
         </div>
       </div>
 
+      <section className='mt-section' aria-labelledby='music-play'>
+        <h2 id='music-play' className='text-3xl font-bold md:text-4xl'>Play with tonic sol-fa</h2>
+        <p className='mb-8 mt-3 max-w-xl font-serif text-lg text-muted md:text-xl'>
+          Sol-fa names the notes of a scale: do, re, mi, and so on. Play a few, or let it play a tune.
+        </p>
+        <SolfaPlayground />
+      </section>
+
       <section className='mt-section' aria-labelledby='music-areas'>
         <h2 id='music-areas' className='mb-8 text-3xl font-bold md:text-4xl'>What I build</h2>
         <ul className='border-t border-line'>
@@ -130,7 +140,10 @@ export default function MusicPage() {
         )}
       </section>
 
-      <section className='mt-section border-t border-line pt-12'>
+      <section className='mt-section'>
+        <div className='mb-12'>
+          <StaffDivider />
+        </div>
         <h2 className='max-w-2xl text-3xl font-bold md:text-4xl'>Building something for musicians or a choir?</h2>
         <p className='mt-4 max-w-xl font-serif text-xl leading-relaxed text-ink/75'>
           Tell me what you have in mind and I’ll reply within 24 hours.
