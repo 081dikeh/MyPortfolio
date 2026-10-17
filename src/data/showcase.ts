@@ -2,16 +2,14 @@
 import { projects, type Project } from './projects'
 
 // The order projects appear in across the site. Edit this list to reorder them.
-// It interleaves different kinds of work, so the first screen shows range:
-// a dashboard, a complex editor, a community portal, e-commerce, and a booking platform.
 const ORDER = [
-  'fina-dashboard',
   'faithscore',
+  'faithlibrary',
+  'fina-dashboard',
   'st-william-parish',
+  'faithbeat',
   'furnidan',
   'metabnb',
-  'faithlibrary',
-  'faithbeat',
   'danid-shop',
   'tefem',
   'portfolio',
