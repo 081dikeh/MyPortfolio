@@ -1,21 +1,22 @@
 // src/components/Projects.tsx
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
-import { featuredProject, otherProjects } from '../data/projects'
+import { showcase } from '../data/showcase'
 import SectionHeading from './common/SectionHeading'
 import FeaturedProject from './projects/FeaturedProject'
 import ProjectCard from './projects/ProjectCard'
 import Button from './common/Button'
 
 export default function Projects() {
-  const preview = otherProjects.slice(0, 4)
-  const total = otherProjects.length + 1
+  const [lead, ...others] = showcase
+  const preview = others.slice(0, 4)
+  const total = showcase.length
 
   return (
     <section id='projects' className='wrap scroll-mt-20 py-section'>
       <SectionHeading
         title='Projects'
-        subtitle='Products and interfaces I’ve designed, built, and shipped.'
+        subtitle='Dashboards, e-commerce, community platforms, and web apps I’ve designed, built, and shipped.'
         action={
           <Link to='/projects' className='group inline-flex items-center gap-3 font-medium'>
             All projects
@@ -26,7 +27,7 @@ export default function Projects() {
         }
       />
 
-      <FeaturedProject project={featuredProject} />
+      <FeaturedProject project={lead} />
 
       <div className='mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-x-10'>
         {preview.map((project, i) => (

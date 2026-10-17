@@ -79,7 +79,7 @@ export default function MusicPage() {
             alt='Dikeh Daniel'
             width={770}
             height={627}
-            className='absolute bottom-[10] left-1/2 w-[100%] max-w-none -translate-x-1/2'
+            className='absolute bottom-0 left-1/2 w-[112%] max-w-none -translate-x-1/2'
           />
         </div>
       </div>
@@ -130,11 +130,11 @@ export default function MusicPage() {
 
       <section className='mt-section' aria-labelledby='music-work'>
         <h2 id='music-work' className='mb-10 text-3xl font-bold md:text-4xl'>The work</h2>
-        {lead && <FeaturedProject project={lead} />}
+        {lead && <FeaturedProject project={lead} position={0} />}
         {rest.length > 0 && (
           <div className='mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-x-10'>
             {rest.map((project, i) => (
-              <ProjectCard key={project.id} project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
+              <ProjectCard key={project.id} project={project} position={i + 1} className={i % 2 === 1 ? 'md:mt-16' : ''} />
             ))}
           </div>
         )}

@@ -3,16 +3,27 @@ import { Link } from 'react-router-dom'
 import { ExternalLink, Github } from 'lucide-react'
 import type { Project } from '../../data/projects'
 import StackPills from '../StackPills'
+import { hasCaseStudy, kindOf } from '../../data/showcase'
 import ProjectPanel from './ProjectPanel'
 
-export default function ProjectCard({ project, className = '' }: { project: Project; className?: string }) {
+export default function ProjectCard({
+  project,
+  className = '',
+  position,
+}: {
+  project: Project
+  className?: string
+  position?: number
+}) {
   const caseStudy = `/projects/${project.slug}`
+  const kind = kindOf(project)
 
   return (
     <article className={`group relative ${className}`}>
-      <ProjectPanel project={project} />
+      <ProjectPanel project={project} position={position} />
 
       <div className='mt-5'>
+        {kind && <p className='mb-1.5 text-sm font-medium text-muted'>{kind}</p>}
         <h3 className='text-2xl font-bold leading-tight md:text-[1.75rem]'>
           <Link to={caseStudy} className="after:absolute after:inset-0 after:content-['']">
             {project.title}
@@ -24,7 +35,9 @@ export default function ProjectCard({ project, className = '' }: { project: Proj
         </div>
 
         <div className='relative z-10 mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.95rem] font-medium'>
-          <Link to={caseStudy} className='text-link'>View case study</Link>
+          <Link to={caseStudy} className='text-link'>
+            {hasCaseStudy(project) ? 'View case study' : 'View details'}
+          </Link>
           <a
             href={project.liveLink}
             target='_blank'

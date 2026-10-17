@@ -1,9 +1,11 @@
 // src/pages/AboutPage.tsx
+import { Link } from 'react-router-dom'
 import secHeroImg from '../assets/secHeroImg.png'
 import { SITE } from '../data/site'
 import { projects } from '../data/projects'
 import { skillGroups } from '../data/skills'
 import Skill from '../components/Skill'
+import Experience from '../components/Experience'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import StatsBar from '../components/common/StatsBar'
@@ -17,7 +19,7 @@ function Heading({ children }: { children: React.ReactNode }) {
 export default function AboutPage() {
   usePageMetadata({
     title: 'About Dikeh Daniel | Frontend Engineer',
-    description: 'Learn about Dikeh Daniel, a frontend engineer building useful web applications with React, Next.js, and TypeScript.',
+    description: 'Learn about Dikeh Daniel, a Lagos-based frontend engineer building useful web applications with React, Next.js, and TypeScript.',
   })
 
   const technologyCount = skillGroups.reduce((total, group) => total + group.skills.length, 0)
@@ -29,7 +31,7 @@ export default function AboutPage() {
           <SectionHeading
             headingLevel='h1'
             title='About me'
-            subtitle='Frontend Engineer · Available for full-time & freelance work'
+            subtitle='Frontend Engineer · Lagos, Nigeria · Available for full-time & freelance work'
           />
 
           <StatsBar
@@ -85,6 +87,10 @@ export default function AboutPage() {
               a good example of this. Underneath its interface are systems for musical notation, pitch and rhythm
               handling, state management, playback, and conversion between different musical representations.
             </p>
+            <p>
+              Music is a specialization of mine.{' '}
+              <Link to='/music' className='text-link font-medium text-ink'>See my music and notation work</Link>.
+            </p>
 
             <Heading>Beyond the code</Heading>
             <p>
@@ -131,6 +137,10 @@ export default function AboutPage() {
             className='absolute -bottom-[4%] left-1/2 w-[104%] max-w-none -translate-x-1/2'
           />
         </div>
+      </div>
+
+      <div className='mt-section'>
+        <Experience plain />
       </div>
 
       <div className='mt-section'>

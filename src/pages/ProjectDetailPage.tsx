@@ -2,6 +2,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Github, ExternalLink } from 'lucide-react'
 import { projects } from '../data/projects'
+import { hasCaseStudy } from '../data/showcase'
 import PageLayout from '../components/common/PageLayout'
 import StackPills from '../components/StackPills'
 import Button from '../components/common/Button'
@@ -24,15 +25,13 @@ export default function ProjectDetailPage() {
 
   usePageMetadata({
     title: project ? `${project.title} | Projects by Dikeh Daniel` : 'Project not found | Dikeh Daniel',
-    description: project?.subtitle ?? 'Explore web projects by Dikeh Daniel, a frontend engineer building useful web applications.',
+    description: project?.subtitle ?? 'Explore web projects by Dikeh Daniel, a frontend engineer based in Lagos, Nigeria.',
   })
 
   // Unknown slug: send visitors back to the projects list instead of a broken page.
   if (!project) return <Navigate to='/projects' replace />
 
-  const hasCaseStudy = Boolean(
-    project.problem || project.approach || project.result || (project.features && project.features.length > 0),
-  )
+  const hasStudy = hasCaseStudy(project)
   const prose = 'max-w-[38rem] font-serif text-lg leading-relaxed text-ink/80 md:text-xl'
 
   return (
@@ -61,56 +60,54 @@ export default function ProjectDetailPage() {
         <ProjectPanel project={project} large />
       </div>
 
-      <div className='mt-14 grid gap-12 lg:grid-cols-[1fr_17rem] lg:gap-20'>
-        <div className='flex flex-col gap-10'>
-          {hasCaseStudy ? (
-            <>
-              {project.summary && (
-                <p className='max-w-[38rem] text-2xl font-medium leading-snug tracking-tight md:text-[1.75rem]'>
-                  {project.summary}
-                </p>
-              )}
-              {project.problem && (
-                <Block title='The problem'>
-                  <p className={prose}>{project.problem}</p>
-                </Block>
-              )}
-              {project.approach && (
-                <Block title='The approach'>
-                  <p className={prose}>{project.approach}</p>
-                </Block>
-              )}
-              {project.features && project.features.length > 0 && (
-                <Block title='Key features'>
-                  <ul className='flex max-w-[38rem] flex-col gap-3'>
-                    {project.features.map((feature) => (
-                      <li key={feature} className='flex items-start gap-3 font-serif text-lg leading-relaxed text-ink/80 md:text-xl'>
-                        <span className='mt-[0.7em] h-2 w-2 shrink-0 rounded-full bg-accent' aria-hidden='true' />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </Block>
-              )}
-              {project.result && (
-                <Block title='The result'>
-                  <p className={prose}>{project.result}</p>
-                </Block>
-              )}
-            </>
-          ) : (
-            <p className={prose}>
-              A full write-up for {project.title} isn’t ready yet. You can use the live project and source code links to
-              see how it works.
-            </p>
-          )}
-        </div>
+      {hasStudy ? (
+        <div className='mt-14 grid gap-12 lg:grid-cols-[1fr_17rem] lg:gap-20'>
+          <div className='flex flex-col gap-10'>
+            {project.summary && (
+              <p className='max-w-[38rem] text-2xl font-medium leading-snug tracking-tight md:text-[1.75rem]'>
+                {project.summary}
+              </p>
+            )}
+            {project.problem && (
+              <Block title='The problem'>
+                <p className={prose}>{project.problem}</p>
+              </Block>
+            )}
+            {project.approach && (
+              <Block title='The approach'>
+                <p className={prose}>{project.approach}</p>
+              </Block>
+            )}
+            {project.features && project.features.length > 0 && (
+              <Block title='Key features'>
+                <ul className='flex max-w-[38rem] flex-col gap-3'>
+                  {project.features.map((feature) => (
+                    <li key={feature} className='flex items-start gap-3 font-serif text-lg leading-relaxed text-ink/80 md:text-xl'>
+                      <span className='mt-[0.7em] h-2 w-2 shrink-0 rounded-full bg-accent' aria-hidden='true' />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </Block>
+            )}
+            {project.result && (
+              <Block title='The result'>
+                <p className={prose}>{project.result}</p>
+              </Block>
+            )}
+          </div>
 
-        <aside className='lg:sticky lg:top-28 lg:self-start'>
+          <aside className='lg:sticky lg:top-28 lg:self-start'>
+            <h2 className='mb-4 text-xl font-bold'>Built with</h2>
+            <StackPills stack={project.stack} />
+          </aside>
+        </div>
+      ) : (
+        <section className='mt-14 border-t border-line pt-6'>
           <h2 className='mb-4 text-xl font-bold'>Built with</h2>
           <StackPills stack={project.stack} />
-        </aside>
-      </div>
+        </section>
+      )}
     </PageLayout>
   )
 }

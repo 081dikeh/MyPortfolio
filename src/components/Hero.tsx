@@ -11,7 +11,7 @@ const TAGS = [
   { label: 'React', style: 'bg-sun text-[#14202B]' },
   { label: 'Next.js', style: 'bg-ink text-paper' },
   { label: 'TypeScript', style: 'bg-ink/10 text-ink' },
-  { label: 'JavaScript', style: 'bg-sun text-[#14202B]' },
+  { label: 'Supabase', style: 'bg-sun text-[#14202B]' },
 ]
 
 // The portrait is visible above the disk's centre line, but below it only inside the circle,
@@ -59,9 +59,9 @@ export default function Hero() {
 
             <FadeIn delay={290}>
               <p className='mt-7 max-w-[34rem] font-serif text-xl leading-relaxed text-ink/80 md:text-[1.375rem]'>
-                I’m a frontend engineer in Lagos, Nigeria, focused on React, Next.js, and TypeScript. I turn complex
-                ideas into responsive, intuitive web experiences, combining thoughtful UI design with the logic that
-                makes products work.
+                I’m a frontend engineer in Lagos, Nigeria, building production web apps with React, Next.js, and
+                TypeScript. I’ve owned frontend features end to end in a reviewed team codebase, and built dashboards,
+                e-commerce sites, and complex editors on my own.
               </p>
             </FadeIn>
 
@@ -75,7 +75,7 @@ export default function Hero() {
             <FadeIn delay={410}>
               <ul className='mt-10 flex flex-wrap gap-2.5' aria-label='Main technologies'>
                 {TAGS.map(({ label, style }) => (
-                  <li key={label} className={` px-4 py-2 font-display text-base font-medium md:text-lg ${style}`}>
+                  <li key={label} className={`rounded-xl px-4 py-2 font-display text-base font-medium md:text-lg ${style}`}>
                     {label}
                   </li>
                 ))}

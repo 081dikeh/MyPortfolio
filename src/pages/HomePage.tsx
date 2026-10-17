@@ -1,6 +1,7 @@
 // src/pages/HomePage.tsx
 import Hero from '../components/Hero'
 import Projects from '../components/Projects'
+import Experience from '../components/Experience'
 import MusicTeaser from '../components/MusicTeaser'
 import Services from '../components/Services'
 import Testimonials from '../components/Testimonials'
@@ -14,10 +15,11 @@ export default function HomePage() {
     <PageLayout fullWidth>
       <Hero />
       <Projects />
-      <MusicTeaser />
+      <Experience />
       <Services />
-      <Testimonials />
       <Skills />
+      <MusicTeaser />
+      <Testimonials />
       <AboutMe />
       <Contact />
     </PageLayout>

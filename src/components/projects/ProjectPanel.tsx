@@ -1,17 +1,26 @@
 // src/components/projects/ProjectPanel.tsx
-import { projects, type Project } from '../../data/projects'
+import type { Project } from '../../data/projects'
+import { showcase } from '../../data/showcase'
 import { PALETTE } from '../../data/palette'
 
-// Each project sits on one colour from the logo palette, in list order.
-// The offset starts the featured project on orange.
-export function projectTone(project: Project) {
-  const index = Math.max(0, projects.findIndex((p) => p.id === project.id))
-  return PALETTE[(index + 4) % PALETTE.length]
+// A project's number and colour come from its place in the showcase order.
+// Pass `position` to number a smaller list (like the music page) from 01.
+export function positionOf(project: Project) {
+  return Math.max(0, showcase.findIndex((p) => p.id === project.id))
 }
 
-export default function ProjectPanel({ project, large = false }: { project: Project; large?: boolean }) {
-  const { color } = projectTone(project)
-  const number = String(Math.max(0, projects.findIndex((p) => p.id === project.id)) + 1).padStart(2, '0')
+export default function ProjectPanel({
+  project,
+  large = false,
+  position,
+}: {
+  project: Project
+  large?: boolean
+  position?: number
+}) {
+  const place = position ?? positionOf(project)
+  const color = PALETTE[(place + 4) % PALETTE.length].color
+  const number = String(place + 1).padStart(2, '0')
 
   return (
     <div className='relative'>

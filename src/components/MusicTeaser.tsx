@@ -34,11 +34,11 @@ export default function MusicTeaser() {
         <div className='relative grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16'>
           <div>
             <h2 id='music-teaser-title' className='text-4xl font-bold leading-[1.02] md:text-6xl'>
-              I specialize in software for musicians and choirs.
+              My specialty: software for musicians and choirs.
             </h2>
             <p className='mt-6 max-w-[30rem] font-serif text-xl leading-relaxed text-white/80'>
-              Alongside general frontend work, I build notation editors, choir music libraries, and tools for worship
-              teams.
+              I build all kinds of frontends. Music is the niche where I’ve gone deepest: notation editors, choir
+              libraries, and tools for worship teams.
             </p>
             <div className='mt-8'>
               <Button to='/music' variant='light' arrow>Explore music &amp; notation</Button>

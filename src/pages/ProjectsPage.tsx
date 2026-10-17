@@ -1,5 +1,5 @@
 // src/pages/ProjectsPage.tsx
-import { featuredProject, otherProjects, projects } from '../data/projects'
+import { showcase } from '../data/showcase'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import FeaturedProject from '../components/projects/FeaturedProject'
@@ -17,13 +17,13 @@ export default function ProjectsPage() {
       <SectionHeading
         headingLevel='h1'
         title='Projects'
-        subtitle={`${projects.length} projects. All live, all built solo.`}
+        subtitle={`${showcase.length} projects. All live, all built solo.`}
       />
 
-      <FeaturedProject project={featuredProject} />
+      <FeaturedProject project={showcase[0]} />
 
       <div className='mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-x-10'>
-        {otherProjects.map((project, i) => (
+        {showcase.slice(1).map((project, i) => (
           <ProjectCard key={project.id} project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
         ))}
       </div>
