@@ -79,7 +79,7 @@ export default function MusicPage() {
             alt='Dikeh Daniel'
             width={770}
             height={627}
-            className='absolute bottom-0 left-1/2 w-[112%] max-w-none -translate-x-1/2'
+            className='absolute bottom-[-10] left-1/2 w-[100%] max-w-none -translate-x-1/2'
           />
         </div>
       </div>
