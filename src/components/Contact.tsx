@@ -1,5 +1,5 @@
 // src/components/Contact.tsx
-import { Github, Linkedin } from 'lucide-react'
+import { Github, Linkedin, MapPin } from 'lucide-react'
 import { SITE } from '../data/site'
 import { PALETTE } from '../data/palette'
 import Button from './common/Button'
@@ -20,9 +20,13 @@ export default function Contact() {
           project, a question, or just want to say hi, my inbox is always open.
         </p>
 
+        <p className='mt-5 flex items-center gap-2 text-on-panel/75'>
+          <MapPin size={18} aria-hidden='true' /> Based in {SITE.location}
+        </p>
+
         <a
           href={`mailto:${SITE.email}`}
-          className='mt-10 inline-block break-all font-display text-2xl font-semibold underline decoration-on-panel/40 decoration-2 underline-offset-8 transition-colors hover:decoration-on-panel md:text-4xl'
+          className='mt-8 inline-block break-all font-display text-2xl font-semibold underline decoration-on-panel/40 decoration-2 underline-offset-8 transition-colors hover:decoration-on-panel md:text-4xl'
         >
           {SITE.email}
         </a>

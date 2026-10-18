@@ -13,7 +13,10 @@ export default function Footer() {
   return (
     <footer className='mt-section border-t border-line'>
       <div className='wrap flex flex-col gap-8 py-10 md:flex-row md:items-center md:justify-between'>
-        <p className='text-sm text-muted'>© {new Date().getFullYear()} {SITE.name}</p>
+        <p className='flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted'>
+          <span>© {new Date().getFullYear()} {SITE.name}</span>
+          <span>{SITE.location}</span>
+        </p>
 
         <nav className='flex flex-wrap items-center gap-x-7 gap-y-2 text-sm font-medium' aria-label='Footer navigation'>
           <Link to='/projects' className='transition-colors hover:text-accent'>Projects</Link>

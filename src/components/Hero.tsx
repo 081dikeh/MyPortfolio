@@ -1,7 +1,9 @@
 // src/components/Hero.tsx
 import type { CSSProperties } from 'react'
+import { MapPin } from 'lucide-react'
 import portrait from '../assets/hero-portrait.webp'
 import { projects } from '../data/projects'
+import { SITE } from '../data/site'
 import FadeIn from './common/FadeIn'
 import Button from './common/Button'
 
@@ -59,9 +61,9 @@ export default function Hero() {
 
             <FadeIn delay={290}>
               <p className='mt-7 max-w-[34rem] font-serif text-xl leading-relaxed text-ink/80 md:text-[1.375rem]'>
-                I’m a frontend engineer building production web apps with React, Next.js, and TypeScript. I’ve owned
-                frontend features end to end in a reviewed team codebase, and built dashboards, e-commerce sites, and
-                complex editors on my own.
+                I’m a frontend engineer in Lagos, Nigeria, building production web apps with React, Next.js, and
+                TypeScript. I’ve owned frontend features end to end in a reviewed team codebase, and built dashboards,
+                e-commerce sites, and complex editors on my own.
               </p>
             </FadeIn>
 
@@ -105,10 +107,16 @@ export default function Hero() {
                   <span className='mt-1 block text-sm text-on-panel/80'>projects shipped</span>
                 </div>
 
-                <p className='absolute left-[2%] top-[14%] flex items-center gap-2.5 rounded-full bg-paper px-3.5 py-2 text-sm font-medium shadow-[0_10px_30px_-14px_rgba(20,32,43,0.5)]'>
-                  <span className='status-dot' aria-hidden='true' />
-                  Open to work
-                </p>
+                <div className='absolute left-[2%] top-[11%] flex flex-col items-start gap-2'>
+                  <p className='flex items-center gap-2.5 rounded-full bg-paper px-3.5 py-2 text-sm font-medium shadow-[0_10px_30px_-14px_rgba(20,32,43,0.5)]'>
+                    <span className='status-dot' aria-hidden='true' />
+                    Open to work
+                  </p>
+                  <p className='flex items-center gap-2 rounded-full bg-paper px-3.5 py-2 text-sm font-medium shadow-[0_10px_30px_-14px_rgba(20,32,43,0.5)]'>
+                    <MapPin size={15} aria-hidden='true' className='text-accent' />
+                    {SITE.location}
+                  </p>
+                </div>
               </div>
             </div>
           </FadeIn>

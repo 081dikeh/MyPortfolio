@@ -1,24 +1,9 @@
 // src/data/showcase.ts
-import { projects, type Project } from './projects'
+import { featuredProject, otherProjects, type Project } from './projects'
 
-// The order projects appear in across the site. Edit this list to reorder them.
-const ORDER = [
-  'faithscore',
-  'faithlibrary',
-  'fina-dashboard',
-  'st-william-parish',
-  'faithbeat',
-  'furnidan',
-  'metabnb',
-  'danid-shop',
-  'tefem',
-  'portfolio',
-]
-
-const listed = ORDER.map((slug) => projects.find((p) => p.slug === slug)).filter((p): p is Project => Boolean(p))
-const unlisted = projects.filter((p) => !ORDER.includes(p.slug))
-
-export const showcase: Project[] = [...listed, ...unlisted]
+// The order projects appear in across the site: the same arrangement as projects.ts
+// (the featured project first, then the rest in the order they are listed there).
+export const showcase: Project[] = [featuredProject, ...otherProjects]
 
 // What each project is, in a few words, so range is visible at a glance.
 const KINDS: Record<string, string> = {

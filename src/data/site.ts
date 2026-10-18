@@ -2,6 +2,7 @@
 // One place for contact details and links used across the site.
 export const SITE = {
   name: 'Dikeh Daniel',
+  location: 'Lagos, Nigeria',
   email: 'dikehdaniel2020@gmail.com',
   resume: '/Dikeh_Daniel_Frontend_Engineer_Resume.pdf',
   github: 'https://github.com/081dikeh',
