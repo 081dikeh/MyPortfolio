@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import type { ChangeEvent, FocusEvent, FormEvent } from 'react'
 import emailjs from '@emailjs/browser'
-import { Mail, Linkedin, MapPin, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react'
+import { Mail, Linkedin, Send, CheckCircle, AlertCircle, Loader } from 'lucide-react'
 import { SITE } from '../data/site'
 import PageLayout from '../components/common/PageLayout'
 import { usePageMetadata } from '../hooks/usePageMetadata'
@@ -160,9 +160,6 @@ export default function ContactPage() {
             >
               <Linkedin size={18} aria-hidden='true' /> LinkedIn
             </a>
-            <p className='inline-flex w-fit items-center gap-2.5 text-ink/80'>
-              <MapPin size={18} aria-hidden='true' /> {SITE.location}
-            </p>
           </div>
         </div>
 
