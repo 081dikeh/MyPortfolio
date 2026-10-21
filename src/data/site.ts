@@ -5,7 +5,7 @@ export const SITE = {
   email: 'dikehdaniel2020@gmail.com',
   resume: '/Dikeh_Daniel_Frontend_Engineer_Resume.pdf',
   github: 'https://github.com/081dikeh',
-  linkedin: 'https://www.linkedin.com/in/daniel-dikeh',
+  linkedin: 'https://www.linkedin.com/in/dikeh081/',
   twitter: 'https://twitter.com/Danishadow081',
   twitterHandle: '@Danishadow081',
 }
