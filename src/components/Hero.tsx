@@ -1,9 +1,12 @@
 // src/components/Hero.tsx
-import type { CSSProperties } from 'react'
+import { useEffect, useRef, type CSSProperties } from 'react'
 import portrait from '../assets/hero-portrait.webp'
 import { projects } from '../data/projects'
 import FadeIn from './common/FadeIn'
 import Button from './common/Button'
+import CountUp from './common/CountUp'
+import Magnetic from './common/Magnetic'
+import { useReducedMotion } from '../hooks/useMotion'
 
 const HEADLINE = ['Hi, I’m Daniel.', 'I build useful web', 'products that feel', 'easy to use.']
 
@@ -30,6 +33,31 @@ const portraitMask: CSSProperties = {
 }
 
 export default function Hero() {
+  const bandRef = useRef<HTMLDivElement>(null)
+  const stageRef = useRef<HTMLDivElement>(null)
+  const reduced = useReducedMotion()
+
+  // Parallax: the portrait and the orange band drift more slowly than the page scrolls
+  useEffect(() => {
+    if (reduced) return
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const y = Math.min(window.scrollY, 1000)
+      if (stageRef.current) stageRef.current.style.transform = `translate3d(0, ${(y * 0.1).toFixed(1)}px, 0)`
+      if (bandRef.current) bandRef.current.style.setProperty('--tw-translate-y', `${(y * 0.22).toFixed(1)}px`)
+    }
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [reduced])
+
   return (
     <section className='relative overflow-hidden'>
       {/* soft glow, then the diagonal band, both behind the content */}
@@ -38,6 +66,7 @@ export default function Hero() {
         className='pointer-events-none absolute -right-[20%] top-[52%] h-[48%] w-[100%] bg-[radial-gradient(closest-side,rgb(var(--sun)/0.22),transparent)] lg:right-[-4%] lg:top-[4%] lg:h-[100%] lg:w-[56%]'
       />
       <div
+        ref={bandRef}
         aria-hidden='true'
         className='absolute -right-[28%] top-[44%] h-[80%] w-[78%] rotate-[32deg] animate-band-shift rounded-[3.5rem] bg-[linear-gradient(135deg,rgb(var(--sun))_0%,#F6A25A_50%,rgb(var(--sun))_100%)] bg-[length:220%_220%] lg:-top-[2%] lg:right-[1%] lg:h-[84%] lg:w-[30%]'
       />
@@ -66,8 +95,12 @@ export default function Hero() {
 
             <FadeIn delay={350}>
               <div className='mt-9 flex flex-wrap gap-3'>
-                <Button to='/projects' arrow>View projects</Button>
-                <Button to='/contact' variant='secondary'>Hire me</Button>
+                <Magnetic>
+                  <Button to='/projects' arrow>View projects</Button>
+                </Magnetic>
+                <Magnetic>
+                  <Button to='/contact' variant='secondary'>Hire me</Button>
+                </Magnetic>
               </div>
             </FadeIn>
 
@@ -83,7 +116,7 @@ export default function Hero() {
           </div>
 
           <FadeIn delay={180} direction='none' className='animate-scale-in'>
-            <div className='relative mx-auto w-full max-w-[24rem] lg:max-w-none'>
+            <div ref={stageRef} className='relative mx-auto w-full max-w-[24rem] lg:max-w-none'>
               <div className='relative aspect-square animate-float'>
                 <div
                   aria-hidden='true'
@@ -100,7 +133,8 @@ export default function Hero() {
                 </div>
 
                 <div className='absolute -left-3 bottom-[20%] rounded-2xl bg-panel px-5 py-3 text-on-panel shadow-[0_18px_40px_-18px_rgba(20,32,43,0.7)] md:-left-8'>
-                  <span className='block font-display text-4xl font-bold leading-none md:text-5xl'>{projects.length}</span>
+                  <span className='block font-display text-4xl font-bold leading-none md:text-5xl'><CountUp value={projects.length} />
+                  </span>
                   <span className='mt-1 block text-sm text-on-panel/80'>projects shipped</span>
                 </div>
 

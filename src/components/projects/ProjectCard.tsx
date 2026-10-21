@@ -25,7 +25,7 @@ export default function ProjectCard({
       <div className='mt-5'>
         {kind && <p className='mb-1.5 text-sm font-medium text-muted'>{kind}</p>}
         <h3 className='text-2xl font-bold leading-tight md:text-[1.75rem]'>
-          <Link to={caseStudy} className="after:absolute after:inset-0 after:content-['']">
+          <Link to={caseStudy} data-cursor='View' className="after:absolute after:inset-0 after:content-['']">
             {project.title}
           </Link>
         </h3>

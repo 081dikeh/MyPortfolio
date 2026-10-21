@@ -1,5 +1,6 @@
 // src/pages/HomePage.tsx
 import Hero from '../components/Hero'
+import MarqueeBand from '../components/MarqueeBand'
 import Projects from '../components/Projects'
 import Experience from '../components/Experience'
 import MusicTeaser from '../components/MusicTeaser'
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <PageLayout fullWidth>
       <Hero />
+      <MarqueeBand />
       <Projects />
       <Experience />
       <Services />

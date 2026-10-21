@@ -1,5 +1,6 @@
 // src/components/common/SectionHeading.tsx
 import type { ReactNode } from 'react'
+import Reveal from './Reveal'
 
 interface SectionHeadingProps {
   title: string
@@ -14,12 +15,12 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ title, subtitle, action, headingLevel: Tag = 'h2' }: SectionHeadingProps) {
   return (
-    <div className='mb-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 md:mb-14'>
+    <Reveal className='mb-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-3 md:mb-14'>
       <div>
         <Tag className='text-4xl font-bold leading-[1.02] md:text-6xl'>{title}</Tag>
         {subtitle && <p className='mt-3 max-w-xl font-serif text-lg text-muted md:text-xl'>{subtitle}</p>}
       </div>
       {action && <div className='pb-1'>{action}</div>}
-    </div>
+    </Reveal>
   )
 }

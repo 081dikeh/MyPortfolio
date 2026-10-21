@@ -3,11 +3,13 @@ import { Github, Linkedin } from 'lucide-react'
 import { SITE } from '../data/site'
 import { PALETTE } from '../data/palette'
 import Button from './common/Button'
+import Magnetic from './common/Magnetic'
+import Reveal from './common/Reveal'
 
 export default function Contact() {
   return (
     <section id='contact' className='wrap scroll-mt-20'>
-      <div className='on-panel relative overflow-hidden rounded-[2rem] bg-panel px-6 py-14 text-on-panel md:rounded-[2.5rem] md:px-14 md:py-20'>
+      <Reveal className='on-panel relative overflow-hidden rounded-[2rem] bg-panel px-6 py-14 text-on-panel md:rounded-[2.5rem] md:px-14 md:py-20'>
         <div aria-hidden='true' className='absolute inset-x-0 top-0 flex h-2'>
           {PALETTE.map((p) => (
             <span key={p.name} className='flex-1' style={{ backgroundColor: p.color }} />
@@ -28,7 +30,9 @@ export default function Contact() {
         </a>
 
         <div className='mt-10 flex flex-wrap items-center gap-3'>
-          <Button to='/contact' variant='light'>Send a message</Button>
+          <Magnetic>
+            <Button to='/contact' variant='light'>Send a message</Button>
+          </Magnetic>
           <a
             href={SITE.linkedin}
             target='_blank'
@@ -46,7 +50,7 @@ export default function Contact() {
             <Github size={17} aria-hidden='true' /> GitHub
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

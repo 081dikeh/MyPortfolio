@@ -4,6 +4,7 @@ import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectCard from '../components/projects/ProjectCard'
+import Reveal from '../components/common/Reveal'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 
 export default function ProjectsPage() {
@@ -20,11 +21,15 @@ export default function ProjectsPage() {
         subtitle={`${showcase.length} projects. All live, all built solo.`}
       />
 
-      <FeaturedProject project={showcase[0]} />
+      <Reveal>
+        <FeaturedProject project={showcase[0]} />
+      </Reveal>
 
       <div className='mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-x-10'>
         {showcase.slice(1).map((project, i) => (
-          <ProjectCard key={project.id} project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
+          <Reveal key={project.id} delay={(i % 2) * 90}>
+            <ProjectCard project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
+          </Reveal>
         ))}
       </div>
     </PageLayout>

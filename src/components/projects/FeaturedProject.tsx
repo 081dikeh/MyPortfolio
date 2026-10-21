@@ -18,7 +18,7 @@ export default function FeaturedProject({ project, position }: { project: Projec
         <div>
           {kind && <p className='mb-2 text-sm font-medium text-muted'>{kind}</p>}
           <h3 className='text-4xl font-bold leading-none md:text-5xl'>
-            <Link to={caseStudy} className="after:absolute after:inset-0 after:content-['']">
+            <Link to={caseStudy} data-cursor='View' className="after:absolute after:inset-0 after:content-['']">
               {project.title}
             </Link>
           </h3>

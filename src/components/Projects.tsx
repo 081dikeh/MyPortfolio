@@ -6,6 +6,7 @@ import SectionHeading from './common/SectionHeading'
 import FeaturedProject from './projects/FeaturedProject'
 import ProjectCard from './projects/ProjectCard'
 import Button from './common/Button'
+import Reveal from './common/Reveal'
 
 export default function Projects() {
   const [lead, ...others] = showcase
@@ -27,11 +28,15 @@ export default function Projects() {
         }
       />
 
-      <FeaturedProject project={lead} />
+      <Reveal>
+        <FeaturedProject project={lead} />
+      </Reveal>
 
       <div className='mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2 md:gap-x-10'>
         {preview.map((project, i) => (
-          <ProjectCard key={project.id} project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
+          <Reveal key={project.id} delay={(i % 2) * 90}>
+            <ProjectCard project={project} className={i % 2 === 1 ? 'md:mt-16' : ''} />
+          </Reveal>
         ))}
       </div>
 

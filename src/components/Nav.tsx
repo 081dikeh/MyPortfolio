@@ -5,6 +5,8 @@ import { Link, useLocation } from 'react-router-dom'
 import logoImg from '../assets/logoimg.png'
 import { SITE } from '../data/site'
 import ThemeToggle from './ThemeToggle'
+import Effects from './effects/Effects'
+import RollText from './common/RollText'
 
 const NAV_LINKS = [
   { label: 'Projects', path: '/projects' },
@@ -14,13 +16,32 @@ const NAV_LINKS = [
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastY = useRef(0)
+  const hiddenRef = useRef(false)
   const progressRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const { pathname } = useLocation()
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 8)
+      const y = window.scrollY
+      setScrolled(y > 8)
+
+      // Tuck the header away while reading down, bring it back on any scroll up
+      const delta = y - lastY.current
+      if (Math.abs(delta) > 6) {
+        const shouldHide = delta > 0 && y > 140
+        if (shouldHide !== hiddenRef.current) {
+          hiddenRef.current = shouldHide
+          setHidden(shouldHide)
+        }
+        lastY.current = y
+      }
+      if (y < 80 && hiddenRef.current) {
+        hiddenRef.current = false
+        setHidden(false)
+      }
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const ratio = docHeight > 0 ? Math.min(window.scrollY / docHeight, 1) : 0
       if (progressRef.current) progressRef.current.style.transform = `scaleX(${ratio})`
@@ -49,6 +70,8 @@ export default function Nav() {
 
   return (
     <>
+      <Effects />
+
       <a href='#main-content' className='skip-link'>Skip to content</a>
 
       <div
@@ -58,7 +81,9 @@ export default function Nav() {
       />
 
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color] duration-300 focus-within:translate-y-0 ${
+          hidden && !isMenuOpen ? '-translate-y-full' : 'translate-y-0'
+        } ${
           scrolled || isMenuOpen
             ? 'border-b border-line bg-paper/85 backdrop-blur-md'
             : 'border-b border-transparent bg-transparent'
@@ -77,11 +102,11 @@ export default function Nav() {
                   <Link
                     to={path}
                     aria-current={isActive(path) ? 'page' : undefined}
-                    className={`text-[0.95rem] font-medium underline-offset-[10px] decoration-2 transition-colors hover:text-accent ${
-                      isActive(path) ? 'text-accent underline' : 'text-ink'
+                    className={`group inline-block bg-[linear-gradient(currentColor,currentColor)] bg-[position:0_100%] bg-no-repeat pb-1 text-[0.95rem] font-medium transition-[background-size,color] duration-300 hover:text-accent ${
+                      isActive(path) ? 'bg-[length:100%_2px] text-accent' : 'bg-[length:0_2px] text-ink hover:bg-[length:100%_2px]'
                     }`}
                   >
-                    {label}
+                    <RollText>{label}</RollText>
                   </Link>
                 </li>
               ))}
@@ -89,9 +114,9 @@ export default function Nav() {
                 <a
                   href={SITE.resume}
                   download
-                  className='text-[0.95rem] font-medium text-ink transition-colors hover:text-accent'
+                  className='group inline-block pb-1 text-[0.95rem] font-medium text-ink transition-colors hover:text-accent'
                 >
-                  Resume
+                  <RollText>Resume</RollText>
                 </a>
               </li>
             </ul>

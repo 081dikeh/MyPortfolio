@@ -2,6 +2,7 @@
 import type { Project } from '../../data/projects'
 import { showcase } from '../../data/showcase'
 import { PALETTE } from '../../data/palette'
+import { useTilt } from '../../hooks/useTilt'
 
 // A project's number and colour come from its place in the showcase order.
 // Pass `position` to number a smaller list (like the music page) from 01.
@@ -18,12 +19,13 @@ export default function ProjectPanel({
   large?: boolean
   position?: number
 }) {
+  const tiltRef = useTilt<HTMLDivElement>(6)
   const place = position ?? positionOf(project)
   const color = PALETTE[(place + 4) % PALETTE.length].color
   const number = String(place + 1).padStart(2, '0')
 
   return (
-    <div className='relative'>
+    <div ref={tiltRef} className='relative [backface-visibility:hidden]'>
       <div
         className={`relative overflow-hidden rounded-[1.75rem] ${large ? 'aspect-[16/9] md:rounded-[2.25rem]' : 'aspect-[16/10]'}`}
         style={{ backgroundColor: color }}

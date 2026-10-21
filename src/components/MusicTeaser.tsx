@@ -2,6 +2,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import Button from './common/Button'
+import Magnetic from './common/Magnetic'
+import Reveal from './common/Reveal'
 
 const WORK = [
   {
@@ -24,7 +26,7 @@ const WORK = [
 export default function MusicTeaser() {
   return (
     <section id='music' className='wrap scroll-mt-20 py-section' aria-labelledby='music-teaser-title'>
-      <div className='relative overflow-hidden rounded-[2rem] bg-[#3A58A4] px-6 py-12 text-white md:rounded-[2.5rem] md:px-14 md:py-16'>
+      <Reveal className='relative overflow-hidden rounded-[2rem] bg-[#3A58A4] px-6 py-12 text-white md:rounded-[2.5rem] md:px-14 md:py-16'>
         {/* faint ring in the corner, clear of the text */}
         <div
           aria-hidden='true'
@@ -41,7 +43,9 @@ export default function MusicTeaser() {
               libraries, and tools for worship teams.
             </p>
             <div className='mt-8'>
-              <Button to='/music' variant='light' arrow>Explore music &amp; notation</Button>
+              <Magnetic>
+                <Button to='/music' variant='light' arrow>Explore music &amp; notation</Button>
+              </Magnetic>
             </div>
           </div>
 
@@ -66,7 +70,7 @@ export default function MusicTeaser() {
             ))}
           </ul>
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

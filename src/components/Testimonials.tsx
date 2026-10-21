@@ -1,5 +1,6 @@
 // src/components/Testimonials.tsx
 import SectionHeading from './common/SectionHeading'
+import Reveal from './common/Reveal'
 
 const TESTIMONIALS = [
   {
@@ -25,14 +26,14 @@ export default function Testimonials() {
       />
 
       <div className='grid gap-6 md:grid-cols-2'>
-        {TESTIMONIALS.map(({ quote, name, role }) => (
-          <figure key={name} className='flex h-full flex-col rounded-[1.75rem] bg-surface p-8 md:p-10'>
+        {TESTIMONIALS.map(({ quote, name, role }, i) => (
+          <Reveal as='figure' key={name} delay={i * 100} className='flex h-full flex-col rounded-[1.75rem] bg-surface p-8 md:p-10'>
             <blockquote className='font-serif text-xl leading-snug md:text-2xl'>“{quote}”</blockquote>
             <figcaption className='mt-8 pt-2'>
               <div className='font-semibold'>{name}</div>
               <div className='text-sm text-muted'>{role}</div>
             </figcaption>
-          </figure>
+          </Reveal>
         ))}
       </div>
     </section>

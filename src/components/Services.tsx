@@ -1,5 +1,6 @@
 // src/components/Services.tsx
 import SectionHeading from './common/SectionHeading'
+import Reveal from './common/Reveal'
 
 const SERVICES = [
   {
@@ -28,11 +29,11 @@ export default function Services() {
       />
 
       <ul className='border-t border-line'>
-        {SERVICES.map(({ title, description }) => (
-          <li key={title} className='grid gap-3 border-b border-line py-8 md:grid-cols-[1fr_1.1fr] md:gap-12 md:py-10'>
+        {SERVICES.map(({ title, description }, i) => (
+          <Reveal as='li' key={title} delay={i * 80} className='grid gap-3 border-b border-line py-8 md:grid-cols-[1fr_1.1fr] md:gap-12 md:py-10'>
             <h3 className='text-2xl font-bold leading-tight md:text-[2rem]'>{title}</h3>
             <p className='font-serif text-lg leading-relaxed text-ink/75 md:text-xl'>{description}</p>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </section>

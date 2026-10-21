@@ -1,5 +1,6 @@
 // src/components/Experience.tsx
 import SectionHeading from './common/SectionHeading'
+import Reveal from './common/Reveal'
 
 const ROLES = [
   {
@@ -35,7 +36,8 @@ export default function Experience({ plain = false }: { plain?: boolean }) {
 
       <ul className='border-t border-line'>
         {ROLES.map((role) => (
-          <li
+          <Reveal
+            as='li'
             key={role.company}
             className='grid gap-4 border-b border-line py-8 md:grid-cols-[17rem_1fr] md:gap-12 md:py-10'
           >
@@ -54,7 +56,7 @@ export default function Experience({ plain = false }: { plain?: boolean }) {
                 </li>
               ))}
             </ul>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </section>

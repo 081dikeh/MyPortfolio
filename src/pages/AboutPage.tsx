@@ -9,6 +9,7 @@ import Experience from '../components/Experience'
 import PageLayout from '../components/common/PageLayout'
 import SectionHeading from '../components/common/SectionHeading'
 import StatsBar from '../components/common/StatsBar'
+import ScrollWords from '../components/common/ScrollWords'
 import Button from '../components/common/Button'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 
@@ -43,9 +44,10 @@ export default function AboutPage() {
           />
 
           <div className='mt-10 flex max-w-[38rem] flex-col gap-5 font-serif text-lg leading-relaxed text-ink/80 md:text-xl'>
-            <p className='text-2xl leading-snug text-ink md:text-[1.7rem]'>
-              I’m a Frontend Engineer who likes building things that are actually useful.
-            </p>
+            <ScrollWords
+              text='I’m a Frontend Engineer who likes building things that are actually useful.'
+              className='text-2xl leading-snug text-ink md:text-[1.7rem]'
+            />
             <p>
               I’m <span className='font-medium text-ink'>Dikeh Daniel</span>, a frontend engineer focused on building
               modern, interactive web applications with React, Next.js, TypeScript, JavaScript, and Tailwind CSS.
