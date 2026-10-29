@@ -8,7 +8,7 @@ import StatsBar from './common/StatsBar'
 import ScrollWords from './common/ScrollWords'
 import Reveal from './common/Reveal'
 
-const FOCUS = ['Frontend UI', 'Product thinking', 'Search & auth', 'Complex state', 'Accessible UX', 'AI products']
+const FOCUS = ['Frontend UI', 'Product thinking', 'Search & auth', 'Complex state', 'Accessible UX', 'AI-assisted apps']
 
 export default function AboutMe() {
   const technologyCount = skillGroups.reduce((total, group) => total + group.skills.length, 0)
@@ -36,14 +36,14 @@ export default function AboutMe() {
               stats={[
                 { value: projects.length, label: 'Projects shipped' },
                 { value: technologyCount, label: 'Technologies' },
-                { value: '100%', label: 'Solo-built' },
+                { value: '2', label: 'Team internships' },
               ]}
             />
           </div>
 
           <div className='mt-8 flex max-w-[36rem] flex-col gap-5 font-serif text-lg leading-relaxed text-ink/80 md:text-xl'>
             <ScrollWords
-              text='I’m a Frontend Engineer who likes building things that are actually useful.'
+              text='I build interfaces for complex workflows, from dashboards to music tools.'
               className='text-2xl leading-snug text-ink md:text-[1.7rem]'
             />
             <p>
@@ -51,9 +51,8 @@ export default function AboutMe() {
               Next.js, TypeScript, JavaScript, and Tailwind CSS.
             </p>
             <p>
-              I enjoy taking an idea from a blank screen and turning it into a working product, from designing the
-              interface and structuring the application to connecting APIs, managing state, handling authentication,
-              testing features, and getting the app live.
+              I enjoy taking a product from interface design through implementation: connecting APIs, managing state,
+              handling authentication, testing key flows, and preparing the app for release.
             </p>
           </div>
 

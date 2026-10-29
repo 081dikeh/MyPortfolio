@@ -5,7 +5,6 @@ import Projects from '../components/Projects'
 import Experience from '../components/Experience'
 import MusicTeaser from '../components/MusicTeaser'
 import Services from '../components/Services'
-import Testimonials from '../components/Testimonials'
 import Skills from '../components/Skills'
 import AboutMe from '../components/AboutMe'
 import Contact from '../components/Contact'
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Services />
       <Skills />
       <MusicTeaser />
-      <Testimonials />
       <AboutMe />
       <Contact />
     </PageLayout>

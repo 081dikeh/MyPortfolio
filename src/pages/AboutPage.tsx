@@ -39,55 +39,49 @@ export default function AboutPage() {
             stats={[
               { value: projects.length, label: 'Projects shipped' },
               { value: technologyCount, label: 'Technologies' },
-              { value: '100%', label: 'Solo-built' },
+              { value: '2', label: 'Team internships' },
             ]}
           />
 
           <div className='mt-10 flex max-w-[38rem] flex-col gap-5 font-serif text-lg leading-relaxed text-ink/80 md:text-xl'>
             <ScrollWords
-              text='I’m a Frontend Engineer who likes building things that are actually useful.'
+              text='I build interfaces for complex workflows, from dashboards to music tools.'
               className='text-2xl leading-snug text-ink md:text-[1.7rem]'
             />
             <p>
-              I’m <span className='font-medium text-ink'>Dikeh Daniel</span>, a frontend engineer focused on building
-              modern, interactive web applications with React, Next.js, TypeScript, JavaScript, and Tailwind CSS.
+              I’m <span className='font-medium text-ink'>Dikeh Daniel</span>, a frontend engineer working with React,
+              Next.js, TypeScript, and Tailwind CSS. I’m especially interested in interfaces that make complex
+              workflows easier to understand and use.
             </p>
             <p>
-              I enjoy taking an idea from a blank screen and turning it into a working product, from designing the
-              interface and structuring the application to connecting APIs, managing state, handling authentication,
-              testing features, and getting the app live.
+              I take ideas from interface design through implementation: connecting APIs, managing state, handling
+              authentication, testing key flows, and preparing the app for release.
             </p>
             <p>
-              Most of my strongest experience has come from building real products rather than simply following
-              tutorials. Projects like <span className='font-medium text-ink'>FaithScore</span> and{' '}
-              <span className='font-medium text-ink'>FaithLibrary</span> have challenged me to work beyond conventional
-              UI development and solve problems involving complex application state, structured data, search,
-              authentication, file handling, performance, testing, and deployment.
+              My projects have taken me beyond static interfaces. In{' '}
+              <span className='font-medium text-ink'>FaithScore</span>, I work with structured musical data and
+              notation; in <span className='font-medium text-ink'>FaithLibrary</span>, I built search, authentication,
+              and score-file workflows.
             </p>
 
             <Heading>How I approach development</Heading>
             <p>
-              I care about more than making an interface look good. I try to understand why a feature exists, how users
-              will interact with it, and how the implementation can remain maintainable as the product grows.
+              I start by understanding the user flow and the data a feature needs to handle. Then I break the work into
+              smaller pieces, build reusable components, and test the important paths.
             </p>
             <p>
-              When working on a problem, I usually break it into smaller systems, understand the data and user flow,
-              build reusable components, test the important paths, and iterate based on what works and what doesn’t.
-              I’m also comfortable working independently, but I value code review and collaboration because good
-              engineering is rarely about finding the first solution. It’s about finding one that others can
-              understand, improve, and maintain.
+              I’m comfortable working independently and have also contributed in code-reviewed team environments.
+              I value clear communication and maintainable solutions that teammates can understand and build on.
             </p>
 
             <Heading>What I build</Heading>
             <p>
-              My work spans different types of applications, including interactive web apps, SaaS platforms, admin
-              dashboards, digital content platforms, music and notation software, e-commerce interfaces, and
-              AI-assisted products.
+              I’ve built interactive web apps, dashboards, content platforms, music and notation software, e-commerce
+              interfaces, and AI-assisted products.
             </p>
             <p>
-              One area I particularly enjoy is building complex interfaces that still feel simple to use. FaithScore is
-              a good example of this. Underneath its interface are systems for musical notation, pitch and rhythm
-              handling, state management, playback, and conversion between different musical representations.
+              Music software is a particular interest. FaithScore brings notation, playback, and conversion between
+              staff notation and tonic sol-fa into one editing workflow.
             </p>
             <p>
               Music is a specialization of mine.{' '}
@@ -101,13 +95,12 @@ export default function AboutPage() {
               self-directed learning, and hands-on project work.
             </p>
             <p>
-              That background shaped how I learn. I’m comfortable starting with something I don’t fully understand,
-              breaking it down, researching, experimenting, and gradually turning it into something I can build with
-              confidence.
+              That change of direction taught me to get comfortable with unfamiliar problems: break them down,
+              research, experiment, and build understanding through practice.
             </p>
             <p>
-              I’m currently focused on growing as a frontend engineer, working with strong engineering teams, and
-              building products that solve real problems.
+              I’m looking to contribute to product teams where I can take ownership of frontend work, learn from
+              experienced engineers, and help build useful products.
             </p>
 
             <Heading>My current toolkit</Heading>
