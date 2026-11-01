@@ -34,7 +34,7 @@ export default function Contact() {
             <Button to='/contact' variant='light'>Send a message</Button>
           </Magnetic>
           <a
-            href={SITE.linkedin}
+            href={SITE.socials.linkedin.href}
             target='_blank'
             rel='noopener noreferrer'
             className='inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold ring-1 ring-inset ring-on-panel/30 transition-colors hover:ring-on-panel'
@@ -42,7 +42,7 @@ export default function Contact() {
             <Linkedin size={17} aria-hidden='true' /> LinkedIn
           </a>
           <a
-            href={SITE.github}
+            href={SITE.socials.github.href}
             target='_blank'
             rel='noopener noreferrer'
             className='inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-semibold ring-1 ring-inset ring-on-panel/30 transition-colors hover:ring-on-panel'

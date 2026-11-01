@@ -153,7 +153,7 @@ export default function ContactPage() {
               <Mail size={18} aria-hidden='true' /> {SITE.email}
             </a>
             <a
-              href={SITE.linkedin}
+              href={SITE.socials.linkedin.href}
               target='_blank'
               rel='noopener noreferrer'
               className='text-link inline-flex w-fit items-center gap-2.5'

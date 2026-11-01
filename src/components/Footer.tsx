@@ -3,9 +3,9 @@ import { Github, Linkedin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { SITE } from '../data/site'
 
-const SOCIAL = SITE.socials.map((social) => ({
+const SOCIAL = Object.values(SITE.socials).map((social) => ({
   ...social,
-  icon: social.label === 'GitHub' ? Github : social.label === 'LinkedIn' ? Linkedin : null,
+  icon: social.platform === 'github' ? Github : social.platform === 'linkedin' ? Linkedin : null,
 }))
 
 export default function Footer() {
