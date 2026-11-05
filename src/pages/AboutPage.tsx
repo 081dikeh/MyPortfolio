@@ -20,7 +20,7 @@ function Heading({ children }: { children: React.ReactNode }) {
 export default function AboutPage() {
   usePageMetadata({
     title: 'About Dikeh Daniel | Frontend Engineer',
-    description: 'Learn about Dikeh Daniel, a frontend engineer building useful web applications with React, Next.js, and TypeScript.',
+    description: 'Learn about Dikeh Daniel, a frontend engineer building modern, useful web products with React, Next.js, TypeScript, and product-focused UI design.',
   })
 
   const technologyCount = skillGroups.reduce((total, group) => total + group.skills.length, 0)
@@ -32,7 +32,7 @@ export default function AboutPage() {
           <SectionHeading
             headingLevel='h1'
             title='About me'
-            subtitle='Frontend Engineer · Available for full-time & freelance work'
+            subtitle={SITE.availability}
           />
 
           <StatsBar
@@ -49,13 +49,13 @@ export default function AboutPage() {
               className='text-2xl leading-snug text-ink md:text-[1.7rem]'
             />
             <p>
-              I’m <span className='font-medium text-ink'>Dikeh Daniel</span>, a frontend engineer working with React,
-              Next.js, TypeScript, and Tailwind CSS. I’m especially interested in interfaces that make complex
-              workflows easier to understand and use.
+              I’m <span className='font-medium text-ink'>Dikeh Daniel</span>, a frontend engineer building interfaces
+              that turn complex workflows into clear, usable experiences. I work with React, Next.js, TypeScript,
+              and Tailwind CSS to create products that feel thoughtful from the first click to the final release.
             </p>
             <p>
-              I take ideas from interface design through implementation: connecting APIs, managing state, handling
-              authentication, testing key flows, and preparing the app for release.
+              I enjoy taking ideas from design through implementation: connecting APIs, managing state, handling
+              authentication, testing core flows, and shipping products that people can understand and trust.
             </p>
             <p>
               My projects have taken me beyond static interfaces. In{' '}

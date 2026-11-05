@@ -11,6 +11,8 @@ export const SITE = {
   name: 'Dikeh Daniel',
   email: 'dikehdaniel2020@gmail.com',
   resume: '/Dikeh_Daniel_Frontend_Engineer_Resume.pdf',
+  availability: 'Available for full-time & freelance work',
+  headline: 'Frontend engineer building modern, useful products.',
   socials: {
     github: { platform: 'github', label: 'GitHub', href: 'https://github.com/081dikeh' },
     linkedin: { platform: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/dikeh081/' },

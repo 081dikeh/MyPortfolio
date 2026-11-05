@@ -47,12 +47,14 @@ export default function AboutMe() {
               className='text-2xl leading-snug text-ink md:text-[1.7rem]'
             />
             <p>
-              I’m Dikeh Daniel, a frontend engineer focused on building modern, interactive web applications with React,
-              Next.js, TypeScript, JavaScript, and Tailwind CSS.
+              I’m Dikeh Daniel, a frontend engineer focused on building dependable digital products with React,
+              Next.js, TypeScript, and Tailwind CSS. I care about user experience, product clarity, and code that is
+              straightforward to maintain and extend.
             </p>
             <p>
-              I enjoy taking a product from interface design through implementation: connecting APIs, managing state,
-              handling authentication, testing key flows, and preparing the app for release.
+              My work spans product dashboards, music and notation tools, search and auth flows, and app experiences
+              where the interface has to carry real complexity without feeling overwhelming. I enjoy taking ideas from
+              concept to launch and making sure the final experience feels polished and useful.
             </p>
           </div>
 

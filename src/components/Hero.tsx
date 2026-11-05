@@ -8,7 +8,7 @@ import CountUp from './common/CountUp'
 import Magnetic from './common/Magnetic'
 import { useReducedMotion } from '../hooks/useMotion'
 
-const HEADLINE = ['Hi, I’m Daniel.', 'I build useful web', 'products that feel', 'easy to use.']
+const HEADLINE = ['Hi, I’m Dikeh.', 'I build useful web', 'products that feel', 'easy to use.']
 
 const TAGS = [
   { label: 'React', style: 'bg-sun text-[#14202B]' },
@@ -88,9 +88,9 @@ export default function Hero() {
 
             <FadeIn delay={290}>
               <p className='mt-7 max-w-[34rem] font-serif text-xl leading-relaxed text-ink/80 md:text-[1.375rem]'>
-                I’m a frontend engineer building web apps with React, Next.js, and TypeScript. I’ve shipped frontend
-                features in a code-reviewed team, and independently built dashboards, e-commerce interfaces, and
-                complex music tools.
+                I’m a frontend engineer who enjoys turning product ideas into clear, responsive, and useful interfaces.
+                I build with React, Next.js, TypeScript, and modern UI systems, with a focus on product thinking,
+                interaction quality, and clean implementation.
               </p>
             </FadeIn>
 
